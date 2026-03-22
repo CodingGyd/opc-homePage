@@ -1,4 +1,7 @@
+'use client';
+
 import { useTranslations, useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -55,6 +58,13 @@ const categories = [
 export default function ProductsPage() {
   const t = useTranslations('products');
   const locale = useLocale();
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get('category') || 'all';
+
+  // 根据分类过滤产品
+  const filteredProducts = currentCategory === 'all'
+    ? demoProducts
+    : demoProducts.filter(p => p.category === currentCategory);
 
   return (
     <div className="container py-12">
@@ -66,20 +76,27 @@ export default function ProductsPage() {
 
       {/* Filters */}
       <div className="flex flex-wrap gap-2 mb-8">
-        {categories.map((cat) => (
-          <Link
-            key={cat.key}
-            href={`?category=${cat.key}`}
-            className="px-4 py-2 rounded-full text-sm font-medium transition-colors bg-muted hover:bg-muted/80"
-          >
-            {cat.label[locale as 'en' | 'zh']}
-          </Link>
-        ))}
+        {categories.map((cat) => {
+          const isActive = currentCategory === cat.key;
+          return (
+            <Link
+              key={cat.key}
+              href={`?category=${cat.key}`}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                isActive
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted hover:bg-muted/80'
+              }`}
+            >
+              {cat.label[locale as 'en' | 'zh']}
+            </Link>
+          );
+        })}
       </div>
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {demoProducts.map((product) => (
+        {filteredProducts.map((product) => (
           <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
             <CardHeader>
               <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center">
@@ -121,6 +138,13 @@ export default function ProductsPage() {
           </Card>
         ))}
       </div>
+
+      {/* 无产品提示 */}
+      {filteredProducts.length === 0 && (
+        <div className="text-center py-12 text-muted-foreground">
+          {locale === 'en' ? 'No products found in this category' : '该分类下暂无产品'}
+        </div>
+      )}
     </div>
   );
 }
