@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { query } from './db';
+import { query, queryOne } from './db';
 
 /**
  * Generate a license key in format: XXXX-XXXX-XXXX-XXXX
@@ -34,7 +34,7 @@ export async function createLicense(params: {
       params.productId,
       params.orderId,
       params.deviceLimit || 1,
-      params.expiresAt || null,
+      params.expiresAt ? params.expiresAt.toISOString().slice(0, 19).replace('T', ' ') : null,
     ]
   );
 
