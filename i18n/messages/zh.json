@@ -1,0 +1,253 @@
+{
+  "common": {
+    "nav": {
+      "home": "首页",
+      "products": "产品",
+      "about": "关于",
+      "pricing": "定价",
+      "dashboard": "控制台",
+      "admin": "管理后台"
+    },
+    "buttons": {
+      "buy_now": "立即购买",
+      "subscribe": "订阅",
+      "learn_more": "了解更多",
+      "download": "下载",
+      "sign_in": "登录",
+      "sign_up": "注册",
+      "sign_out": "退出",
+      "save": "保存",
+      "cancel": "取消",
+      "delete": "删除",
+      "edit": "编辑",
+      "create": "创建",
+      "search": "搜索",
+      "filter": "筛选",
+      "reset": "重置"
+    },
+    "labels": {
+      "email": "邮箱",
+      "password": "密码",
+      "name": "名称",
+      "price": "价格",
+      "status": "状态",
+      "date": "日期",
+      "actions": "操作"
+    },
+    "messages": {
+      "loading": "加载中...",
+      "error": "发生错误",
+      "success": "成功",
+      "confirm": "确定吗？"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "独立开发者",
+      "title": "一人公司",
+      "subtitle": "用热情和专注打造优质软件产品。从概念到交付，由一人驱动。",
+      "cta": "探索产品",
+      "cta_secondary": "了解更多"
+    },
+    "features": {
+      "title": "为什么选择 OPC 产品",
+      "subtitle": "每款产品都经过精心打磨，追求卓越品质",
+      "quality": {
+        "title": "品质优先",
+        "description": "每款产品都经过严格测试和持续优化"
+      },
+      "support": {
+        "title": "直接支持",
+        "description": "直接从开发者获得专业技术支持"
+      },
+      "updates": {
+        "title": "持续更新",
+        "description": "定期更新，不断增加新功能"
+      },
+      "transparent": {
+        "title": "透明诚信",
+        "description": "价格透明，无隐藏费用，诚实沟通"
+      }
+    },
+    "cta": {
+      "title": "准备开始了吗？",
+      "subtitle": "探索我们的产品，找到适合您的完美解决方案",
+      "button": "查看所有产品"
+    }
+  },
+  "products": {
+    "title": "所有产品",
+    "subtitle": "发现我们的软件产品系列",
+    "category": {
+      "all": "全部",
+      "software": "软件",
+      "saas": "SaaS",
+      "template": "模板",
+      "course": "课程",
+      "ebook": "电子书",
+      "other": "其他"
+    },
+    "price": {
+      "one_time": "一次性购买",
+      "subscription": "订阅制",
+      "per_month": "/月",
+      "per_year": "/年",
+      "free": "免费",
+      "from": "起"
+    },
+    "card": {
+      "view_details": "查看详情",
+      "get_it": "获取"
+    },
+    "detail": {
+      "description": "产品描述",
+      "features": "功能特性",
+      "pricing": "价格方案",
+      "demo": "在线演示",
+      "download": "下载",
+      "reviews": "用户评价",
+      "related": "相关产品",
+      "buy_now": "立即购买",
+      "subscribe": "订阅"
+    },
+    "status": {
+      "draft": "草稿",
+      "active": "上架",
+      "archived": "已归档"
+    }
+  },
+  "checkout": {
+    "title": "结账",
+    "order_summary": "订单摘要",
+    "product": "产品",
+    "subtotal": "小计",
+    "total": "总计",
+    "pay_now": "立即支付",
+    "secure_payment": "由 Stripe 提供安全支付",
+    "back": "返回产品"
+  },
+  "dashboard": {
+    "title": "控制台",
+    "welcome": "欢迎回来",
+    "overview": {
+      "title": "概览"
+    },
+    "orders": {
+      "title": "我的订单",
+      "empty": "暂无订单",
+      "number": "订单号",
+      "product": "产品",
+      "amount": "金额",
+      "status": "状态",
+      "date": "日期"
+    },
+    "subscriptions": {
+      "title": "我的订阅",
+      "empty": "暂无活跃订阅",
+      "plan": "计划",
+      "next_billing": "下次扣款",
+      "cancel": "取消订阅"
+    },
+    "downloads": {
+      "title": "下载",
+      "empty": "暂无可下载内容"
+    },
+    "settings": {
+      "title": "设置",
+      "profile": "个人资料",
+      "security": "安全设置",
+      "notifications": "通知设置"
+    }
+  },
+  "admin": {
+    "title": "管理后台",
+    "dashboard": {
+      "title": "仪表盘",
+      "total_revenue": "总收入",
+      "total_orders": "订单总数",
+      "total_users": "用户总数",
+      "active_subscriptions": "活跃订阅"
+    },
+    "products": {
+      "title": "产品管理",
+      "create": "创建产品",
+      "edit": "编辑产品",
+      "name": "名称",
+      "category": "分类",
+      "price": "价格",
+      "status": "状态"
+    },
+    "orders": {
+      "title": "订单管理",
+      "customer": "客户",
+      "amount": "金额",
+      "status": "状态"
+    },
+    "users": {
+      "title": "用户管理",
+      "email": "邮箱",
+      "role": "角色",
+      "joined": "加入时间"
+    },
+    "analytics": {
+      "title": "数据分析",
+      "revenue": "收入",
+      "orders": "订单",
+      "visitors": "访客"
+    }
+  },
+  "about": {
+    "title": "关于 OPC",
+    "subtitle": "一人公司背后的故事",
+    "story": {
+      "title": "我的故事",
+      "content": "OPC（One Person Company）代表了一种全新的软件开发方式。作为独立开发者，我相信打造经过深思熟虑、精心设计、并由创作者直接支持的产品。"
+    },
+    "values": {
+      "title": "核心价值观",
+      "quality": "质量优先于数量",
+      "transparency": "诚实透明的沟通",
+      "support": "开发者直接支持",
+      "innovation": "持续学习和创新"
+    },
+    "contact": {
+      "title": "联系方式",
+      "email": "邮箱",
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} OPC Studio. 保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "auth": {
+    "sign_in": {
+      "title": "登录",
+      "subtitle": "欢迎回来",
+      "no_account": "还没有账号？",
+      "link": "注册"
+    },
+    "sign_up": {
+      "title": "创建账号",
+      "subtitle": "开始使用",
+      "have_account": "已有账号？",
+      "link": "登录"
+    },
+    "forgot_password": {
+      "title": "忘记密码",
+      "subtitle": "重置您的密码",
+      "back": "返回登录"
+    }
+  },
+  "order": {
+    "status": {
+      "pending": "待支付",
+      "paid": "已支付",
+      "failed": "支付失败",
+      "refunded": "已退款",
+      "cancelled": "已取消"
+    }
+  }
+}

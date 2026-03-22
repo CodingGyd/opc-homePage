@@ -1,0 +1,251 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "about": "About",
+      "pricing": "Pricing",
+      "dashboard": "Dashboard",
+      "admin": "Admin"
+    },
+    "buttons": {
+      "buy_now": "Buy Now",
+      "subscribe": "Subscribe",
+      "learn_more": "Learn More",
+      "download": "Download",
+      "sign_in": "Sign In",
+      "sign_up": "Sign Up",
+      "sign_out": "Sign Out",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "create": "Create",
+      "search": "Search",
+      "filter": "Filter",
+      "reset": "Reset"
+    },
+    "labels": {
+      "email": "Email",
+      "password": "Password",
+      "name": "Name",
+      "price": "Price",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions"
+    },
+    "messages": {
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "success": "Success",
+      "confirm": "Are you sure?"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Independent Developer",
+      "title": "One Person Company",
+      "subtitle": "Building quality software products with passion and precision. From concept to delivery, powered by one.",
+      "cta": "Explore Products",
+      "cta_secondary": "Learn More"
+    },
+    "features": {
+      "title": "Why Choose OPC Products",
+      "subtitle": "Every product is crafted with attention to detail and commitment to quality",
+      "quality": {
+        "title": "Quality First",
+        "description": "Each product undergoes rigorous testing and refinement"
+      },
+      "support": {
+        "title": "Direct Support",
+        "description": "Get help directly from the developer who built it"
+      },
+      "updates": {
+        "title": "Regular Updates",
+        "description": "Continuous improvements and new features"
+      },
+      "transparent": {
+        "title": "Transparent",
+        "description": "Clear pricing, no hidden fees, honest communication"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Explore our products and find the perfect solution for your needs",
+      "button": "View All Products"
+    }
+  },
+  "products": {
+    "title": "All Products",
+    "subtitle": "Discover our range of software products",
+    "category": {
+      "all": "All",
+      "software": "Software",
+      "saas": "SaaS",
+      "template": "Templates",
+      "course": "Courses",
+      "ebook": "E-Books",
+      "other": "Other"
+    },
+    "price": {
+      "one_time": "One-time Purchase",
+      "subscription": "Subscription",
+      "per_month": "/month",
+      "per_year": "/year",
+      "free": "Free",
+      "from": "From"
+    },
+    "card": {
+      "view_details": "View Details",
+      "get_it": "Get It"
+    },
+    "detail": {
+      "description": "Description",
+      "features": "Features",
+      "pricing": "Pricing",
+      "demo": "Live Demo",
+      "download": "Download",
+      "reviews": "Reviews",
+      "related": "Related Products"
+    },
+    "status": {
+      "draft": "Draft",
+      "active": "Active",
+      "archived": "Archived"
+    }
+  },
+  "checkout": {
+    "title": "Checkout",
+    "order_summary": "Order Summary",
+    "product": "Product",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "pay_now": "Pay Now",
+    "secure_payment": "Secure payment powered by Stripe",
+    "back": "Back to Product"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "overview": {
+      "title": "Overview"
+    },
+    "orders": {
+      "title": "My Orders",
+      "empty": "No orders yet",
+      "number": "Order Number",
+      "product": "Product",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date"
+    },
+    "subscriptions": {
+      "title": "My Subscriptions",
+      "empty": "No active subscriptions",
+      "plan": "Plan",
+      "next_billing": "Next Billing",
+      "cancel": "Cancel Subscription"
+    },
+    "downloads": {
+      "title": "Downloads",
+      "empty": "No downloads available"
+    },
+    "settings": {
+      "title": "Settings",
+      "profile": "Profile",
+      "security": "Security",
+      "notifications": "Notifications"
+    }
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "dashboard": {
+      "title": "Dashboard",
+      "total_revenue": "Total Revenue",
+      "total_orders": "Total Orders",
+      "total_users": "Total Users",
+      "active_subscriptions": "Active Subscriptions"
+    },
+    "products": {
+      "title": "Products",
+      "create": "Create Product",
+      "edit": "Edit Product",
+      "name": "Name",
+      "category": "Category",
+      "price": "Price",
+      "status": "Status"
+    },
+    "orders": {
+      "title": "Orders",
+      "customer": "Customer",
+      "amount": "Amount",
+      "status": "Status"
+    },
+    "users": {
+      "title": "Users",
+      "email": "Email",
+      "role": "Role",
+      "joined": "Joined"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "revenue": "Revenue",
+      "orders": "Orders",
+      "visitors": "Visitors"
+    }
+  },
+  "about": {
+    "title": "About OPC",
+    "subtitle": "The story behind One Person Company",
+    "story": {
+      "title": "My Story",
+      "content": "OPC (One Person Company) represents a new way of building software. As an independent developer, I believe in creating products that are thoughtfully designed, well-crafted, and directly supported by the person who built them."
+    },
+    "values": {
+      "title": "Core Values",
+      "quality": "Quality over quantity",
+      "transparency": "Honest and transparent communication",
+      "support": "Direct support from the developer",
+      "innovation": "Continuous learning and improvement"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "email": "Email",
+      "twitter": "Twitter",
+      "github": "GitHub"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} OPC Studio. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "auth": {
+    "sign_in": {
+      "title": "Sign In",
+      "subtitle": "Welcome back",
+      "no_account": "Don't have an account?",
+      "link": "Sign up"
+    },
+    "sign_up": {
+      "title": "Create Account",
+      "subtitle": "Get started",
+      "have_account": "Already have an account?",
+      "link": "Sign in"
+    },
+    "forgot_password": {
+      "title": "Forgot Password",
+      "subtitle": "Reset your password",
+      "back": "Back to sign in"
+    }
+  },
+  "order": {
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "failed": "Failed",
+      "refunded": "Refunded",
+      "cancelled": "Cancelled"
+    }
+  }
+}
