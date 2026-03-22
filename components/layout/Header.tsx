@@ -63,7 +63,8 @@ export function Header() {
 
   const switchLocale = () => {
     const newLocale = locale === 'en' ? 'zh' : 'en';
-    const currentPath = pathname.replace(`/${locale}`, '');
+    // 使用正则移除所有语言前缀，防止重复
+    const currentPath = pathname.replace(/^\/(en|zh)/, '') || '/';
     document.cookie = `locale=${newLocale};path=/`;
     window.location.href = `/${newLocale}${currentPath}`;
   };
