@@ -30,6 +30,18 @@ export function Hero() {
             </span>
           </h1>
 
+          {/* Early Access Notice */}
+          <div className="inline-flex flex-col items-center gap-1 px-4 py-2 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800">
+            <span className="text-sm font-medium text-amber-800 dark:text-amber-200">
+              🚀 {locale === 'en' ? 'Early Exploration Stage' : '早期探索阶段'}
+            </span>
+            <span className="text-xs text-amber-700 dark:text-amber-300 text-center max-w-md">
+              {locale === 'en'
+                ? 'All products are currently in early exploration stage. We are actively iterating and improving. Thank you for your support!'
+                : '所有产品目前均处于早期探索阶段，我们正在积极迭代优化中。感谢您的支持与包容！'}
+            </span>
+          </div>
+
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
             {t('subtitle')}
