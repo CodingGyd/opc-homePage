@@ -49,18 +49,16 @@ function AboutContent() {
                 Every product you see here is the result of countless hours of development, testing, and refinement.
                 I take pride in every line of code and every feature I ship.
                 <br /><br />
-                When you buy from OPC, you&apos;re not just getting software – you&apos;re getting a commitment to quality
+                When you use OPC products, you&apos;re not just getting software – you&apos;re getting a commitment to quality
                 and direct access to someone who truly cares about your experience.
               </>
             ) : (
               <>
-                OPC（一人公司）代表了一种全新的软件开发模式。作为独立开发者，我相信打造经过深思熟虑、精心设计、
-                并由创作者直接支持的产品。
+                OPC 是 One Person Company 的缩写，意为"一人公司"。作为独立开发者，我热衷于打造精雕细琢的软件产品。
                 <br /><br />
-                您在这里看到的每款产品都是无数小时开发、测试和优化的结果。我为每一行代码、每一个功能感到自豪。
+                这里的每款产品都凝聚了大量心血——从构思、开发、测试到打磨，每一个环节我都亲力亲为。我为每一行代码感到自豪。
                 <br /><br />
-                当您从 OPC 购买产品时，您不仅仅是在购买软件 —— 您获得的是对品质的承诺，以及直接联系真正关心
-                您体验的开发者的渠道。
+                感谢您的关注与支持！如有任何问题或建议，欢迎随时联系我。
               </>
             )}
           </p>
