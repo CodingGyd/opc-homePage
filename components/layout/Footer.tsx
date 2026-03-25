@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import { useTranslations, useLocale } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 export function Footer() {
-  const t = useTranslations('footer');
   const locale = useLocale();
   const year = new Date().getFullYear();
 
@@ -65,21 +64,21 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Contact */}
           <div>
             <h3 className="font-semibold mb-3">
-              {locale === 'en' ? 'Legal' : '法律'}
+              {locale === 'en' ? 'Contact' : '联系方式'}
             </h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">
-                  {t('privacy')}
-                </Link>
+                <a href="mailto:contact@opc.studio" className="hover:text-foreground transition-colors">
+                  contact@opc.studio
+                </a>
               </li>
               <li>
-                <Link href={`/${locale}/terms`} className="hover:text-foreground transition-colors">
-                  {t('terms')}
-                </Link>
+                <a href="https://github.com/opcstudio" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+                  GitHub
+                </a>
               </li>
             </ul>
           </div>
@@ -87,7 +86,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>{t('copyright', { year })}</p>
+          <p>© {year} OPC Studio. {locale === 'en' ? 'All rights reserved.' : '保留所有权利。'}</p>
         </div>
       </div>
     </footer>

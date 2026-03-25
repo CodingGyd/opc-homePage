@@ -1,43 +1,35 @@
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 
 interface Product {
   id: string;
   name: string;
   description: string;
-  price: number;
   category: string;
-  images: string[];
 }
 
-// Demo products for showcase
+// 产品展示数据
 const demoProducts: Product[] = [
   {
     id: '1',
     name: 'DataQuery Pro',
-    description: 'Cross-platform database query tool for MySQL, Redis, and Kafka',
-    price: 49,
+    description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
     category: 'software',
-    images: [],
   },
   {
     id: '2',
     name: 'DevTools Suite',
-    description: 'Essential developer tools for everyday productivity',
-    price: 29,
+    description: '开发者日常效率工具集',
     category: 'software',
-    images: [],
   },
   {
     id: '3',
     name: 'CloudDev Studio',
-    description: 'AI-powered online development environment',
-    price: 0,
+    description: 'AI 驱动的在线开发环境',
     category: 'saas',
-    images: [],
   },
 ];
 
@@ -82,16 +74,15 @@ export function ProductShowcase() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground line-clamp-2">
+                <p className="text-muted-foreground line-clamp-2 mb-4">
                   {product.description}
                 </p>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between">
-                <span className="text-2xl font-bold">${product.price}</span>
-                <Link href={`/${locale}/products/${product.id}`}>
-                  <Button size="sm">{t('card.get_it')}</Button>
+                <Link href={`/${locale}/products/${product.id}`} className="block">
+                  <Button size="sm" className="w-full">
+                    {locale === 'en' ? 'Learn More' : '了解更多'}
+                  </Button>
                 </Link>
-              </CardFooter>
+              </CardContent>
             </Card>
           ))}
         </div>

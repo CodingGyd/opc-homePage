@@ -1,8 +1,6 @@
-'use client';
-
+import { setRequestLocale } from 'next-intl/server';
 import { useTranslations, useLocale } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -10,40 +8,28 @@ interface Product {
   id: string;
   name: string;
   short_description: string;
-  price: number;
   category: string;
-  subscription_enabled: boolean;
-  subscription_price: number;
 }
 
-// Demo products - in production, fetch from API
+// 产品数据
 const demoProducts: Product[] = [
   {
     id: '1',
     name: 'DataQuery Pro',
-    short_description: 'Unified database query tool for MySQL, Redis, and Kafka',
-    price: 49,
+    short_description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
     category: 'software',
-    subscription_enabled: true,
-    subscription_price: 9.99,
   },
   {
     id: '2',
     name: 'DevTools Suite',
-    short_description: 'Essential developer tools for productivity',
-    price: 29,
+    short_description: '开发者日常效率工具集',
     category: 'software',
-    subscription_enabled: false,
-    subscription_price: 0,
   },
   {
     id: '3',
     name: 'CloudDev Studio',
-    short_description: 'AI-powered online development environment',
-    price: 0,
+    short_description: 'AI 驱动的在线开发环境',
     category: 'saas',
-    subscription_enabled: true,
-    subscription_price: 19.99,
   },
 ];
 
@@ -51,20 +37,21 @@ const categories = [
   { key: 'all', label: { en: 'All', zh: '全部' } },
   { key: 'software', label: { en: 'Software', zh: '软件' } },
   { key: 'saas', label: { en: 'SaaS', zh: 'SaaS' } },
-  { key: 'template', label: { en: 'Templates', zh: '模板' } },
-  { key: 'course', label: { en: 'Courses', zh: '课程' } },
 ];
 
-export default function ProductsPage() {
-  const t = useTranslations('products');
-  const locale = useLocale();
-  const searchParams = useSearchParams();
-  const currentCategory = searchParams.get('category') || 'all';
+export default async function ProductsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-  // 根据分类过滤产品
-  const filteredProducts = currentCategory === 'all'
-    ? demoProducts
-    : demoProducts.filter(p => p.category === currentCategory);
+  return <ProductsList locale={locale} />;
+}
+
+function ProductsList({ locale }: { locale: string }) {
+  const t = useTranslations('products');
 
   return (
     <div className="container py-12">
@@ -74,29 +61,22 @@ export default function ProductsPage() {
         <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {categories.map((cat) => {
-          const isActive = currentCategory === cat.key;
-          return (
-            <Link
-              key={cat.key}
-              href={`?category=${cat.key}`}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                isActive
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted hover:bg-muted/80'
-              }`}
-            >
-              {cat.label[locale as 'en' | 'zh']}
-            </Link>
-          );
-        })}
+      {/* Category Filter */}
+      <div className="flex flex-wrap justify-center gap-2 mb-8">
+        {categories.map((cat) => (
+          <Link
+            key={cat.key}
+            href={`/${locale}/products${cat.key === 'all' ? '' : `?category=${cat.key}`}`}
+            className="px-4 py-2 rounded-full text-sm font-medium bg-muted hover:bg-muted/80 transition-colors"
+          >
+            {cat.label[locale as 'en' | 'zh']}
+          </Link>
+        ))}
       </div>
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProducts.map((product) => (
+        {demoProducts.map((product) => (
           <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
             <CardHeader>
               <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center">
@@ -112,39 +92,18 @@ export default function ProductsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground line-clamp-2">
+              <p className="text-muted-foreground line-clamp-2 mb-4">
                 {product.short_description}
               </p>
-            </CardContent>
-            <CardFooter className="flex items-center justify-between">
-              <div>
-                {product.price > 0 ? (
-                  <>
-                    <span className="text-2xl font-bold">${product.price}</span>
-                    {product.subscription_enabled && (
-                      <span className="text-sm text-muted-foreground ml-2">
-                        {locale === 'en' ? 'or' : '或'} ${product.subscription_price}/mo
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <span className="text-2xl font-bold">{t('price.free')}</span>
-                )}
-              </div>
               <Link href={`/${locale}/products/${product.id}`}>
-                <Button size="sm">{t('card.view_details')}</Button>
+                <Button size="sm" className="w-full">
+                  {locale === 'en' ? 'Learn More' : '了解更多'}
+                </Button>
               </Link>
-            </CardFooter>
+            </CardContent>
           </Card>
         ))}
       </div>
-
-      {/* 无产品提示 */}
-      {filteredProducts.length === 0 && (
-        <div className="text-center py-12 text-muted-foreground">
-          {locale === 'en' ? 'No products found in this category' : '该分类下暂无产品'}
-        </div>
-      )}
     </div>
   );
 }

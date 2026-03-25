@@ -1,103 +1,79 @@
+import { setRequestLocale } from 'next-intl/server';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-import { Check, ExternalLink, Download } from 'lucide-react';
 
 interface Product {
   id: string;
   name: string;
   description: string;
   short_description: string;
-  price: number;
   category: string;
-  type: string;
-  subscription_enabled: boolean;
-  subscription_price: number;
-  subscription_interval: string;
   features: string[];
   demo_url: string;
-  download_url: string;
+  website_url: string;
 }
 
-// Demo products - in production, fetch from API
+// 产品数据
 const demoProducts: Record<string, Product> = {
   '1': {
     id: '1',
     name: 'DataQuery Pro',
-    description: 'DataQuery Pro is a powerful cross-platform desktop application designed for developers and database administrators. It provides a unified interface for querying MySQL, Redis, and Kafka databases with advanced features like global search, metadata synchronization, and offline mode support.',
-    short_description: 'Unified database query tool for MySQL, Redis, and Kafka',
-    price: 49,
+    description: 'DataQuery Pro 是一款强大的跨平台桌面应用程序，专为开发者和数据库管理员设计。它提供了统一的界面来查询 MySQL、Redis 和 Kafka 数据库，具有全局搜索、元数据同步和离线模式支持等高级功能。',
+    short_description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
     category: 'software',
-    type: 'download',
-    subscription_enabled: true,
-    subscription_price: 9.99,
-    subscription_interval: 'month',
     features: [
-      'MySQL database support with full query capabilities',
-      'Redis key-value store integration',
-      'Kafka message queue management',
-      'Global search across all data sources',
-      'Offline mode with cached metadata',
-      'Cross-platform (Windows, macOS, Linux)',
-      'Dark mode support',
-      'Automatic updates',
+      'MySQL 数据库完整查询支持',
+      'Redis 键值存储集成',
+      'Kafka 消息队列管理',
+      '全局搜索所有数据源',
+      '离线模式与缓存元数据',
+      '跨平台支持 (Windows, macOS, Linux)',
+      '深色模式支持',
+      '自动更新',
     ],
-    demo_url: 'https://demo.opc.studio/dataquery',
-    download_url: 'https://downloads.opc.studio/dataquery-pro-latest',
+    demo_url: 'https://github.com/CodingGyd/data-query-tool',
+    website_url: 'https://github.com/CodingGyd/data-query-tool',
   },
   '2': {
     id: '2',
     name: 'DevTools Suite',
-    description: 'Essential developer tools for everyday productivity. Includes JSON formatter, Base64 encoder, regex tester, color picker, and more.',
-    short_description: 'Essential developer tools for productivity',
-    price: 29,
+    description: '开发者日常必备工具集，包含 JSON 格式化、Base64 编码、正则测试、颜色选择器等实用工具。',
+    short_description: '开发者日常效率工具集',
     category: 'software',
-    type: 'download',
-    subscription_enabled: false,
-    subscription_price: 0,
-    subscription_interval: 'month',
     features: [
-      'JSON Tools',
-      'Encoding Tools',
-      'Regex Tester',
-      'Color Picker',
-      'Code Beautifier',
-      'Cross-platform',
-      'Offline support',
+      'JSON 工具',
+      '编码工具',
+      '正则测试器',
+      '颜色选择器',
+      '代码美化',
+      '跨平台支持',
+      '离线使用',
     ],
     demo_url: '',
-    download_url: 'https://downloads.opc.studio/devtools-suite-latest',
+    website_url: 'https://github.com/opcstudio/devtools-suite',
   },
   '3': {
     id: '3',
     name: 'CloudDev Studio',
-    description: 'CloudDev Studio is an AI-powered online development environment. Code from anywhere, collaborate in real-time, and deploy with one click. No installation required.',
-    short_description: 'AI-powered online development environment',
-    price: 0,
+    description: 'AI 驱动的在线开发环境。随时随地编码，实时协作，一键部署。无需安装。',
+    short_description: 'AI 驱动的在线开发环境',
     category: 'saas',
-    type: 'online',
-    subscription_enabled: true,
-    subscription_price: 19.99,
-    subscription_interval: 'month',
     features: [
-      'AI Code Completion',
-      'Cloud IDE',
-      'Real-time Collaboration',
-      'Git Integration',
-      'Live Preview',
-      'Team Workspaces',
-      'One-click Deploy',
-      '24/7 Support',
+      'AI 代码补全',
+      '云端 IDE',
+      '实时协作',
+      'Git 集成',
+      '实时预览',
+      '团队工作空间',
+      '一键部署',
+      '24/7 支持',
     ],
     demo_url: 'https://clouddev.opc.studio',
-    download_url: '',
+    website_url: 'https://clouddev.opc.studio',
   },
 };
-
-interface ProductDetailPageProps {
-  params: { id: string };
-}
 
 // 为静态导出生成所有产品 ID
 export function generateStaticParams() {
@@ -108,11 +84,20 @@ export function generateStaticParams() {
   ];
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const t = useTranslations('products');
-  const locale = useLocale();
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}) {
+  const { locale, id } = await params;
+  setRequestLocale(locale);
 
-  const product = demoProducts[params.id] || demoProducts['1'];
+  return <ProductContent locale={locale} id={id} />;
+}
+
+function ProductContent({ locale, id }: { locale: string; id: string }) {
+  const t = useTranslations('products');
+  const product = demoProducts[id] || demoProducts['1'];
 
   return (
     <div className="container py-12">
@@ -158,54 +143,41 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.name}</h1>
           <p className="text-lg text-muted-foreground mb-8">{product.short_description}</p>
 
-          {/* Pricing Card */}
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>{t('detail.pricing')}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {/* One-time */}
-              <div className="flex items-center justify-between p-4 border rounded-lg">
-                <div>
-                  <div className="font-semibold">{t('price.one_time')}</div>
-                  <div className="text-3xl font-bold">${product.price}</div>
-                  <div className="text-sm text-muted-foreground">
-                    {locale === 'en' ? 'Lifetime access' : '终身访问'}
-                  </div>
-                </div>
-                <Link href={`/${locale}/checkout?product=${product.id}&type=one_time`}>
-                  <Button>{t('card.get_it')}</Button>
-                </Link>
-              </div>
-
-              {/* Subscription */}
-              {product.subscription_enabled && (
-                <div className="flex items-center justify-between p-4 border rounded-lg bg-primary/5">
-                  <div>
-                    <div className="font-semibold">{t('price.subscription')}</div>
-                    <div className="text-3xl font-bold">${product.subscription_price}<span className="text-lg font-normal">{t('price.per_month')}</span></div>
-                    <div className="text-sm text-muted-foreground">
-                      {locale === 'en' ? 'Cancel anytime' : '随时取消'}
-                    </div>
-                  </div>
-                  <Link href={`/${locale}/checkout?product=${product.id}&type=subscription`}>
-                    <Button variant="secondary">{t('price.subscribe')}</Button>
-                  </Link>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* Demo & Download Links */}
-          <div className="flex gap-4">
+          {/* Action Buttons */}
+          <div className="flex gap-4 mb-8">
             {product.demo_url && (
               <a href={product.demo_url} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="gap-2">
+                <Button className="gap-2">
                   <ExternalLink className="w-4 h-4" />
-                  {t('detail.demo')}
+                  {locale === 'en' ? 'View Demo' : '查看演示'}
                 </Button>
               </a>
             )}
+            {product.website_url && (
+              <a href={product.website_url} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  {locale === 'en' ? 'Visit Website' : '访问网站'}
+                </Button>
+              </a>
+            )}
+          </div>
+
+          {/* Contact CTA */}
+          <div className="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border">
+            <h3 className="font-semibold mb-2">
+              {locale === 'en' ? 'Interested in this product?' : '对这个产品感兴趣？'}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              {locale === 'en'
+                ? 'Contact us for more information or custom solutions.'
+                : '联系我们了解更多信息或定制解决方案。'}
+            </p>
+            <a href="mailto:contact@opc.studio">
+              <Button variant="secondary" size="sm">
+                {locale === 'en' ? 'Contact Us' : '联系我们'}
+              </Button>
+            </a>
           </div>
         </div>
       </div>
