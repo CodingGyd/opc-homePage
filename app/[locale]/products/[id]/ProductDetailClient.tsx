@@ -344,23 +344,6 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               </a>
             )}
           </div>
-
-          {/* Contact CTA */}
-          <div className="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border">
-            <h3 className="font-semibold mb-2">
-              {locale === 'en' ? 'Interested in this product?' : '对这个产品感兴趣？'}
-            </h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              {locale === 'en'
-                ? 'Contact us for more information or custom solutions.'
-                : '联系我了解更多信息或定制解决方案。'}
-            </p>
-            <a href="mailto:contact@opc.studio">
-              <Button variant="secondary" size="sm">
-                {locale === 'en' ? 'Contact Us' : '联系我'}
-              </Button>
-            </a>
-          </div>
         </div>
       </div>
 
