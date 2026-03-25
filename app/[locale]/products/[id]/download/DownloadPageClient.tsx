@@ -519,8 +519,8 @@ export default function DownloadPageClient({
 
             <p className="text-xs text-muted-foreground text-center mt-3">
               {locale === 'en'
-                ? 'After payment, please fill in the form to unlock features'
-                : '支付后请填写登记表，解锁高级功能'}
+                ? 'After payment, fill in the form and support will unlock features for you'
+                : '支付后请填写登记表，客服马上为您解锁高级功能'}
             </p>
           </div>
         </div>
