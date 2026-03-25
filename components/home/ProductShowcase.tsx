@@ -2,7 +2,10 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Gift, MessageSquare, Rocket } from 'lucide-react';
+import { ArrowRight, Gift, MessageSquare, Rocket, ExternalLink } from 'lucide-react';
+
+// 飞书表单链接配置
+const FEEDBACK_FORM_URL = 'https://feishu.cn/share/base/form/your-form-id';
 
 interface Product {
   id: string;
@@ -142,13 +145,14 @@ export function ProductShowcase() {
           <div className="mt-6 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
               {locale === 'en'
-                ? 'Have suggestions or found a bug? We\'d love to hear from you.'
-                : '有建议或发现问题？我们非常期待您的反馈。'}
+                ? 'Have suggestions or found a bug? Submit via our feedback form.'
+                : '有建议或发现问题？通过反馈表单告诉我们，支持上传截图。'}
             </p>
-            <a href="mailto:feedback@opc.studio">
+            <a href={FEEDBACK_FORM_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="secondary" size="sm" className="gap-2">
                 <MessageSquare className="w-4 h-4" />
-                {locale === 'en' ? 'Send Feedback' : '提交反馈'}
+                {locale === 'en' ? 'Submit Feedback' : '提交反馈'}
+                <ExternalLink className="w-3 h-3" />
               </Button>
             </a>
           </div>
