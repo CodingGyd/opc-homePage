@@ -459,19 +459,19 @@ export default function DownloadPageClient({
             </ul>
           </div>
 
-          {/* Sponsor Support */}
+          {/* Supporter */}
           <div className="p-6 rounded-xl border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">❤️</span>
+              <span className="text-2xl">⭐</span>
               <h2 className="text-lg font-bold">
-                {locale === 'en' ? 'Sponsor Support' : '赞助支持'}
+                {locale === 'en' ? 'Become a Supporter' : '成为支持者'}
               </h2>
             </div>
 
             <p className="text-sm text-muted-foreground mb-4">
               {locale === 'en'
-                ? 'If you find our products helpful, consider supporting our development. Your support helps us continue improving!'
-                : '如果您觉得我们的产品有帮助，欢迎赞助支持开发者。您的支持是我们持续改进的动力！'}
+                ? 'Support our development to unlock more features and get priority updates. Your support keeps the project alive!'
+                : '支持开发者，解锁软件更多高级功能，享受后续持续更新。您的支持是我们不断进步的动力！'}
             </p>
 
             {/* Payment QR Codes */}
@@ -512,15 +512,15 @@ export default function DownloadPageClient({
               className="block"
             >
               <Button variant="outline" className="w-full gap-2 text-sm">
-                {locale === 'en' ? 'Register Sponsorship' : '登记赞助信息'}
+                {locale === 'en' ? 'Register as Supporter' : '登记支持者信息'}
                 <ExternalLink className="w-3 h-3" />
               </Button>
             </a>
 
             <p className="text-xs text-muted-foreground text-center mt-3">
               {locale === 'en'
-                ? 'After payment, please fill in the registration form'
-                : '支付后请填写登记表，方便我们感谢您'}
+                ? 'After payment, please fill in the form to unlock features'
+                : '支付后请填写登记表，解锁高级功能'}
             </p>
           </div>
         </div>
