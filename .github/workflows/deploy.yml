@@ -56,6 +56,20 @@ jobs:
           </body>
           </html>' > ./out/index.html
 
+      - name: Restructure for clean URLs
+        run: |
+          cd out
+          # Move en.html to en/index.html
+          mkdir -p en_new
+          mv en.html en_new/index.html
+          rm -rf en 2>/dev/null || true
+          mv en_new en
+          # Move zh.html to zh/index.html
+          mkdir -p zh_new
+          mv zh.html zh_new/index.html
+          rm -rf zh 2>/dev/null || true
+          mv zh_new zh
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
