@@ -10,6 +10,9 @@ const nextConfig = {
   // GitHub Pages 基础路径（仓库名）
   basePath: '/opc-homePage',
 
+  // 确保目录结构正确（/zh/ 而不是 /zh.html）
+  trailingSlash: true,
+
   // 静态导出时图片优化需要禁用或使用外部 loader
   images: {
     unoptimized: true,
