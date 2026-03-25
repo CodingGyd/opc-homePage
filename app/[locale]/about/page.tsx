@@ -1,7 +1,20 @@
+import { setRequestLocale } from 'next-intl/server';
 import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
 import { Mail, Github, Twitter } from 'lucide-react';
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return <AboutContent />;
+}
+
+function AboutContent() {
   const t = useTranslations('about');
   const locale = useLocale();
 
@@ -117,12 +130,12 @@ export default function AboutPage() {
               ? 'Ready to explore our products?'
               : '准备好探索我们的产品了吗？'}
           </p>
-          <a
+          <Link
             href={`/${locale}/products`}
             className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             {locale === 'en' ? 'View Products' : '查看产品'}
-          </a>
+          </Link>
         </div>
       </section>
     </div>

@@ -66,7 +66,8 @@ export function Header() {
     // 使用正则移除所有语言前缀，防止重复
     const currentPath = pathname.replace(/^\/(en|zh)/, '') || '/';
     document.cookie = `locale=${newLocale};path=/`;
-    window.location.href = `/${newLocale}${currentPath}`;
+    // 使用 router.push 确保正确处理 basePath
+    router.push(`/${newLocale}${currentPath}`);
   };
 
   const navLinks = [
