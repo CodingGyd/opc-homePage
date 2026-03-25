@@ -38,7 +38,7 @@ export function Hero() {
             <p className="text-xs text-amber-700 dark:text-amber-300 text-center mt-1">
               {locale === 'en'
                 ? 'All products are currently in early exploration stage. We are actively iterating and improving. Thank you for your support!'
-                : '所有产品目前均处于早期探索阶段，我们正在积极迭代优化中。感谢您的支持与包容！'}
+                : '所有产品目前均处于早期探索阶段，我正在积极迭代优化中。感谢您的支持与包容！'}
             </p>
           </div>
 

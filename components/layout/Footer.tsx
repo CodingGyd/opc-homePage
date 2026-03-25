@@ -58,7 +58,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="mailto:contact@opc.studio" className="hover:text-foreground transition-colors">
-                  {locale === 'en' ? 'Contact' : '联系我们'}
+                  {locale === 'en' ? 'Contact' : '联系我'}
                 </a>
               </li>
             </ul>

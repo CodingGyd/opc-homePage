@@ -7,7 +7,7 @@
     },
     "buttons": {
       "learn_more": "了解更多",
-      "contact": "联系我们"
+      "contact": "联系我"
     }
   },
   "home": {
@@ -40,13 +40,13 @@
     },
     "cta": {
       "title": "准备开始了吗？",
-      "subtitle": "探索我们的产品，找到适合您的完美解决方案",
+      "subtitle": "探索我的产品，找到适合您的完美解决方案",
       "button": "查看所有产品"
     }
   },
   "products": {
     "title": "所有产品",
-    "subtitle": "发现我们的软件产品系列",
+    "subtitle": "发现我的软件产品系列",
     "category": {
       "all": "全部",
       "software": "软件",

@@ -460,7 +460,7 @@ export default function DownloadPageClient({
             <p className="text-sm text-muted-foreground mb-4">
               {locale === 'en'
                 ? 'Support our development to unlock more features and get priority updates. Your support keeps the project alive!'
-                : '支持开发者，解锁软件更多高级功能，享受后续持续更新。您的支持是我们不断进步的动力！'}
+                : '支持开发者，解锁软件更多高级功能，享受后续持续更新。您的支持是我不断进步的动力！'}
             </p>
 
             {/* Payment QR Codes */}

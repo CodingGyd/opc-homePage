@@ -353,11 +353,11 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
             <p className="text-sm text-muted-foreground mb-4">
               {locale === 'en'
                 ? 'Contact us for more information or custom solutions.'
-                : '联系我们了解更多信息或定制解决方案。'}
+                : '联系我了解更多信息或定制解决方案。'}
             </p>
             <a href="mailto:contact@opc.studio">
               <Button variant="secondary" size="sm">
-                {locale === 'en' ? 'Contact Us' : '联系我们'}
+                {locale === 'en' ? 'Contact Us' : '联系我'}
               </Button>
             </a>
           </div>

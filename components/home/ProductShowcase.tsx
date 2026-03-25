@@ -49,7 +49,7 @@ export function ProductShowcase() {
               {locale === 'en' ? 'Featured Products' : '精选产品'}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {locale === 'en' ? 'Explore our most popular products' : '探索我们最受欢迎的产品'}
+              {locale === 'en' ? 'Explore our most popular products' : '探索我最受欢迎的产品'}
             </p>
           </div>
           <Link href={`/${locale}/products`} className="mt-4 md:mt-0">
@@ -100,7 +100,7 @@ export function ProductShowcase() {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               {locale === 'en'
                 ? 'All products are currently in the early exploration stage. We are actively iterating and improving. Thank you for your support and patience!'
-                : '所有产品目前均处于早期探索阶段，我们正在积极迭代优化中。感谢您的支持与包容！'}
+                : '所有产品目前均处于早期探索阶段，我正在积极迭代优化中。感谢您的支持与包容！'}
             </p>
           </div>
 
@@ -148,7 +148,7 @@ export function ProductShowcase() {
                 <p className="text-sm text-muted-foreground">
                   {locale === 'en'
                     ? 'Your feedback is invaluable. Help us build better products together!'
-                    : '您的使用反馈非常宝贵，帮助我们打造更好的产品！'}
+                    : '您的使用反馈非常宝贵，帮助我打造更好的产品！'}
                 </p>
               </div>
             </div>
@@ -158,7 +158,7 @@ export function ProductShowcase() {
             <p className="text-sm text-muted-foreground">
               {locale === 'en'
                 ? 'Have suggestions or found a bug? Submit via our feedback form.'
-                : '有建议或发现问题？通过反馈表单告诉我们，支持上传截图。'}
+                : '有建议或发现问题？通过反馈表单告诉我，支持上传截图。'}
             </p>
             <a href={FEEDBACK_FORM_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="secondary" size="sm" className="gap-2">

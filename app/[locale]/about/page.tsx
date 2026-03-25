@@ -83,7 +83,7 @@ function AboutContent() {
               <p className="text-sm text-muted-foreground">
                 {locale === 'en'
                   ? `We believe in ${value.key.toLowerCase()} as a core principle.`
-                  : `我们坚信${value.key === 'quality' ? '质量优先' : value.key === 'transparency' ? '透明诚信' : value.key === 'support' ? '用心支持' : '持续创新'}。`}
+                  : `我坚信${value.key === 'quality' ? '质量优先' : value.key === 'transparency' ? '透明诚信' : value.key === 'support' ? '用心支持' : '持续创新'}。`}
               </p>
             </div>
           ))}
@@ -114,7 +114,7 @@ function AboutContent() {
           <p className="text-lg mb-4">
             {locale === 'en'
               ? 'Ready to explore our products?'
-              : '准备好探索我们的产品了吗？'}
+              : '准备好探索我的产品了吗？'}
           </p>
           <Link
             href={`/${locale}/products`}
