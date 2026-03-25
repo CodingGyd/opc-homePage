@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Download, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Download, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 interface DownloadItem {
@@ -17,6 +17,12 @@ interface DownloadItem {
   status: 'stable' | 'beta' | 'experimental';
 }
 
+interface ReleaseNote {
+  version: string;
+  date: string;
+  notes: string[];
+}
+
 interface Product {
   id: string;
   name: string;
@@ -24,7 +30,7 @@ interface Product {
   latest_version: string;
   releaseDate: string;
   downloads: DownloadItem[];
-  releaseNotes: string[];
+  releaseNotes: ReleaseNote[];
 }
 
 // 产品数据
@@ -36,11 +42,35 @@ const products: Record<string, Product> = {
     latest_version: 'v1.2.0',
     releaseDate: '2026-03-20',
     releaseNotes: [
-      '新增 Kafka 消息队列管理功能',
-      '优化 MySQL 查询性能，提升 50%',
-      '修复 Redis 连接池泄漏问题',
-      '新增深色模式支持',
-      '改进全局搜索算法',
+      {
+        version: 'v1.2.0',
+        date: '2026-03-20',
+        notes: [
+          '新增 Kafka 消息队列管理功能',
+          '优化 MySQL 查询性能，提升 50%',
+          '修复 Redis 连接池泄漏问题',
+          '新增深色模式支持',
+          '改进全局搜索算法',
+        ],
+      },
+      {
+        version: 'v1.1.0',
+        date: '2026-02-15',
+        notes: [
+          '新增 Redis 连接支持',
+          '优化查询结果展示',
+          '修复若干已知问题',
+        ],
+      },
+      {
+        version: 'v1.0.0',
+        date: '2026-01-10',
+        notes: [
+          '首次发布',
+          '支持 MySQL 数据库查询',
+          '支持 Windows/macOS/Linux',
+        ],
+      },
     ],
     downloads: [
       {
@@ -107,9 +137,15 @@ const products: Record<string, Product> = {
     latest_version: 'v1.0.0',
     releaseDate: '2026-03-15',
     releaseNotes: [
-      '首次发布',
-      '包含 JSON 工具、编码工具、正则测试器等',
-      '支持 Windows、macOS、Linux',
+      {
+        version: 'v1.0.0',
+        date: '2026-03-15',
+        notes: [
+          '首次发布',
+          '包含 JSON 工具、编码工具、正则测试器等',
+          '支持 Windows、macOS、Linux',
+        ],
+      },
     ],
     downloads: [
       {
@@ -182,6 +218,7 @@ export default function DownloadPageClient({
 }) {
   const product = products[id] || products['1'];
   const [selectedPlatform, setSelectedPlatform] = useState<string>('all');
+  const [expandedVersions, setExpandedVersions] = useState<Set<string>>(new Set([product.releaseNotes[0]?.version]));
 
   // 按平台分组下载项
   const platforms = ['all', ...Array.from(new Set(product.downloads.map((d) => d.platform)))];
@@ -189,6 +226,19 @@ export default function DownloadPageClient({
     selectedPlatform === 'all'
       ? product.downloads
       : product.downloads.filter((d) => d.platform === selectedPlatform);
+
+  // 切换版本展开/折叠
+  const toggleVersion = (version: string) => {
+    setExpandedVersions((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(version)) {
+        newSet.delete(version);
+      } else {
+        newSet.add(version);
+      }
+      return newSet;
+    });
+  };
 
   return (
     <div className="container py-12">
@@ -320,21 +370,64 @@ export default function DownloadPageClient({
           </div>
 
           {/* Release Notes */}
-          <div className="p-6 rounded-xl border bg-muted/30">
-            <h2 className="text-xl font-bold mb-4">
-              {locale === 'en' ? 'Release Notes' : '更新日志'}
-            </h2>
-            <p className="text-sm text-muted-foreground mb-4">
-              {product.latest_version} · {product.releaseDate}
-            </p>
-            <ul className="space-y-2">
-              {product.releaseNotes.map((note, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm">
-                  <span className="text-primary">•</span>
-                  {note}
-                </li>
+          <div className="rounded-xl border bg-muted/30 overflow-hidden">
+            <div className="p-6 border-b">
+              <h2 className="text-xl font-bold">
+                {locale === 'en' ? 'Release Notes' : '更新日志'}
+              </h2>
+            </div>
+            <div className="divide-y max-h-[500px] overflow-y-auto">
+              {product.releaseNotes.map((release, index) => (
+                <div key={release.version} className="bg-card">
+                  <button
+                    onClick={() => toggleVersion(release.version)}
+                    className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="px-2 py-1 text-xs font-medium rounded bg-primary/10 text-primary">
+                        {release.version}
+                      </span>
+                      <span className="text-sm text-muted-foreground">{release.date}</span>
+                      {index === 0 && (
+                        <span className="px-2 py-0.5 text-xs rounded bg-green-100 text-green-700">
+                          {locale === 'en' ? 'Latest' : '最新'}
+                        </span>
+                      )}
+                    </div>
+                    {expandedVersions.has(release.version) ? (
+                      <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                    )}
+                  </button>
+                  {expandedVersions.has(release.version) && (
+                    <div className="px-4 pb-4 pt-1">
+                      <ul className="space-y-2 ml-2">
+                        {release.notes.map((note, noteIndex) => (
+                          <li key={noteIndex} className="flex items-start gap-2 text-sm">
+                            <span className="text-primary mt-1">•</span>
+                            <span className="text-muted-foreground">{note}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               ))}
-            </ul>
+            </div>
+            {product.releaseNotes.length > 3 && (
+              <div className="p-4 border-t bg-muted/30 text-center">
+                <button
+                  onClick={() => {
+                    const allVersions = new Set(product.releaseNotes.map((r) => r.version));
+                    setExpandedVersions(allVersions);
+                  }}
+                  className="text-sm text-primary hover:underline"
+                >
+                  {locale === 'en' ? 'View All Versions' : '查看所有版本'}
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
