@@ -340,27 +340,6 @@ export default function DownloadPageClient({
 
         {/* Sidebar */}
         <div className="space-y-6">
-          {/* System Requirements */}
-          <div className="p-6 rounded-xl border bg-card">
-            <h2 className="text-lg font-bold mb-4">
-              {locale === 'en' ? 'System Requirements' : '系统要求'}
-            </h2>
-            <div className="space-y-3 text-sm">
-              <div>
-                <div className="font-medium">Windows</div>
-                <div className="text-muted-foreground">Windows 10/11 (64-bit)</div>
-              </div>
-              <div>
-                <div className="font-medium">macOS</div>
-                <div className="text-muted-foreground">macOS 11.0 (Big Sur) or later</div>
-              </div>
-              <div>
-                <div className="font-medium">Linux</div>
-                <div className="text-muted-foreground">Ubuntu 20.04+, Debian 11+</div>
-              </div>
-            </div>
-          </div>
-
           {/* Tips */}
           <div className="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border">
             <h3 className="font-semibold mb-3">
@@ -368,8 +347,8 @@ export default function DownloadPageClient({
             </h3>
             <ul className="text-sm text-muted-foreground space-y-2">
               <li>• {locale === 'en' ? 'Choose the right version for your system' : '选择适合您系统的版本'}</li>
-              <li>• {locale === 'en' ? 'Contact support if download fails' : '如果下载失败请联系客服'}</li>
-              <li>• {locale === 'en' ? 'Free updates within major version' : '大版本内免费更新'}</li>
+              <li>• {locale === 'en' ? 'Download failed? Contact QQ: 2307990428' : '下载失败请联系客服 QQ: 2307990428'}</li>
+              <li>• {locale === 'en' ? 'Supporters get free lifetime updates' : '成为支持者，享受后续免费更新'}</li>
             </ul>
           </div>
 
