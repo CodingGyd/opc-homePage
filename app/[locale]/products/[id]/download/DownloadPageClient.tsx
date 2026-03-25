@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Download, Mail, MessageCircle, Users } from 'lucide-react';
+import { ArrowLeft, Download, Mail, MessageCircle, Users, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 
 interface DownloadItem {
@@ -173,6 +173,19 @@ const contactInfo = {
     groupId: '123456789',
   },
   email: 'support@opc.studio',
+};
+
+// 赞助配置
+const sponsorInfo = {
+  alipay: {
+    name: '支付宝',
+    qrCode: '/opc-homePage/images/sponsor/alipay.png',
+  },
+  wechat: {
+    name: '微信支付',
+    qrCode: '/opc-homePage/images/sponsor/wechat-pay.png',
+  },
+  registerFormUrl: 'https://my.feishu.cn/share/base/form/shrcnj9KL4CDSbHZIEXKr4WR08e',
 };
 
 export default function DownloadPageClient({
@@ -444,6 +457,71 @@ export default function DownloadPageClient({
               <li>• {locale === 'en' ? 'Contact support if download fails' : '如果下载失败请联系客服'}</li>
               <li>• {locale === 'en' ? 'Free updates within major version' : '大版本内免费更新'}</li>
             </ul>
+          </div>
+
+          {/* Sponsor Support */}
+          <div className="p-6 rounded-xl border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl">❤️</span>
+              <h2 className="text-lg font-bold">
+                {locale === 'en' ? 'Sponsor Support' : '赞助支持'}
+              </h2>
+            </div>
+
+            <p className="text-sm text-muted-foreground mb-4">
+              {locale === 'en'
+                ? 'If you find our products helpful, consider supporting our development. Your support helps us continue improving!'
+                : '如果您觉得我们的产品有帮助，欢迎赞助支持开发者。您的支持是我们持续改进的动力！'}
+            </p>
+
+            {/* Payment QR Codes */}
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="text-center">
+                <div className="w-28 h-28 mx-auto mb-2 bg-white rounded-lg border flex items-center justify-center overflow-hidden">
+                  <img
+                    src={sponsorInfo.alipay.qrCode}
+                    alt="Alipay"
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground">{sponsorInfo.alipay.name}</span>
+              </div>
+              <div className="text-center">
+                <div className="w-28 h-28 mx-auto mb-2 bg-white rounded-lg border flex items-center justify-center overflow-hidden">
+                  <img
+                    src={sponsorInfo.wechat.qrCode}
+                    alt="WeChat Pay"
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground">{sponsorInfo.wechat.name}</span>
+              </div>
+            </div>
+
+            {/* Register Link */}
+            <a
+              href={sponsorInfo.registerFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Button variant="outline" className="w-full gap-2 text-sm">
+                {locale === 'en' ? 'Register Sponsorship' : '登记赞助信息'}
+                <ExternalLink className="w-3 h-3" />
+              </Button>
+            </a>
+
+            <p className="text-xs text-muted-foreground text-center mt-3">
+              {locale === 'en'
+                ? 'After payment, please fill in the registration form'
+                : '支付后请填写登记表，方便我们感谢您'}
+            </p>
           </div>
         </div>
       </div>
