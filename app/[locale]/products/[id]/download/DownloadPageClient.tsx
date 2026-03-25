@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Download, Mail, MessageCircle, Users, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Download, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 
 interface DownloadItem {
@@ -158,21 +158,6 @@ const products: Record<string, Product> = {
       },
     ],
   },
-};
-
-// 联系方式配置
-const contactInfo = {
-  wechat: {
-    name: '微信客服',
-    qrCode: '/opc-homePage/images/contact/wechat-qr.svg',
-    id: 'OPC_Service',
-  },
-  qq: {
-    name: 'QQ 交流群',
-    qrCode: '/opc-homePage/images/contact/qq-group-qr.svg',
-    groupId: '123456789',
-  },
-  email: 'support@opc.studio',
 };
 
 // 赞助配置
@@ -353,79 +338,8 @@ export default function DownloadPageClient({
           </div>
         </div>
 
-        {/* Sidebar - Contact & Support */}
+        {/* Sidebar */}
         <div className="space-y-6">
-          {/* Contact Section */}
-          <div className="p-6 rounded-xl border bg-card">
-            <h2 className="text-xl font-bold mb-6">
-              {locale === 'en' ? 'Need Help?' : '需要帮助？'}
-            </h2>
-
-            {/* WeChat QR */}
-            <div className="mb-6 p-4 rounded-lg bg-muted/30 text-center">
-              <div className="w-32 h-32 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center border">
-                <img
-                  src={contactInfo.wechat.qrCode}
-                  alt="WeChat QR"
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    (e.target as HTMLImageElement).parentElement!.innerHTML =
-                      '<div class="text-center text-muted-foreground text-xs"><svg class="w-12 h-12 mx-auto mb-2 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>微信二维码</div>';
-                  }}
-                />
-              </div>
-              <div className="flex items-center justify-center gap-2 text-sm font-medium">
-                <MessageCircle className="w-4 h-4" />
-                {contactInfo.wechat.name}
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                {locale === 'en' ? 'Scan to add' : '扫码添加'}: {contactInfo.wechat.id}
-              </p>
-            </div>
-
-            {/* QQ Group QR */}
-            <div className="mb-6 p-4 rounded-lg bg-muted/30 text-center">
-              <div className="w-32 h-32 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center border">
-                <img
-                  src={contactInfo.qq.qrCode}
-                  alt="QQ Group QR"
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    (e.target as HTMLImageElement).parentElement!.innerHTML =
-                      '<div class="text-center text-muted-foreground text-xs"><svg class="w-12 h-12 mx-auto mb-2 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>QQ群二维码</div>';
-                  }}
-                />
-              </div>
-              <div className="flex items-center justify-center gap-2 text-sm font-medium">
-                <Users className="w-4 h-4" />
-                {contactInfo.qq.name}
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">
-                {locale === 'en' ? 'Group ID' : '群号'}: {contactInfo.qq.groupId}
-              </p>
-            </div>
-
-            {/* Email */}
-            <div className="p-4 rounded-lg bg-muted/30">
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary" />
-                <div>
-                  <div className="text-sm font-medium">
-                    {locale === 'en' ? 'Email Support' : '邮件支持'}
-                  </div>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="text-sm text-primary hover:underline"
-                  >
-                    {contactInfo.email}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* System Requirements */}
           <div className="p-6 rounded-xl border bg-card">
             <h2 className="text-lg font-bold mb-4">
@@ -461,11 +375,14 @@ export default function DownloadPageClient({
 
           {/* Supporter */}
           <div className="p-6 rounded-xl border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">⭐</span>
-              <h2 className="text-lg font-bold">
-                {locale === 'en' ? 'Become a Supporter' : '成为支持者'}
-              </h2>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">⭐</span>
+                <h2 className="text-lg font-bold">
+                  {locale === 'en' ? 'Become a Supporter' : '成为支持者'}
+                </h2>
+              </div>
+              <span className="text-2xl font-bold text-amber-600">¥19.9</span>
             </div>
 
             <p className="text-sm text-muted-foreground mb-4">
