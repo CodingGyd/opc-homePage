@@ -1,8 +1,8 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { Check, ExternalLink, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, ExternalLink, Play, X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -10,6 +10,14 @@ interface Screenshot {
   url: string;
   title: string;
   description: string;
+}
+
+interface DownloadItem {
+  platform: string;
+  version: string;
+  url: string;
+  size: string;
+  icon: string;
 }
 
 interface Product {
@@ -23,6 +31,8 @@ interface Product {
   website_url: string;
   video_url: string;
   screenshots: Screenshot[];
+  downloads: DownloadItem[];
+  latest_version: string;
 }
 
 // 产品数据
@@ -43,9 +53,40 @@ const demoProducts: Record<string, Product> = {
       '深色模式支持',
       '自动更新',
     ],
-    demo_url: 'https://github.com/CodingGyd/data-query-tool',
+    demo_url: '',
     website_url: 'https://github.com/CodingGyd/data-query-tool',
     video_url: 'https://player.bilibili.com/player.html?bvid=BV1example1',
+    latest_version: 'v1.2.0',
+    downloads: [
+      {
+        platform: 'Windows',
+        version: '1.2.0',
+        url: '/downloads/dataquery-pro-1.2.0-windows-x64.exe',
+        size: '85 MB',
+        icon: '🪟',
+      },
+      {
+        platform: 'macOS (Intel)',
+        version: '1.2.0',
+        url: '/downloads/dataquery-pro-1.2.0-macos-x64.dmg',
+        size: '92 MB',
+        icon: '🍎',
+      },
+      {
+        platform: 'macOS (Apple Silicon)',
+        version: '1.2.0',
+        url: '/downloads/dataquery-pro-1.2.0-macos-arm64.dmg',
+        size: '88 MB',
+        icon: '🍎',
+      },
+      {
+        platform: 'Linux (AppImage)',
+        version: '1.2.0',
+        url: '/downloads/dataquery-pro-1.2.0-linux-x64.AppImage',
+        size: '95 MB',
+        icon: '🐧',
+      },
+    ],
     screenshots: [
       {
         url: '/opc-homePage/images/products/dataquery/main.svg',
@@ -87,21 +128,40 @@ const demoProducts: Record<string, Product> = {
     demo_url: '',
     website_url: 'https://github.com/opcstudio/devtools-suite',
     video_url: '',
+    latest_version: 'v1.0.0',
+    downloads: [
+      {
+        platform: 'Windows',
+        version: '1.0.0',
+        url: '/downloads/devtools-suite-1.0.0-windows-x64.exe',
+        size: '65 MB',
+        icon: '🪟',
+      },
+      {
+        platform: 'macOS (Universal)',
+        version: '1.0.0',
+        url: '/downloads/devtools-suite-1.0.0-macos-universal.dmg',
+        size: '70 MB',
+        icon: '🍎',
+      },
+      {
+        platform: 'Linux',
+        version: '1.0.0',
+        url: '/downloads/devtools-suite-1.0.0-linux-x64.AppImage',
+        size: '68 MB',
+        icon: '🐧',
+      },
+    ],
     screenshots: [
       {
-        url: '/opc-homePage/images/products/devtools/main.png',
+        url: '/opc-homePage/images/products/devtools/main.svg',
         title: '工具集主界面',
         description: '所有工具一目了然',
       },
       {
-        url: '/opc-homePage/images/products/devtools/json.png',
+        url: '/opc-homePage/images/products/devtools/json.svg',
         title: 'JSON 工具',
         description: 'JSON 格式化与验证',
-      },
-      {
-        url: '/opc-homePage/images/products/devtools/regex.png',
-        title: '正则测试器',
-        description: '实时正则表达式测试',
       },
     ],
   },
@@ -124,26 +184,18 @@ const demoProducts: Record<string, Product> = {
     demo_url: 'https://clouddev.opc.studio',
     website_url: 'https://clouddev.opc.studio',
     video_url: 'https://player.bilibili.com/player.html?bvid=BV1example3',
+    latest_version: '',
+    downloads: [],
     screenshots: [
       {
-        url: '/opc-homePage/images/products/clouddev/ide.png',
+        url: '/opc-homePage/images/products/clouddev/ide.svg',
         title: '在线 IDE',
         description: '功能完整的在线代码编辑器',
       },
       {
-        url: '/opc-homePage/images/products/clouddev/ai.png',
+        url: '/opc-homePage/images/products/clouddev/ai.svg',
         title: 'AI 助手',
         description: '智能代码补全与建议',
-      },
-      {
-        url: '/opc-homePage/images/products/clouddev/collab.png',
-        title: '实时协作',
-        description: '多人实时协作编程',
-      },
-      {
-        url: '/opc-homePage/images/products/clouddev/deploy.png',
-        title: '一键部署',
-        description: '快速部署到云端',
       },
     ],
   },
@@ -158,8 +210,10 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
   const t = useTranslations('products');
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [showVideo, setShowVideo] = useState(false);
+  const [showDownloads, setShowDownloads] = useState(false);
 
   const product = demoProducts[id] || demoProducts['1'];
+  const isSoftware = product.category === 'software';
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -201,7 +255,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
         <div>
           {/* Main Screenshot */}
           <div
-            className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 cursor-pointer hover:ring-2 hover:ring-primary transition-all overflow-hidden"
+            className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 cursor-pointer hover:ring-2 hover:ring-primary transition-all overflow-hidden relative"
             onClick={() => openLightbox(0)}
           >
             <img
@@ -212,7 +266,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
             />
-            <span className="text-6xl absolute">📦</span>
+            <span className="text-6xl">📦</span>
           </div>
 
           {/* Screenshot Thumbnails */}
@@ -231,7 +285,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
-                <span className="text-2xl absolute">📷</span>
+                <span className="text-2xl">📷</span>
               </div>
             ))}
           </div>
@@ -239,10 +293,15 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
 
         {/* Right: Product Info */}
         <div>
-          <div className="mb-4">
+          <div className="flex items-center gap-3 mb-4">
             <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
               {t(`category.${product.category}`)}
             </span>
+            {product.latest_version && (
+              <span className="px-3 py-1 text-sm rounded-full bg-muted text-muted-foreground">
+                {product.latest_version}
+              </span>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.name}</h1>
@@ -256,7 +315,17 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                 {locale === 'en' ? 'Watch Demo' : '观看演示'}
               </Button>
             )}
-            {product.demo_url && (
+
+            {/* Software: Download button */}
+            {isSoftware && product.downloads.length > 0 && (
+              <Button variant="outline" className="gap-2" onClick={() => setShowDownloads(true)}>
+                <Download className="w-4 h-4" />
+                {locale === 'en' ? 'Download' : '下载体验'}
+              </Button>
+            )}
+
+            {/* SaaS: Online experience button */}
+            {!isSoftware && product.demo_url && (
               <a href={product.demo_url} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="gap-2">
                   <ExternalLink className="w-4 h-4" />
@@ -264,6 +333,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                 </Button>
               </a>
             )}
+
             {product.website_url && (
               <a href={product.website_url} target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" className="gap-2">
@@ -347,7 +417,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
-              <span className="text-6xl absolute">📷</span>
+              <span className="text-6xl">📷</span>
             </div>
             <div className="text-center mt-4 text-white">
               <h3 className="text-lg font-semibold">{product.screenshots[selectedImage]?.title}</h3>
@@ -390,6 +460,66 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+          </div>
+        </div>
+      )}
+
+      {/* Download Modal */}
+      {showDownloads && product.downloads.length > 0 && (
+        <div
+          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowDownloads(false)}
+        >
+          <div
+            className="bg-background rounded-2xl max-w-lg w-full max-h-[80vh] overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6 border-b flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-bold">
+                  {locale === 'en' ? 'Download' : '下载'}
+                </h2>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {product.name} {product.latest_version}
+                </p>
+              </div>
+              <button
+                className="text-muted-foreground hover:text-foreground"
+                onClick={() => setShowDownloads(false)}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-3">
+              {product.downloads.map((download, index) => (
+                <a
+                  key={index}
+                  href={download.url}
+                  className="flex items-center gap-4 p-4 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all group"
+                  download
+                >
+                  <span className="text-3xl">{download.icon}</span>
+                  <div className="flex-1">
+                    <div className="font-medium group-hover:text-primary">
+                      {download.platform}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      v{download.version} · {download.size}
+                    </div>
+                  </div>
+                  <Download className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
+                </a>
+              ))}
+            </div>
+
+            <div className="p-6 border-t bg-muted/30">
+              <p className="text-xs text-muted-foreground text-center">
+                {locale === 'en'
+                  ? 'By downloading, you agree to our Terms of Service and Privacy Policy.'
+                  : '下载即表示您同意我们的服务条款和隐私政策。'}
+              </p>
+            </div>
           </div>
         </div>
       )}
