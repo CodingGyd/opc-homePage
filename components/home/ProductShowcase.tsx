@@ -45,11 +45,14 @@ export function ProductShowcase() {
       <div className="container">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
               {locale === 'en' ? 'Featured Products' : '精选产品'}
             </h2>
+            <p className="text-sm text-amber-600 dark:text-amber-400 mb-3">
+              🚀 {locale === 'en' ? 'Early Exploration Stage' : '早期探索阶段'} · {locale === 'en' ? 'Actively iterating and improving' : '积极迭代优化中'}
+            </p>
             <p className="text-lg text-muted-foreground">
-              {locale === 'en' ? 'Explore our most popular products' : '探索我最受欢迎的产品'}
+              {locale === 'en' ? 'Explore my most popular products' : '探索我最受欢迎的产品'}
             </p>
           </div>
           <Link href={`/${locale}/products`} className="mt-4 md:mt-0">
