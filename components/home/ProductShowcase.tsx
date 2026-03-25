@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Gift, MessageSquare, Rocket } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -85,6 +85,73 @@ export function ProductShowcase() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Product Notice */}
+        <div className="mt-12 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 border">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-primary/10">
+                <Rocket className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">
+                  {locale === 'en' ? 'More Coming Soon' : '持续更新'}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {locale === 'en'
+                    ? 'We are actively developing new products. More high-quality tools will be released soon.'
+                    : '我们正在积极开发更多产品，后续将陆续上架更多优质工具。'}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-accent/10">
+                <Gift className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">
+                  {locale === 'en' ? 'Free During Beta' : '限时免费'}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {locale === 'en'
+                    ? 'All products are currently free to download and use during the early access period.'
+                    : '当前所有产品处于早期体验阶段，限时免费下载使用。'}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-primary/10">
+                <MessageSquare className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">
+                  {locale === 'en' ? 'Feedback Welcome' : '期待反馈'}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {locale === 'en'
+                    ? 'Your feedback helps us improve. Share your thoughts and suggestions with us!'
+                    : '您的使用反馈对我们非常重要，帮助我们持续改进产品质量。'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-muted-foreground">
+              {locale === 'en'
+                ? 'Have suggestions or found a bug? We\'d love to hear from you.'
+                : '有建议或发现问题？我们非常期待您的反馈。'}
+            </p>
+            <a href="mailto:feedback@opc.studio">
+              <Button variant="secondary" size="sm" className="gap-2">
+                <MessageSquare className="w-4 h-4" />
+                {locale === 'en' ? 'Send Feedback' : '提交反馈'}
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </section>
