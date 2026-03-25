@@ -1,7 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { Mail, Github, Twitter } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
 export default async function AboutPage({
   params,
@@ -93,32 +93,18 @@ function AboutContent() {
       {/* Contact Section */}
       <section className="max-w-2xl mx-auto">
         <h2 className="text-2xl font-bold text-center mb-8">{t('contact.title')}</h2>
-        <div className="flex justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="mailto:contact@opc.studio"
+            href="mailto:2307990428@qq.com"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-muted hover:bg-muted/80 transition-colors"
           >
             <Mail className="w-5 h-5" />
-            <span>{t('contact.email')}</span>
+            <span>2307990428@qq.com</span>
           </a>
-          <a
-            href="https://github.com/opcstudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-          >
-            <Github className="w-5 h-5" />
-            <span>{t('contact.github')}</span>
-          </a>
-          <a
-            href="https://twitter.com/opcstudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-3 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-          >
-            <Twitter className="w-5 h-5" />
-            <span>{t('contact.twitter')}</span>
-          </a>
+          <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
+            <MessageCircle className="w-5 h-5" />
+            <span>{locale === 'en' ? 'QQ Support' : 'QQ客服'}: 2307990428</span>
+          </div>
         </div>
       </section>
 
