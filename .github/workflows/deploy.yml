@@ -36,6 +36,26 @@ jobs:
       - name: Add .nojekyll
         run: touch ./out/.nojekyll
 
+      - name: Create index.html redirect
+        run: |
+          echo '<!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <script>
+              var lang = navigator.language || navigator.userLanguage;
+              if (lang.startsWith("zh")) {
+                window.location.href = "/opc-homePage/zh/";
+              } else {
+                window.location.href = "/opc-homePage/en/";
+              }
+            </script>
+          </head>
+          <body>
+            <a href="/opc-homePage/en/">English</a> | <a href="/opc-homePage/zh/">中文</a>
+          </body>
+          </html>' > ./out/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
