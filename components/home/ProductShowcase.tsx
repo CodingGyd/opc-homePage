@@ -92,6 +92,18 @@ export function ProductShowcase() {
 
         {/* Product Notice */}
         <div className="mt-12 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 border">
+          <div className="text-center mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Rocket className="w-4 h-4" />
+              {locale === 'en' ? 'Early Access' : '早期探索阶段'}
+            </span>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {locale === 'en'
+                ? 'All products are currently in the early exploration stage. We are actively iterating and improving. Thank you for your support and patience!'
+                : '所有产品目前均处于早期探索阶段，我们正在积极迭代优化中。感谢您的支持与包容！'}
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-xl bg-primary/10">
@@ -99,12 +111,12 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'More Coming Soon' : '持续更新'}
+                  {locale === 'en' ? 'More Coming' : '持续迭代'}
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   {locale === 'en'
-                    ? 'We are actively developing new products. More high-quality tools will be released soon.'
-                    : '我们正在积极开发更多产品，后续将陆续上架更多优质工具。'}
+                    ? 'New products and features are under development. Stay tuned for updates.'
+                    : '更多新产品和功能正在开发中，后续将陆续上架。'}
                 </p>
               </div>
             </div>
@@ -115,12 +127,12 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'Free During Beta' : '限时免费'}
+                  {locale === 'en' ? 'Free to Use' : '免费使用'}
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   {locale === 'en'
-                    ? 'All products are currently free to download and use during the early access period.'
-                    : '当前所有产品处于早期体验阶段，限时免费下载使用。'}
+                    ? 'All products are free during the early access period. Download and try them out!'
+                    : '早期阶段所有产品免费开放，欢迎下载体验！'}
                 </p>
               </div>
             </div>
@@ -131,12 +143,12 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'Feedback Welcome' : '期待反馈'}
+                  {locale === 'en' ? 'Need Your Help' : '需要您的帮助'}
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   {locale === 'en'
-                    ? 'Your feedback helps us improve. Share your thoughts and suggestions with us!'
-                    : '您的使用反馈对我们非常重要，帮助我们持续改进产品质量。'}
+                    ? 'Your feedback is invaluable. Help us build better products together!'
+                    : '您的使用反馈非常宝贵，帮助我们打造更好的产品！'}
                 </p>
               </div>
             </div>
