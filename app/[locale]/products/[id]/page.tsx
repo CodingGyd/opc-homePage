@@ -99,6 +99,15 @@ interface ProductDetailPageProps {
   params: { id: string };
 }
 
+// 为静态导出生成所有产品 ID
+export function generateStaticParams() {
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+  ];
+}
+
 export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const t = useTranslations('products');
   const locale = useLocale();
