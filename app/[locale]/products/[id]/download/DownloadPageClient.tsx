@@ -14,6 +14,7 @@ interface DownloadItem {
   icon: string;
   requirements?: string;
   releaseDate?: string;
+  status: 'stable' | 'beta' | 'experimental';
 }
 
 interface Product {
@@ -51,6 +52,7 @@ const products: Record<string, Product> = {
         icon: '🪟',
         requirements: 'Windows 10/11 (64-bit)',
         releaseDate: '2026-03-20',
+        status: 'stable',
       },
       {
         platform: 'macOS',
@@ -61,6 +63,7 @@ const products: Record<string, Product> = {
         icon: '🍎',
         requirements: 'macOS 11.0+ (Intel)',
         releaseDate: '2026-03-20',
+        status: 'experimental',
       },
       {
         platform: 'macOS',
@@ -71,6 +74,7 @@ const products: Record<string, Product> = {
         icon: '🍎',
         requirements: 'macOS 11.0+ (M1/M2/M3)',
         releaseDate: '2026-03-20',
+        status: 'experimental',
       },
       {
         platform: 'Linux',
@@ -81,6 +85,7 @@ const products: Record<string, Product> = {
         icon: '🐧',
         requirements: 'Ubuntu 20.04+ / Debian 11+',
         releaseDate: '2026-03-20',
+        status: 'experimental',
       },
     ],
   },
@@ -105,6 +110,7 @@ const products: Record<string, Product> = {
         icon: '🪟',
         requirements: 'Windows 10/11 (64-bit)',
         releaseDate: '2026-03-15',
+        status: 'stable',
       },
       {
         platform: 'macOS',
@@ -115,6 +121,7 @@ const products: Record<string, Product> = {
         icon: '🍎',
         requirements: 'macOS 11.0+',
         releaseDate: '2026-03-15',
+        status: 'experimental',
       },
       {
         platform: 'Linux',
@@ -125,6 +132,7 @@ const products: Record<string, Product> = {
         icon: '🐧',
         requirements: 'Ubuntu 20.04+',
         releaseDate: '2026-03-15',
+        status: 'experimental',
       },
     ],
   },
@@ -229,36 +237,64 @@ export default function DownloadPageClient({
             {filteredDownloads.map((download, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 p-6 rounded-xl border bg-card hover:border-primary/50 transition-all group"
+                className={`p-6 rounded-xl border bg-card hover:border-primary/50 transition-all group ${
+                  download.status === 'experimental' ? 'border-orange-200 bg-orange-50/30' : ''
+                }`}
               >
-                <span className="text-4xl">{download.icon}</span>
+                <div className="flex items-center gap-4">
+                  <span className="text-4xl">{download.icon}</span>
 
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-semibold text-lg">{download.platform}</h3>
-                    {download.arch && (
-                      <span className="px-2 py-0.5 text-xs rounded bg-muted">{download.arch}</span>
-                    )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-semibold text-lg">{download.platform}</h3>
+                      {download.arch && (
+                        <span className="px-2 py-0.5 text-xs rounded bg-muted">{download.arch}</span>
+                      )}
+                      {download.status === 'stable' ? (
+                        <span className="px-2 py-0.5 text-xs rounded bg-green-100 text-green-700">
+                          {locale === 'en' ? 'Stable' : '稳定版'}
+                        </span>
+                      ) : (
+                        <span className="px-2 py-0.5 text-xs rounded bg-orange-100 text-orange-700">
+                          {locale === 'en' ? 'Experimental' : '实验版'}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-sm text-muted-foreground space-x-3">
+                      <span>v{download.version}</span>
+                      <span>·</span>
+                      <span>{download.size}</span>
+                      {download.requirements && (
+                        <>
+                          <span>·</span>
+                          <span>{download.requirements}</span>
+                        </>
+                      )}
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground space-x-3">
-                    <span>v{download.version}</span>
-                    <span>·</span>
-                    <span>{download.size}</span>
-                    {download.requirements && (
-                      <>
-                        <span>·</span>
-                        <span>{download.requirements}</span>
-                      </>
-                    )}
-                  </div>
+
+                  <a href={download.url} download>
+                    <Button
+                      className={`gap-2 group-hover:shadow-lg transition-shadow ${
+                        download.status === 'experimental' ? 'bg-orange-600 hover:bg-orange-700' : ''
+                      }`}
+                    >
+                      <Download className="w-4 h-4" />
+                      {locale === 'en' ? 'Download' : '下载'}
+                    </Button>
+                  </a>
                 </div>
 
-                <a href={download.url} download>
-                  <Button className="gap-2 group-hover:shadow-lg transition-shadow">
-                    <Download className="w-4 h-4" />
-                    {locale === 'en' ? 'Download' : '下载'}
-                  </Button>
-                </a>
+                {/* Experimental warning */}
+                {download.status === 'experimental' && (
+                  <div className="mt-4 p-3 rounded-lg bg-orange-100/50 border border-orange-200">
+                    <p className="text-sm text-orange-800">
+                      ⚠️ {locale === 'en'
+                        ? 'This version has not been fully tested. Stability is not guaranteed. If you encounter issues, please contact support.'
+                        : '此版本未经过完整测试，不保证稳定使用。如遇问题请联系客服反馈。'}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
