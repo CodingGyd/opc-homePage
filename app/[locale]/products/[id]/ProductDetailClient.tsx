@@ -1,0 +1,398 @@
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import { Button } from '@/components/ui/button';
+import { Check, ExternalLink, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
+
+interface Screenshot {
+  url: string;
+  title: string;
+  description: string;
+}
+
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  short_description: string;
+  category: string;
+  features: string[];
+  demo_url: string;
+  website_url: string;
+  video_url: string;
+  screenshots: Screenshot[];
+}
+
+// 产品数据
+const demoProducts: Record<string, Product> = {
+  '1': {
+    id: '1',
+    name: 'DataQuery Pro',
+    description: 'DataQuery Pro 是一款强大的跨平台桌面应用程序，专为开发者和数据库管理员设计。它提供了统一的界面来查询 MySQL、Redis 和 Kafka 数据库，具有全局搜索、元数据同步和离线模式支持等高级功能。',
+    short_description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
+    category: 'software',
+    features: [
+      'MySQL 数据库完整查询支持',
+      'Redis 键值存储集成',
+      'Kafka 消息队列管理',
+      '全局搜索所有数据源',
+      '离线模式与缓存元数据',
+      '跨平台支持 (Windows, macOS, Linux)',
+      '深色模式支持',
+      '自动更新',
+    ],
+    demo_url: 'https://github.com/CodingGyd/data-query-tool',
+    website_url: 'https://github.com/CodingGyd/data-query-tool',
+    video_url: 'https://player.bilibili.com/player.html?bvid=BV1example1',
+    screenshots: [
+      {
+        url: '/opc-homePage/images/products/dataquery/main.svg',
+        title: '主界面',
+        description: '清晰直观的主界面设计',
+      },
+      {
+        url: '/opc-homePage/images/products/dataquery/mysql.svg',
+        title: 'MySQL 查询',
+        description: 'MySQL 数据库查询界面',
+      },
+      {
+        url: '/opc-homePage/images/products/dataquery/main.svg',
+        title: 'Redis 管理',
+        description: 'Redis 键值管理界面',
+      },
+      {
+        url: '/opc-homePage/images/products/dataquery/main.svg',
+        title: '全局搜索',
+        description: '跨数据源全局搜索功能',
+      },
+    ],
+  },
+  '2': {
+    id: '2',
+    name: 'DevTools Suite',
+    description: '开发者日常必备工具集，包含 JSON 格式化、Base64 编码、正则测试、颜色选择器等实用工具。',
+    short_description: '开发者日常效率工具集',
+    category: 'software',
+    features: [
+      'JSON 工具',
+      '编码工具',
+      '正则测试器',
+      '颜色选择器',
+      '代码美化',
+      '跨平台支持',
+      '离线使用',
+    ],
+    demo_url: '',
+    website_url: 'https://github.com/opcstudio/devtools-suite',
+    video_url: '',
+    screenshots: [
+      {
+        url: '/opc-homePage/images/products/devtools/main.png',
+        title: '工具集主界面',
+        description: '所有工具一目了然',
+      },
+      {
+        url: '/opc-homePage/images/products/devtools/json.png',
+        title: 'JSON 工具',
+        description: 'JSON 格式化与验证',
+      },
+      {
+        url: '/opc-homePage/images/products/devtools/regex.png',
+        title: '正则测试器',
+        description: '实时正则表达式测试',
+      },
+    ],
+  },
+  '3': {
+    id: '3',
+    name: 'CloudDev Studio',
+    description: 'AI 驱动的在线开发环境。随时随地编码，实时协作，一键部署。无需安装。',
+    short_description: 'AI 驱动的在线开发环境',
+    category: 'saas',
+    features: [
+      'AI 代码补全',
+      '云端 IDE',
+      '实时协作',
+      'Git 集成',
+      '实时预览',
+      '团队工作空间',
+      '一键部署',
+      '24/7 支持',
+    ],
+    demo_url: 'https://clouddev.opc.studio',
+    website_url: 'https://clouddev.opc.studio',
+    video_url: 'https://player.bilibili.com/player.html?bvid=BV1example3',
+    screenshots: [
+      {
+        url: '/opc-homePage/images/products/clouddev/ide.png',
+        title: '在线 IDE',
+        description: '功能完整的在线代码编辑器',
+      },
+      {
+        url: '/opc-homePage/images/products/clouddev/ai.png',
+        title: 'AI 助手',
+        description: '智能代码补全与建议',
+      },
+      {
+        url: '/opc-homePage/images/products/clouddev/collab.png',
+        title: '实时协作',
+        description: '多人实时协作编程',
+      },
+      {
+        url: '/opc-homePage/images/products/clouddev/deploy.png',
+        title: '一键部署',
+        description: '快速部署到云端',
+      },
+    ],
+  },
+};
+
+interface ProductDetailClientProps {
+  locale: string;
+  id: string;
+}
+
+export default function ProductDetailClient({ locale, id }: ProductDetailClientProps) {
+  const t = useTranslations('products');
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [showVideo, setShowVideo] = useState(false);
+
+  const product = demoProducts[id] || demoProducts['1'];
+
+  const openLightbox = (index: number) => {
+    setSelectedImage(index);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
+  const prevImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage - 1 + product.screenshots.length) % product.screenshots.length);
+    }
+  };
+
+  const nextImage = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % product.screenshots.length);
+    }
+  };
+
+  return (
+    <div className="container py-12">
+      {/* Breadcrumb */}
+      <nav className="mb-8 text-sm text-muted-foreground">
+        <Link href={`/${locale}`} className="hover:text-foreground">
+          {locale === 'en' ? 'Home' : '首页'}
+        </Link>
+        {' / '}
+        <Link href={`/${locale}/products`} className="hover:text-foreground">
+          {t('title')}
+        </Link>
+        {' / '}
+        <span className="text-foreground">{product.name}</span>
+      </nav>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Left: Product Screenshots */}
+        <div>
+          {/* Main Screenshot */}
+          <div
+            className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 cursor-pointer hover:ring-2 hover:ring-primary transition-all overflow-hidden"
+            onClick={() => openLightbox(0)}
+          >
+            <img
+              src={product.screenshots[0]?.url}
+              alt={product.screenshots[0]?.title}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+            <span className="text-6xl absolute">📦</span>
+          </div>
+
+          {/* Screenshot Thumbnails */}
+          <div className="grid grid-cols-4 gap-2">
+            {product.screenshots.map((screenshot, index) => (
+              <div
+                key={index}
+                className="aspect-video bg-muted rounded-lg flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary overflow-hidden relative"
+                onClick={() => openLightbox(index)}
+              >
+                <img
+                  src={screenshot.url}
+                  alt={screenshot.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+                <span className="text-2xl absolute">📷</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right: Product Info */}
+        <div>
+          <div className="mb-4">
+            <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
+              {t(`category.${product.category}`)}
+            </span>
+          </div>
+
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.name}</h1>
+          <p className="text-lg text-muted-foreground mb-8">{product.short_description}</p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-4 mb-8">
+            {product.video_url && (
+              <Button className="gap-2" onClick={() => setShowVideo(true)}>
+                <Play className="w-4 h-4" />
+                {locale === 'en' ? 'Watch Demo' : '观看演示'}
+              </Button>
+            )}
+            {product.demo_url && (
+              <a href={product.demo_url} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  {locale === 'en' ? 'Try Online' : '在线体验'}
+                </Button>
+              </a>
+            )}
+            {product.website_url && (
+              <a href={product.website_url} target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" className="gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  GitHub
+                </Button>
+              </a>
+            )}
+          </div>
+
+          {/* Contact CTA */}
+          <div className="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border">
+            <h3 className="font-semibold mb-2">
+              {locale === 'en' ? 'Interested in this product?' : '对这个产品感兴趣？'}
+            </h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              {locale === 'en'
+                ? 'Contact us for more information or custom solutions.'
+                : '联系我们了解更多信息或定制解决方案。'}
+            </p>
+            <a href="mailto:contact@opc.studio">
+              <Button variant="secondary" size="sm">
+                {locale === 'en' ? 'Contact Us' : '联系我们'}
+              </Button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Features */}
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-8">{t('detail.features')}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {product.features.map((feature, index) => (
+            <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-muted/30">
+              <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <span>{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Description */}
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-8">{t('detail.description')}</h2>
+        <div className="prose prose-lg max-w-none">
+          <p>{product.description}</p>
+        </div>
+      </div>
+
+      {/* Image Lightbox */}
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+          onClick={closeLightbox}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-white/80 z-10"
+            onClick={closeLightbox}
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <button
+            className="absolute left-4 text-white hover:text-white/80 z-10"
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+
+          <div className="max-w-5xl max-h-[80vh] px-12" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg aspect-video flex items-center justify-center">
+              <img
+                src={product.screenshots[selectedImage]?.url}
+                alt={product.screenshots[selectedImage]?.title}
+                className="max-w-full max-h-[70vh] object-contain rounded-lg"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <span className="text-6xl absolute">📷</span>
+            </div>
+            <div className="text-center mt-4 text-white">
+              <h3 className="text-lg font-semibold">{product.screenshots[selectedImage]?.title}</h3>
+              <p className="text-sm text-white/70">{product.screenshots[selectedImage]?.description}</p>
+              <p className="text-xs text-white/50 mt-2">
+                {selectedImage + 1} / {product.screenshots.length}
+              </p>
+            </div>
+          </div>
+
+          <button
+            className="absolute right-4 text-white hover:text-white/80 z-10"
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
+        </div>
+      )}
+
+      {/* Video Modal */}
+      {showVideo && product.video_url && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+          onClick={() => setShowVideo(false)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-white/80 z-10"
+            onClick={() => setShowVideo(false)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <div className="w-full max-w-5xl aspect-video px-4" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src={product.video_url}
+              className="w-full h-full rounded-lg"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
