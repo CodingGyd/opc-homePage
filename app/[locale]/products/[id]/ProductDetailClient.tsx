@@ -210,7 +210,6 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
   const t = useTranslations('products');
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [showVideo, setShowVideo] = useState(false);
-  const [showDownloads, setShowDownloads] = useState(false);
 
   const product = demoProducts[id] || demoProducts['1'];
   const isSoftware = product.category === 'software';
@@ -318,10 +317,12 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
 
             {/* Software: Download button */}
             {isSoftware && product.downloads.length > 0 && (
-              <Button variant="outline" className="gap-2" onClick={() => setShowDownloads(true)}>
-                <Download className="w-4 h-4" />
-                {locale === 'en' ? 'Download' : '下载体验'}
-              </Button>
+              <Link href={`/${locale}/products/${product.id}/download`}>
+                <Button variant="outline" className="gap-2">
+                  <Download className="w-4 h-4" />
+                  {locale === 'en' ? 'Download' : '下载体验'}
+                </Button>
+              </Link>
             )}
 
             {/* SaaS: Online experience button */}
@@ -460,66 +461,6 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-          </div>
-        </div>
-      )}
-
-      {/* Download Modal */}
-      {showDownloads && product.downloads.length > 0 && (
-        <div
-          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
-          onClick={() => setShowDownloads(false)}
-        >
-          <div
-            className="bg-background rounded-2xl max-w-lg w-full max-h-[80vh] overflow-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="p-6 border-b flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-bold">
-                  {locale === 'en' ? 'Download' : '下载'}
-                </h2>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {product.name} {product.latest_version}
-                </p>
-              </div>
-              <button
-                className="text-muted-foreground hover:text-foreground"
-                onClick={() => setShowDownloads(false)}
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="p-6 space-y-3">
-              {product.downloads.map((download, index) => (
-                <a
-                  key={index}
-                  href={download.url}
-                  className="flex items-center gap-4 p-4 rounded-xl border hover:border-primary hover:bg-primary/5 transition-all group"
-                  download
-                >
-                  <span className="text-3xl">{download.icon}</span>
-                  <div className="flex-1">
-                    <div className="font-medium group-hover:text-primary">
-                      {download.platform}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      v{download.version} · {download.size}
-                    </div>
-                  </div>
-                  <Download className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
-                </a>
-              ))}
-            </div>
-
-            <div className="p-6 border-t bg-muted/30">
-              <p className="text-xs text-muted-foreground text-center">
-                {locale === 'en'
-                  ? 'By downloading, you agree to our Terms of Service and Privacy Policy.'
-                  : '下载即表示您同意我们的服务条款和隐私政策。'}
-              </p>
-            </div>
           </div>
         </div>
       )}
