@@ -57,7 +57,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:contact@opc.studio" className="hover:text-foreground transition-colors">
+                <a href="mailto:2307990428@qq.com" className="hover:text-foreground transition-colors">
                   {locale === 'en' ? 'Contact' : '联系我'}
                 </a>
               </li>
@@ -71,8 +71,8 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:contact@opc.studio" className="hover:text-foreground transition-colors">
-                  contact@opc.studio
+                <a href="mailto:2307990428@qq.com" className="hover:text-foreground transition-colors">
+                  2307990428@qq.com
                 </a>
               </li>
               <li>
