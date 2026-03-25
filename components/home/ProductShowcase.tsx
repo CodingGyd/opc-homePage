@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Gift, MessageSquare, Rocket, ExternalLink } from 'lucide-react';
 
 // 飞书表单链接配置
-const FEEDBACK_FORM_URL = 'https://feishu.cn/share/base/form/your-form-id';
+const FEEDBACK_FORM_URL = 'https://my.feishu.cn/share/base/form/shrcnZWJTCblyIq5rjC4Ms8sqrg';
 
 interface Product {
   id: string;
