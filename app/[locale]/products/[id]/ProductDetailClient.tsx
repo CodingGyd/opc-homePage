@@ -252,37 +252,29 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
         <div>
           {/* Main Screenshot */}
           <div
-            className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 cursor-pointer hover:ring-2 hover:ring-primary transition-all overflow-hidden relative"
+            className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 cursor-pointer hover:ring-2 hover:ring-primary transition-all overflow-hidden"
             onClick={() => openLightbox(0)}
           >
             <img
               src={product.screenshots[0]?.url}
               alt={product.screenshots[0]?.title}
               className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
             />
-            <span className="text-6xl">📦</span>
           </div>
 
           {/* Screenshot Thumbnails */}
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
             {product.screenshots.map((screenshot, index) => (
               <div
                 key={index}
-                className="aspect-video bg-muted rounded-lg flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary overflow-hidden relative"
+                className="aspect-video bg-muted rounded-lg flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-primary overflow-hidden"
                 onClick={() => openLightbox(index)}
               >
                 <img
                   src={screenshot.url}
                   alt={screenshot.title}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
                 />
-                <span className="text-2xl">📷</span>
               </div>
             ))}
           </div>
