@@ -20,7 +20,7 @@ const products: Product[] = [
   {
     id: '1',
     name: 'DataQuery Pro',
-    description: '一个搜索框，秒级定位任意数据源',
+    description: '一个搜索框，秒级定位任意数据源中的数据资产',
     category: 'software',
     icon: '🔍',
   },
