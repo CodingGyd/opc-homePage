@@ -373,31 +373,23 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               </span>
               天然杜绝误操作风险。与传统数据库工具不同，我们从根本上限制写入权限——让您放心把工具交给任何需要查询数据的同事，再也不用担心数据被意外篡改或删除。
             </p>
-            <div className="mt-8 p-6 rounded-xl bg-muted/50 border">
-              <h3 className="text-lg font-bold mb-4 text-foreground">
-                核心理念
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="group p-4 rounded-lg bg-violet-100 dark:bg-violet-950/50 border border-violet-200 dark:border-violet-800 hover:shadow-md hover:border-violet-400 dark:hover:border-violet-600 transition-all">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-2xl">🎯</span>
-                    <span className="font-bold text-violet-600 dark:text-violet-400">统一</span>
-                  </div>
-                  <p className="text-sm text-foreground/80">一个入口，接入任意数据源</p>
+            <div className="mt-10 pt-8 border-t">
+              <h3 className="text-xl font-bold mb-6 text-center">核心理念</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="group p-5 rounded-xl bg-violet-50 dark:bg-violet-950/30 border border-violet-200 dark:border-violet-800/50 hover:shadow-lg hover:border-violet-300 dark:hover:border-violet-700 transition-all text-center">
+                  <span className="text-4xl block mb-3">🎯</span>
+                  <h4 className="font-bold text-lg text-violet-700 dark:text-violet-400 mb-2">统一</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">一个入口，接入任意数据源</p>
                 </div>
-                <div className="group p-4 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 hover:shadow-md hover:border-emerald-400 dark:hover:border-emerald-600 transition-all">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-2xl">⚡</span>
-                    <span className="font-bold text-emerald-600 dark:text-emerald-400">简单</span>
-                  </div>
-                  <p className="text-sm text-foreground/80">像搜索引擎一样易用</p>
+                <div className="group p-5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700 transition-all text-center">
+                  <span className="text-4xl block mb-3">⚡</span>
+                  <h4 className="font-bold text-lg text-emerald-700 dark:text-emerald-400 mb-2">简单</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">像搜索引擎一样易用</p>
                 </div>
-                <div className="group p-4 rounded-lg bg-amber-100 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 hover:shadow-md hover:border-amber-400 dark:hover:border-amber-600 transition-all">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-2xl">🔒</span>
-                    <span className="font-bold text-amber-600 dark:text-amber-400">安全</span>
-                  </div>
-                  <p className="text-sm text-foreground/80">只读模式，数据不出本地</p>
+                <div className="group p-5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-700 transition-all text-center">
+                  <span className="text-4xl block mb-3">🔒</span>
+                  <h4 className="font-bold text-lg text-amber-700 dark:text-amber-400 mb-2">安全</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">只读模式，数据不出本地</p>
                 </div>
               </div>
             </div>
