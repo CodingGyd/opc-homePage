@@ -56,7 +56,7 @@ const demoProducts: Record<string, Product> = {
       '安全可靠：Ed25519 数字签名验证，严格只读模式',
     ],
     demo_url: '',
-    website_url: 'https://github.com/CodingGyd/data-query-tool',
+    website_url: '',
     video_url: '',
     latest_version: 'v0.1.0',
     downloads: [
@@ -114,7 +114,7 @@ const demoProducts: Record<string, Product> = {
       '离线使用',
     ],
     demo_url: '',
-    website_url: 'https://github.com/opcstudio/devtools-suite',
+    website_url: '',
     video_url: '',
     latest_version: 'v1.0.0',
     downloads: [
@@ -323,14 +323,6 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               </a>
             )}
 
-            {product.website_url && (
-              <a href={product.website_url} target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" className="gap-2">
-                  <ExternalLink className="w-4 h-4" />
-                  GitHub
-                </Button>
-              </a>
-            )}
           </div>
         </div>
       </div>
@@ -351,9 +343,63 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
       {/* Description */}
       <div className="mt-16">
         <h2 className="text-2xl font-bold mb-8">{t('detail.description')}</h2>
-        <div className="prose prose-lg max-w-none">
-          <p>{product.description}</p>
-        </div>
+        {product.id === '1' ? (
+          <div className="prose prose-lg max-w-none space-y-6">
+            <p className="text-lg leading-relaxed">
+              <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent font-semibold">
+                数据统一查询工具
+              </span>
+              是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。
+            </p>
+            <p className="text-lg leading-relaxed">
+              通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-400 font-medium">
+                MySQL
+              </span>
+              、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 text-red-400 font-medium">
+                Redis
+              </span>
+              、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gradient-to-r from-gray-500/20 to-slate-500/20 border border-gray-500/30 text-gray-300 font-medium">
+                Kafka
+              </span>
+              的接入，后续将持续扩展更多数据源类型。
+            </p>
+            <div className="mt-8 p-6 rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/50 border border-slate-700/50">
+              <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                核心理念
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="group p-4 rounded-lg bg-gradient-to-br from-violet-500/10 to-purple-500/10 border border-violet-500/20 hover:border-violet-500/40 transition-all">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🎯</span>
+                    <span className="font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">统一</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">一个入口，接入任意数据源</p>
+                </div>
+                <div className="group p-4 rounded-lg bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 hover:border-emerald-500/40 transition-all">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">⚡</span>
+                    <span className="font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">简单</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">像搜索引擎一样易用</p>
+                </div>
+                <div className="group p-4 rounded-lg bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 hover:border-amber-500/40 transition-all">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">🔒</span>
+                    <span className="font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">安全</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">只读模式，数据不出本地</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="prose prose-lg max-w-none">
+            <p>{product.description}</p>
+          </div>
+        )}
       </div>
 
       {/* Image Lightbox */}
