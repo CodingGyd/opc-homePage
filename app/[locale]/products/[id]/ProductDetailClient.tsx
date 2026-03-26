@@ -346,25 +346,32 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
         {product.id === '1' ? (
           <div className="prose prose-lg max-w-none space-y-6">
             <p className="text-lg leading-relaxed">
+              告别数据查询的繁琐！
               <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent font-semibold">
                 数据统一查询工具
               </span>
-              是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。
+              为产品、运营、开发、运维等每一位团队成员打造专属的数据检索入口。
             </p>
             <p className="text-lg leading-relaxed">
-              通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现
-              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-400 font-medium">
+              一个搜索框，秒级定位任意数据源中的数据资产。目前已支持
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-blue-100 dark:bg-blue-900/50 border border-blue-300 dark:border-blue-700 text-blue-600 dark:text-blue-400 font-medium">
                 MySQL
               </span>
               、
-              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 text-red-400 font-medium">
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 text-red-600 dark:text-red-400 font-medium">
                 Redis
               </span>
               、
-              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gradient-to-r from-gray-500/20 to-slate-500/20 border border-gray-500/30 text-gray-300 font-medium">
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium">
                 Kafka
               </span>
-              的接入，后续将持续扩展更多数据源类型。
+              ，更多数据源持续扩展中——无需切换工具，无需记忆复杂命令，让数据查询像搜索引擎一样简单。
+            </p>
+            <p className="text-lg leading-relaxed">
+              <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-green-100 dark:bg-green-900/50 border border-green-300 dark:border-green-700 text-green-600 dark:text-green-400 font-semibold">
+                只读查询
+              </span>
+              天然杜绝误操作风险。与传统数据库工具不同，我们从根本上限制写入权限——让您放心把工具交给任何需要查询数据的同事，再也不用担心数据被意外篡改或删除。
             </p>
             <div className="mt-8 p-6 rounded-xl bg-muted/50 border">
               <h3 className="text-lg font-bold mb-4 text-foreground">
