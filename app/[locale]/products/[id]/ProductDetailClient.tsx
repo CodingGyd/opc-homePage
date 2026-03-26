@@ -61,10 +61,17 @@ const demoProducts: Record<string, Product> = {
     latest_version: 'v0.1.0',
     downloads: [
       {
-        platform: 'Windows',
+        platform: 'Windows (exe)',
         version: '0.1.0',
         url: '/downloads/dataquery-tool-0.1.0-windows-x64.exe',
         size: '5.5 MB',
+        icon: '🪟',
+      },
+      {
+        platform: 'Windows (msi)',
+        version: '0.1.0',
+        url: '/downloads/dataquery-tool-0.1.0-windows-x64.msi',
+        size: '8 MB',
         icon: '🪟',
       },
     ],
