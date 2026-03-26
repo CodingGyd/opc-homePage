@@ -9,34 +9,39 @@ interface Product {
   name: string;
   short_description: string;
   category: string;
+  comingSoon?: boolean;
+  icon?: string;
 }
 
 // 产品数据
-const demoProducts: Product[] = [
+const products: Product[] = [
   {
     id: '1',
     name: 'DataQuery Pro',
     short_description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
     category: 'software',
-  },
-  {
-    id: '2',
-    name: 'DevTools Suite',
-    short_description: '开发者日常效率工具集',
-    category: 'software',
-  },
-  {
-    id: '3',
-    name: 'CloudDev Studio',
-    short_description: 'AI 驱动的在线开发环境',
-    category: 'saas',
+    icon: '🔍',
   },
 ];
 
-const categories = [
-  { key: 'all', label: { en: 'All', zh: '全部' } },
-  { key: 'software', label: { en: 'Software', zh: '软件' } },
-  { key: 'saas', label: { en: 'SaaS', zh: 'SaaS' } },
+// 即将推出的产品
+const comingSoonProducts: Product[] = [
+  {
+    id: '',
+    name: '小程序工具',
+    short_description: '微信小程序开发工具与服务',
+    category: 'miniprogram',
+    comingSoon: true,
+    icon: '📱',
+  },
+  {
+    id: '',
+    name: 'SaaS 平台',
+    short_description: '云端服务，随时随地访问',
+    category: 'saas',
+    comingSoon: true,
+    icon: '☁️',
+  },
 ];
 
 export default async function ProductsPage({
@@ -61,26 +66,14 @@ function ProductsList({ locale }: { locale: string }) {
         <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
       </div>
 
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {categories.map((cat) => (
-          <Link
-            key={cat.key}
-            href={`/${locale}/products${cat.key === 'all' ? '' : `?category=${cat.key}`}`}
-            className="px-4 py-2 rounded-full text-sm font-medium bg-muted hover:bg-muted/80 transition-colors"
-          >
-            {cat.label[locale as 'en' | 'zh']}
-          </Link>
-        ))}
-      </div>
-
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {demoProducts.map((product) => (
+        {/* 真实产品 */}
+        {products.map((product) => (
           <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
             <CardHeader>
               <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-4xl">📦</span>
+                <span className="text-4xl">{product.icon || '📦'}</span>
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
@@ -100,6 +93,33 @@ function ProductsList({ locale }: { locale: string }) {
                   {locale === 'en' ? 'Learn More' : '了解更多'}
                 </Button>
               </Link>
+            </CardContent>
+          </Card>
+        ))}
+
+        {/* 即将推出 */}
+        {comingSoonProducts.map((product, index) => (
+          <Card key={index} className="group relative overflow-hidden opacity-75 hover:opacity-100 transition-all">
+            <CardHeader>
+              <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
+                <span className="text-4xl">{product.icon}</span>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
+                  {locale === 'en' ? 'Coming Soon' : '即将推出'}
+                </span>
+              </div>
+              <CardTitle className="text-muted-foreground">
+                {product.name}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground/70 line-clamp-2 mb-4">
+                {product.short_description}
+              </p>
+              <Button size="sm" className="w-full" disabled>
+                {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+              </Button>
             </CardContent>
           </Card>
         ))}
