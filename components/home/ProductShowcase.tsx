@@ -12,27 +12,17 @@ interface Product {
   name: string;
   description: string;
   category: string;
+  icon?: string;
 }
 
 // 产品展示数据
-const demoProducts: Product[] = [
+const products: Product[] = [
   {
     id: '1',
-    name: '数据统一查询工具',
-    description: '通用数据源接入工具，一个入口统一管理多种数据源（目前已支持 MySQL、Redis、Kafka）',
+    name: 'DataQuery Pro',
+    description: '一个搜索框，秒级定位任意数据源',
     category: 'software',
-  },
-  {
-    id: '2',
-    name: 'DevTools Suite',
-    description: '开发者日常效率工具集',
-    category: 'software',
-  },
-  {
-    id: '3',
-    name: 'CloudDev Studio',
-    description: 'AI 驱动的在线开发环境',
-    category: 'saas',
+    icon: '🔍',
   },
 ];
 
@@ -64,11 +54,12 @@ export function ProductShowcase() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {demoProducts.map((product) => (
+          {/* 真实产品 */}
+          {products.map((product) => (
             <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader>
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                  <span className="text-4xl">📦</span>
+                  <span className="text-4xl">{product.icon || '📦'}</span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
@@ -91,6 +82,55 @@ export function ProductShowcase() {
               </CardContent>
             </Card>
           ))}
+
+          {/* 即将推出占位 */}
+          <Card className="group relative overflow-hidden opacity-60 hover:opacity-80 transition-all border-dashed">
+            <CardHeader>
+              <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
+                <span className="text-4xl">📱</span>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
+                  {locale === 'en' ? 'Coming Soon' : '即将推出'}
+                </span>
+              </div>
+              <CardTitle className="text-muted-foreground">
+                {locale === 'en' ? 'Mini Program' : '小程序工具'}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground/70 line-clamp-2 mb-4">
+                {locale === 'en' ? 'WeChat mini program development tools' : '微信小程序开发工具与服务'}
+              </p>
+              <Button size="sm" className="w-full" disabled>
+                {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="group relative overflow-hidden opacity-60 hover:opacity-80 transition-all border-dashed">
+            <CardHeader>
+              <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
+                <span className="text-4xl">☁️</span>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
+                  {locale === 'en' ? 'Coming Soon' : '即将推出'}
+                </span>
+              </div>
+              <CardTitle className="text-muted-foreground">
+                {locale === 'en' ? 'SaaS Platform' : 'SaaS 平台'}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground/70 line-clamp-2 mb-4">
+                {locale === 'en' ? 'Cloud services, access anywhere' : '云端服务，随时随地访问'}
+              </p>
+              <Button size="sm" className="w-full" disabled>
+                {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+              </Button>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Product Notice */}

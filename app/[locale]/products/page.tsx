@@ -18,7 +18,7 @@ const products: Product[] = [
   {
     id: '1',
     name: 'DataQuery Pro',
-    short_description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
+    short_description: '一个搜索框，秒级定位任意数据源',
     category: 'software',
     icon: '🔍',
   },
