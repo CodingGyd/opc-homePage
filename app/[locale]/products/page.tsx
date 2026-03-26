@@ -11,6 +11,7 @@ interface Product {
   category: string;
   comingSoon?: boolean;
   icon?: string;
+  image?: string;
 }
 
 // 产品数据
@@ -20,7 +21,7 @@ const products: Product[] = [
     name: 'DataQuery Pro',
     short_description: '一个搜索框，秒级定位任意数据源',
     category: 'software',
-    icon: '🔍',
+    image: '/opc-homePage/images/products/dataquery/home.png',
   },
 ];
 
@@ -72,8 +73,12 @@ function ProductsList({ locale }: { locale: string }) {
         {products.map((product) => (
           <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
             <CardHeader>
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-4xl">{product.icon || '📦'}</span>
+              <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                {product.image ? (
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-4xl">{product.icon || '📦'}</span>
+                )}
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
