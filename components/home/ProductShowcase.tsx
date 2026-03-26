@@ -95,7 +95,7 @@ export function ProductShowcase() {
                 </span>
               </div>
               <CardTitle className="text-muted-foreground">
-                {locale === 'en' ? 'Mini Program' : '小程序工具'}
+                {locale === 'en' ? 'Mini Program' : '小程序'}
               </CardTitle>
             </CardHeader>
             <CardContent>
