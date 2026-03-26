@@ -427,16 +427,12 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
           </button>
 
           <div className="max-w-5xl max-h-[80vh] px-12" onClick={(e) => e.stopPropagation()}>
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg aspect-video flex items-center justify-center">
+            <div className="rounded-lg overflow-hidden">
               <img
                 src={product.screenshots[selectedImage]?.url}
                 alt={product.screenshots[selectedImage]?.title}
-                className="max-w-full max-h-[70vh] object-contain rounded-lg"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
+                className="max-w-full max-h-[70vh] object-contain rounded-lg mx-auto"
               />
-              <span className="text-6xl">📷</span>
             </div>
             <div className="text-center mt-4 text-white">
               <h3 className="text-lg font-semibold">{product.screenshots[selectedImage]?.title}</h3>
