@@ -366,31 +366,31 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               </span>
               的接入，后续将持续扩展更多数据源类型。
             </p>
-            <div className="mt-8 p-6 rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/50 border border-slate-700/50">
-              <h3 className="text-lg font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+            <div className="mt-8 p-6 rounded-xl bg-muted/50 border">
+              <h3 className="text-lg font-bold mb-4 text-foreground">
                 核心理念
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="group p-4 rounded-lg bg-gradient-to-br from-violet-500/10 to-purple-500/10 border border-violet-500/20 hover:border-violet-500/40 transition-all">
+                <div className="group p-4 rounded-lg bg-violet-100 dark:bg-violet-950/50 border border-violet-200 dark:border-violet-800 hover:shadow-md hover:border-violet-400 dark:hover:border-violet-600 transition-all">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-2xl">🎯</span>
-                    <span className="font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">统一</span>
+                    <span className="font-bold text-violet-600 dark:text-violet-400">统一</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">一个入口，接入任意数据源</p>
+                  <p className="text-sm text-foreground/80">一个入口，接入任意数据源</p>
                 </div>
-                <div className="group p-4 rounded-lg bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 hover:border-emerald-500/40 transition-all">
+                <div className="group p-4 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 hover:shadow-md hover:border-emerald-400 dark:hover:border-emerald-600 transition-all">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-2xl">⚡</span>
-                    <span className="font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">简单</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">简单</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">像搜索引擎一样易用</p>
+                  <p className="text-sm text-foreground/80">像搜索引擎一样易用</p>
                 </div>
-                <div className="group p-4 rounded-lg bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20 hover:border-amber-500/40 transition-all">
+                <div className="group p-4 rounded-lg bg-amber-100 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 hover:shadow-md hover:border-amber-400 dark:hover:border-amber-600 transition-all">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-2xl">🔒</span>
-                    <span className="font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">安全</span>
+                    <span className="font-bold text-amber-600 dark:text-amber-400">安全</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">只读模式，数据不出本地</p>
+                  <p className="text-sm text-foreground/80">只读模式，数据不出本地</p>
                 </div>
               </div>
             </div>
