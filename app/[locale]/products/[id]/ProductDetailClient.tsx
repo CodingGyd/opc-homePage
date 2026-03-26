@@ -63,14 +63,14 @@ const demoProducts: Record<string, Product> = {
       {
         platform: 'Windows (exe)',
         version: '0.1.0',
-        url: '/downloads/dataquery-tool-0.1.0-windows-x64.exe',
+        url: '/opc-homePage/downloads/dataquery-tool-0.1.0-windows-x64.exe',
         size: '5.5 MB',
         icon: '🪟',
       },
       {
         platform: 'Windows (msi)',
         version: '0.1.0',
-        url: '/downloads/dataquery-tool-0.1.0-windows-x64.msi',
+        url: '/opc-homePage/downloads/dataquery-tool-0.1.0-windows-x64.msi',
         size: '8 MB',
         icon: '🪟',
       },
