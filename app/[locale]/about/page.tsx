@@ -60,7 +60,7 @@ function AboutContent() {
               OPC 是 One Person Company 的缩写，意为"一人公司"。作为独立开发者，我热衷于打造实用的软件产品。
             </p>
             <p>
-              这里的每款产品都凝聚了大量心血——从构思、开发、测试到打磨，每一个环节我都亲力亲为。我为每一行代码感到自豪。
+              这里的每款产品都凝聚了大量心血——从构思、开发、测试到打磨，每一个环节我都亲力亲为。我为每一个功能感到自豪。
             </p>
             <p className="text-center font-medium text-foreground pt-4 border-t">
               感谢您的关注与支持！如有任何问题或建议，欢迎随时联系我。
