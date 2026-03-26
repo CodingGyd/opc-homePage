@@ -394,10 +394,28 @@ export default function DownloadPageClient({
               {locale === 'en' ? 'Download Tips' : '下载提示'}
             </h3>
             <ul className="text-sm text-muted-foreground space-y-2">
-              <li>• {locale === 'en' ? 'Choose the right version for your system' : '选择适合您系统的版本'}</li>
+              <li>• {locale === 'en' ? 'EXE version is recommended for better install experience' : '推荐下载 EXE 版本，安装体验更好'}</li>
+              <li>• {locale === 'en' ? 'MSI version is suitable for enterprise deployment' : 'MSI 版本适合企业批量部署'}</li>
               <li>• {locale === 'en' ? 'Download failed? Contact QQ: 2307990428' : '下载失败请联系客服 QQ: 2307990428'}</li>
               <li>• {locale === 'en' ? 'Supporters get free lifetime updates' : '成为支持者，享受后续免费更新'}</li>
             </ul>
+          </div>
+
+          {/* SmartScreen Warning */}
+          <div className="p-4 rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800">
+            <div className="flex items-start gap-3">
+              <span className="text-xl">⚠️</span>
+              <div>
+                <h3 className="font-semibold text-amber-800 dark:text-amber-200 mb-1">
+                  {locale === 'en' ? 'Windows SmartScreen Warning' : 'Windows 安全警告说明'}
+                </h3>
+                <p className="text-sm text-amber-700 dark:text-amber-300">
+                  {locale === 'en'
+                    ? 'The app is not code-signed, so Windows may show a SmartScreen warning. Click "More info" → "Run anyway" to proceed. The app is completely safe.'
+                    : '由于应用未经商业代码签名，Windows 可能会弹出 SmartScreen 警告。请点击"更多信息"→"仍要运行"即可正常安装。软件绝对安全，请放心使用。'}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Supporter */}
