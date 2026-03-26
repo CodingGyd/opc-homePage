@@ -77,32 +77,32 @@ const demoProducts: Record<string, Product> = {
     ],
     screenshots: [
       {
-        url: '/opc-homePage/images/products/dataquery/home.png',
+        url: '/opc-homePage/images/products/dataquery/home.webp',
         title: '首页',
         description: '简洁直观的首页设计',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/search.png',
+        url: '/opc-homePage/images/products/dataquery/search.webp',
         title: '聚合搜索',
         description: '一个搜索框，跨数据源检索',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/mysql.png',
+        url: '/opc-homePage/images/products/dataquery/mysql.webp',
         title: 'MySQL 工作台',
         description: 'MySQL 数据库查询与管理',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/redis.png',
+        url: '/opc-homePage/images/products/dataquery/redis.webp',
         title: 'Redis 工作台',
         description: 'Redis 键值浏览与管理',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/kafka.png',
+        url: '/opc-homePage/images/products/dataquery/kafka.webp',
         title: 'Kafka 工作台',
         description: 'Kafka 消息浏览与查看',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/datasource.png',
+        url: '/opc-homePage/images/products/dataquery/datasource.webp',
         title: '数据源管理',
         description: '统一管理所有数据源连接',
       },

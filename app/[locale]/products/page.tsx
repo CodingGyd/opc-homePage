@@ -21,7 +21,7 @@ const products: Product[] = [
     name: 'DataQuery Pro',
     short_description: '一个搜索框，秒级定位任意数据源',
     category: 'software',
-    image: '/opc-homePage/images/products/dataquery/home.png',
+    image: '/opc-homePage/images/products/dataquery/home.webp',
   },
 ];
 

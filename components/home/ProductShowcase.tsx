@@ -23,7 +23,7 @@ const products: Product[] = [
     name: 'DataQuery Pro',
     description: '一个搜索框，秒级定位任意数据源中的数据资产',
     category: 'software',
-    image: '/opc-homePage/images/products/dataquery/home.png',
+    image: '/opc-homePage/images/products/dataquery/home.webp',
   },
 ];
 
