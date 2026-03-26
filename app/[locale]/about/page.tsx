@@ -37,32 +37,36 @@ function AboutContent() {
 
       {/* Story Section */}
       <section className="max-w-3xl mx-auto mb-16">
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <h2 className="text-2xl font-bold mb-4">{t('story.title')}</h2>
-          <p className="text-muted-foreground leading-relaxed">
-            {locale === 'en' ? (
-              <>
-                OPC (One Person Company) represents a new paradigm in software development. As an independent developer,
-                I believe in creating products that are thoughtfully designed, well-crafted, and directly supported by
-                the person who built them.
-                <br /><br />
-                Every product you see here is the result of countless hours of development, testing, and refinement.
-                I take pride in every line of code and every feature I ship.
-                <br /><br />
-                When you use OPC products, you&apos;re not just getting software – you&apos;re getting a commitment to quality
-                and direct access to someone who truly cares about your experience.
-              </>
-            ) : (
-              <>
-                OPC 是 One Person Company 的缩写，意为"一人公司"。作为独立开发者，我热衷于打造实用的软件产品。
-                <br /><br />
-                这里的每款产品都凝聚了大量心血——从构思、开发、测试到打磨，每一个环节我都亲力亲为。我为每一行代码感到自豪。
-                <br /><br />
-                感谢您的关注与支持！如有任何问题或建议，欢迎随时联系我。
-              </>
-            )}
-          </p>
-        </div>
+        <h2 className="text-2xl font-bold mb-8 text-center">{t('story.title')}</h2>
+        {locale === 'en' ? (
+          <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
+            <p>
+              OPC (One Person Company) represents a new paradigm in software development. As an independent developer,
+              I believe in creating products that are thoughtfully designed, well-crafted, and directly supported by
+              the person who built them.
+            </p>
+            <p>
+              Every product you see here is the result of countless hours of development, testing, and refinement.
+              I take pride in every line of code and every feature I ship.
+            </p>
+            <p>
+              When you use OPC products, you&apos;re not just getting software – you&apos;re getting a commitment to quality
+              and direct access to someone who truly cares about your experience.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
+            <p className="first-letter:text-4xl first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-2">
+              OPC 是 One Person Company 的缩写，意为"一人公司"。作为独立开发者，我热衷于打造实用的软件产品。
+            </p>
+            <p>
+              这里的每款产品都凝聚了大量心血——从构思、开发、测试到打磨，每一个环节我都亲力亲为。我为每一行代码感到自豪。
+            </p>
+            <p className="text-center font-medium text-foreground pt-4 border-t">
+              感谢您的关注与支持！如有任何问题或建议，欢迎随时联系我。
+            </p>
+          </div>
+        )}
       </section>
 
       {/* Values Section */}
