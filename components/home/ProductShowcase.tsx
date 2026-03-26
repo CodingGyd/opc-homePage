@@ -130,12 +130,12 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'Free to Use' : '免费使用'}
+                  {locale === 'en' ? 'Early Adopter Privilege' : '早期用户特权'}
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   {locale === 'en'
-                    ? 'All products are free during the early access period. Download and try them out!'
-                    : '早期阶段所有产品免费开放，欢迎下载体验！'}
+                    ? 'Become a founding supporter and enjoy lifetime benefits as products evolve!'
+                    : '成为早期精神股东，享受产品成长过程中的专属权益与优先支持！'}
                 </p>
               </div>
             </div>
