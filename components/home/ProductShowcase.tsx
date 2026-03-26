@@ -100,7 +100,7 @@ export function ProductShowcase() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground/70 line-clamp-2 mb-4">
-                {locale === 'en' ? 'WeChat mini program development tools' : '微信小程序开发工具与服务'}
+                {locale === 'en' ? 'WeChat mini program development tools' : '微信小程序开发'}
               </p>
               <Button size="sm" className="w-full" disabled>
                 {locale === 'en' ? 'Coming Soon' : '敬请期待'}

@@ -29,7 +29,7 @@ const comingSoonProducts: Product[] = [
   {
     id: '',
     name: '小程序',
-    short_description: '微信小程序开发工具与服务',
+    short_description: '微信小程序开发',
     category: 'miniprogram',
     comingSoon: true,
     icon: '📱',
