@@ -18,8 +18,8 @@ interface Product {
 const demoProducts: Product[] = [
   {
     id: '1',
-    name: 'DataQuery Pro',
-    description: '跨平台数据库查询工具，支持 MySQL、Redis 和 Kafka',
+    name: '数据统一查询工具',
+    description: '通用数据源接入工具，一个入口统一管理多种数据源（目前已支持 MySQL、Redis、Kafka）',
     category: 'software',
   },
   {
