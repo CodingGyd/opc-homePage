@@ -79,8 +79,7 @@
     "contact": {
       "title": "联系方式",
       "email": "邮箱",
-      "twitter": "Twitter",
-      "github": "GitHub"
+      "twitter": "Twitter"
     }
   },
   "footer": {

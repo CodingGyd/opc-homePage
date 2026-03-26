@@ -75,11 +75,6 @@ export function Footer() {
                   2307990428@qq.com
                 </a>
               </li>
-              <li>
-                <a href="https://github.com/opcstudio" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
-                  GitHub
-                </a>
-              </li>
             </ul>
           </div>
         </div>
