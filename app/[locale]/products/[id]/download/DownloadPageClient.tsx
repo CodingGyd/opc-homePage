@@ -40,9 +40,29 @@ const products: Record<string, Product> = {
     id: '1',
     name: 'DataWhere',
     description: '一个搜索框，搜遍你所有的数据',
-    latest_version: 'v0.1.0',
-    releaseDate: '2026-03-24',
+    latest_version: 'v1.0.0',
+    releaseDate: '2026-03-27',
     releaseNotes: [
+      {
+        version: 'v1.0.0',
+        date: '2026-03-27',
+        notes: [
+          '首个正式发布版本',
+          '统一搜索：跨 MySQL、Redis、Kafka 的元数据全文搜索，一个搜索框直达目标',
+          '支持按数据源类型、对象类型、连接实例进行精准筛选',
+          '数据源管理：数据源增删改查，支持导入/导出配置',
+          '连接测试与版本自动探测',
+          '环境标签管理（生产、测试、开发），快速区分不同环境',
+          'MySQL 工作台：SQL 查询执行（仅限 SELECT / SHOW / DESC / EXPLAIN），数据库、表结构浏览',
+          'Redis 工作台：Key 模式扫描与模糊搜索，各数据类型 Value 读取，过期 Key 自动清理',
+          'Kafka 工作台：Topic / Partition 列表浏览，消息拉取与查看，消息一键复制',
+          '元数据同步：全量/增量同步，支持定时自动同步，同步进度实时展示，支持暂停/恢复/取消',
+          '离线激活，设备绑定',
+          '系统托盘最小化，单实例运行',
+          '中英双语界面',
+          '支持平台：Windows 10+、macOS 10.15+、Linux',
+        ],
+      },
       {
         version: 'v0.1.0',
         date: '2026-03-24',
@@ -64,24 +84,90 @@ const products: Record<string, Product> = {
     downloads: [
       {
         platform: 'Windows',
-        arch: 'exe',
-        version: '0.1.0',
-        url: assetPath('/downloads/dataquery-tool-0.1.0-windows-x64.exe'),
-        size: '5.5 MB',
+        arch: 'exe (64-bit)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere-1.0.0_x64-setup.exe'),
+        size: '5.6 MB',
         icon: '🪟',
-        requirements: 'Windows 10/11 (64-bit)',
-        releaseDate: '2026-03-26',
+        requirements: 'Windows 10+ (64-bit)',
+        releaseDate: '2026-03-27',
         status: 'stable',
       },
       {
         platform: 'Windows',
-        arch: 'msi',
-        version: '0.1.0',
-        url: assetPath('/downloads/dataquery-tool-0.1.0-windows-x64.msi'),
-        size: '8 MB',
+        arch: 'msi (64-bit)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere-1.0.0_x64_zh-CN.msi'),
+        size: '8.1 MB',
         icon: '🪟',
-        requirements: 'Windows 10/11 (64-bit)',
-        releaseDate: '2026-03-26',
+        requirements: 'Windows 10+ (64-bit)',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+      },
+      {
+        platform: 'Windows',
+        arch: 'exe (32-bit)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere-1.0.0_x86-setup.exe'),
+        size: '5.0 MB',
+        icon: '🪟',
+        requirements: 'Windows 10+ (32-bit)',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+      },
+      {
+        platform: 'Windows',
+        arch: 'msi (32-bit)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere-1.0.0_x86_zh-CN.msi'),
+        size: '7.2 MB',
+        icon: '🪟',
+        requirements: 'Windows 10+ (32-bit)',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+      },
+      {
+        platform: 'macOS',
+        arch: 'Universal',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere-1.0.0_universal.dmg'),
+        size: '17.1 MB',
+        icon: '🍎',
+        requirements: 'macOS 10.15+',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+      },
+      {
+        platform: 'Linux',
+        arch: 'deb (amd64)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere_1.0.0_amd64.deb'),
+        size: '10.1 MB',
+        icon: '🐧',
+        requirements: 'Debian/Ubuntu',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+      },
+      {
+        platform: 'Linux',
+        arch: 'rpm (x86_64)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere-1.0.0-1.x86_64.rpm'),
+        size: '10.1 MB',
+        icon: '🐧',
+        requirements: 'RHEL/CentOS/Fedora',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+      },
+      {
+        platform: 'Linux',
+        arch: 'AppImage (amd64)',
+        version: '1.0.0',
+        url: assetPath('/downloads/DataWhere_1.0.0_amd64.AppImage'),
+        size: '83.3 MB',
+        icon: '🐧',
+        requirements: '通用 Linux 发行版',
+        releaseDate: '2026-03-27',
         status: 'stable',
       },
     ],
@@ -258,71 +344,77 @@ export default function DownloadPageClient({
             ))}
           </div>
 
-          {/* Download Cards */}
-          <div className="space-y-4">
-            {filteredDownloads.map((download, index) => (
-              <div
-                key={index}
-                className={`p-6 rounded-xl border bg-card hover:border-primary/50 transition-all group ${
-                  download.status === 'experimental' ? 'border-orange-200 bg-orange-50/30' : ''
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <span className="text-4xl">{download.icon}</span>
+          {/* Download Cards - grouped by platform */}
+          <div className="space-y-8">
+            {(() => {
+              const platformOrder = ['Windows', 'macOS', 'Linux'];
+              const platformDownloads = selectedPlatform === 'all'
+                ? platformOrder.map((p) => ({
+                    platform: p,
+                    icon: p === 'Windows' ? '🪟' : p === 'macOS' ? '🍎' : '🐧',
+                    items: product.downloads.filter((d) => d.platform === p),
+                  }))
+                : [{
+                    platform: selectedPlatform,
+                    icon: selectedPlatform === 'Windows' ? '🪟' : selectedPlatform === 'macOS' ? '🍎' : '🐧',
+                    items: filteredDownloads,
+                  }];
 
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-semibold text-lg">{download.platform}</h3>
-                      {download.arch && (
-                        <span className="px-2 py-0.5 text-xs rounded bg-muted">{download.arch}</span>
-                      )}
-                      {download.status === 'stable' ? (
-                        <span className="px-2 py-0.5 text-xs rounded bg-green-100 text-green-700">
-                          {locale === 'en' ? 'Stable' : '稳定版'}
-                        </span>
-                      ) : (
-                        <span className="px-2 py-0.5 text-xs rounded bg-orange-100 text-orange-700">
-                          {locale === 'en' ? 'Experimental' : '实验版'}
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-sm text-muted-foreground space-x-3">
-                      <span>v{download.version}</span>
-                      <span>·</span>
-                      <span>{download.size}</span>
-                      {download.requirements && (
-                        <>
-                          <span>·</span>
-                          <span>{download.requirements}</span>
-                        </>
-                      )}
-                    </div>
+              return platformDownloads.map((group) => (
+                <div key={group.platform} className="rounded-xl border bg-card overflow-hidden">
+                  <div className="p-5 border-b bg-muted/30 flex items-center gap-3">
+                    <span className="text-2xl">{group.icon}</span>
+                    <h3 className="font-semibold text-lg">{group.platform}</h3>
+                    <span className="text-xs text-muted-foreground">
+                      {group.items.length} {locale === 'en' ? 'files available' : '个安装包'}
+                    </span>
                   </div>
-
-                  <a href={download.url} download>
-                    <Button
-                      className={`gap-2 group-hover:shadow-lg transition-shadow ${
-                        download.status === 'experimental' ? 'bg-orange-600 hover:bg-orange-700' : ''
-                      }`}
-                    >
-                      <Download className="w-4 h-4" />
-                      {locale === 'en' ? 'Download' : '下载'}
-                    </Button>
-                  </a>
+                  <div className="p-4 space-y-3">
+                    {group.items.map((download, index) => (
+                      <a
+                        key={index}
+                        href={download.url}
+                        download
+                        className={`flex items-center gap-4 p-3 rounded-lg transition-colors hover:bg-muted/50 group ${
+                          download.status === 'experimental' ? 'border border-orange-200 bg-orange-50/30' : ''
+                        }`}
+                      >
+                        <div className={`flex-1 min-w-0 ${download.status === 'experimental' ? 'pl-2' : ''}`}>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium">{download.arch}</span>
+                            <span className="text-xs text-muted-foreground">v{download.version}</span>
+                            {download.status === 'stable' ? (
+                              <span className="px-1.5 py-0.5 text-[10px] rounded bg-green-100 text-green-700">
+                                {locale === 'en' ? 'Stable' : '稳定版'}
+                              </span>
+                            ) : (
+                              <span className="px-1.5 py-0.5 text-[10px] rounded bg-orange-100 text-orange-700">
+                                {locale === 'en' ? 'Experimental' : '实验版'}
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-0.5">
+                            {download.size}
+                            {download.requirements && (
+                              <span> · {download.requirements}</span>
+                            )}
+                          </div>
+                        </div>
+                        <Button
+                          size="sm"
+                          className={`gap-1.5 ${
+                            download.status === 'experimental' ? 'bg-orange-600 hover:bg-orange-700' : ''
+                          }`}
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          {locale === 'en' ? 'Download' : '下载'}
+                        </Button>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-
-                {/* Experimental warning */}
-                {download.status === 'experimental' && (
-                  <div className="mt-4 p-3 rounded-lg bg-orange-100/50 border border-orange-200">
-                    <p className="text-sm text-orange-800">
-                      ⚠️ {locale === 'en'
-                        ? 'This version has not been fully tested. Stability is not guaranteed. If you encounter issues, please contact support.'
-                        : '此版本未经过完整测试，不保证稳定使用。如遇问题请联系客服反馈。'}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
+              ));
+            })()}
           </div>
 
           {/* Release Notes */}
@@ -395,8 +487,10 @@ export default function DownloadPageClient({
               {locale === 'en' ? 'Download Tips' : '下载提示'}
             </h3>
             <ul className="text-sm text-muted-foreground space-y-2">
-              <li>• {locale === 'en' ? 'EXE version is recommended for better install experience' : '推荐下载 EXE 版本，安装体验更好'}</li>
-              <li>• {locale === 'en' ? 'MSI version is suitable for enterprise deployment' : 'MSI 版本适合企业批量部署'}</li>
+              <li>• {locale === 'en' ? 'Windows: EXE is recommended for better install experience' : 'Windows：推荐下载 EXE 版本，安装体验更好'}</li>
+              <li>• {locale === 'en' ? 'Windows: MSI is suitable for enterprise deployment' : 'Windows：MSI 版本适合企业批量部署'}</li>
+              <li>• {locale === 'en' ? 'macOS: Download DMG and drag to Applications' : 'macOS：下载 DMG 后拖入应用程序文件夹即可'}</li>
+              <li>• {locale === 'en' ? 'Linux: deb/rpm for package managers, AppImage for portable use' : 'Linux：deb/rpm 适用于包管理器，AppImage 可直接运行'}</li>
               <li>• {locale === 'en' ? 'Download failed? Contact QQ: 2307990428' : '下载失败请联系客服 QQ: 2307990428'}</li>
               <li>• {locale === 'en' ? 'Supporters get free lifetime updates' : '成为支持者，享受后续免费更新'}</li>
             </ul>
