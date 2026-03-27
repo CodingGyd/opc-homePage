@@ -14,8 +14,8 @@ export const metadata = {
   title: 'OPC - 一人公司',
   description: '用热情和专注打造优质软件产品',
   icons: {
-    icon: '/opc-homePage/icon.svg',
-    apple: '/opc-homePage/icon.svg',
+    icon: '/icon.svg',
+    apple: '/icon.svg',
   },
 };
 

@@ -17,7 +17,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              {locale === 'en' ? 'One Person Company - Building quality software' : '一人公司 - 打造优质软件'}
+              {locale === 'en' ? 'One Person Company - Building quality products' : '一人公司 - 打造优质产品'}
             </p>
           </div>
 
