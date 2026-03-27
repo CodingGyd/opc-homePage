@@ -44,6 +44,7 @@ const demoProducts: Record<string, Product> = {
     description: 'DataWhere是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、Redis、Kafka 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。',
     short_description: '一个搜索框，搜遍你所有的数据',
     category: 'software',
+    video_url: assetPath('/video/products/datawhere/promo.mp4'),
     features: [
       '通用数据源接入：插件化架构，持续扩展更多数据源类型',
       '已支持 MySQL 5.6.x ~ 8.4.x：数据库浏览、只读 SQL 查询',
@@ -58,7 +59,6 @@ const demoProducts: Record<string, Product> = {
     ],
     demo_url: '',
     website_url: '',
-    video_url: '',
     latest_version: 'v0.1.0',
     downloads: [
       {
@@ -251,16 +251,27 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left: Product Screenshots */}
         <div>
-          {/* Main Screenshot */}
-          <div
-            className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 cursor-pointer hover:ring-2 hover:ring-primary transition-all overflow-hidden"
-            onClick={() => openLightbox(0)}
-          >
-            <img
-              src={product.screenshots[0]?.url}
-              alt={product.screenshots[0]?.title}
-              className="w-full h-full object-cover"
-            />
+          {/* Main Screenshot / Video */}
+          <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 overflow-hidden">
+            {product.video_url ? (
+              <video
+                src={product.video_url}
+                controls
+                preload="metadata"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div
+                className="w-full h-full cursor-pointer hover:ring-2 hover:ring-primary transition-all"
+                onClick={() => openLightbox(0)}
+              >
+                <img
+                  src={product.screenshots[0]?.url}
+                  alt={product.screenshots[0]?.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
 
           {/* Screenshot Thumbnails */}

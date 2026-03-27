@@ -15,6 +15,7 @@ interface Product {
   category: string;
   icon?: string;
   image?: string;
+  video?: string;
 }
 
 // 产品展示数据
@@ -25,6 +26,7 @@ const products: Product[] = [
     description: '一个搜索框，搜遍你所有的数据',
     category: 'software',
     image: assetPath('/images/products/dataquery/home.webp'),
+    video: assetPath('/video/products/datawhere/promo-muted.mp4'),
   },
 ];
 
@@ -61,7 +63,16 @@ export function ProductShowcase() {
             <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader>
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                  {product.image ? (
+                  {product.video ? (
+                    <video
+                      src={product.video}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : product.image ? (
                     <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                   ) : (
                     <span className="text-4xl">{product.icon || '📦'}</span>
