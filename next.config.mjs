@@ -7,8 +7,8 @@ const nextConfig = {
   // 静态导出配置
   output: 'export',
 
-  // GitHub Pages 基础路径（仓库名）
-  basePath: '/opc-homePage',
+  // 自定义域名 opclite.com，无需 basePath
+  // basePath: '/opc-homePage',
 
   // 确保目录结构正确（/zh/ 而不是 /zh.html）
   trailingSlash: true,
