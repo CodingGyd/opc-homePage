@@ -348,7 +348,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
         {product.id === '1' ? (
           <div className="prose prose-lg max-w-none space-y-6">
             <p className="text-lg leading-relaxed">
-              告别数据查询切换不同工具的繁琐
+              告别数据查询切换不同工具的繁琐！
               <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent font-semibold">
                 数据统一查询工具
               </span>
