@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Download, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
+import { assetPath } from '@/lib/utils';
 
 interface DownloadItem {
   platform: string;
@@ -65,7 +66,7 @@ const products: Record<string, Product> = {
         platform: 'Windows',
         arch: 'exe',
         version: '0.1.0',
-        url: '/opc-homePage/downloads/dataquery-tool-0.1.0-windows-x64.exe',
+        url: assetPath('/downloads/dataquery-tool-0.1.0-windows-x64.exe'),
         size: '5.5 MB',
         icon: '🪟',
         requirements: 'Windows 10/11 (64-bit)',
@@ -76,7 +77,7 @@ const products: Record<string, Product> = {
         platform: 'Windows',
         arch: 'msi',
         version: '0.1.0',
-        url: '/opc-homePage/downloads/dataquery-tool-0.1.0-windows-x64.msi',
+        url: assetPath('/downloads/dataquery-tool-0.1.0-windows-x64.msi'),
         size: '8 MB',
         icon: '🪟',
         requirements: 'Windows 10/11 (64-bit)',
@@ -155,11 +156,11 @@ const products: Record<string, Product> = {
 const sponsorInfo = {
   alipay: {
     name: '支付宝',
-    qrCode: '/opc-homePage/images/sponsor/alipay.png',
+    qrCode: assetPath('/images/sponsor/alipay.png'),
   },
   wechat: {
     name: '微信支付',
-    qrCode: '/opc-homePage/images/sponsor/wechat-pay.png',
+    qrCode: assetPath('/images/sponsor/wechat-pay.png'),
   },
   registerFormUrl: 'https://my.feishu.cn/share/base/form/shrcnj9KL4CDSbHZIEXKr4WR08e',
 };

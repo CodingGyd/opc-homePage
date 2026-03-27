@@ -3,6 +3,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Gift, MessageSquare, Rocket, ExternalLink } from 'lucide-react';
+import { assetPath } from '@/lib/utils';
 
 // 飞书表单链接配置
 const FEEDBACK_FORM_URL = 'https://my.feishu.cn/share/base/form/shrcnZWJTCblyIq5rjC4Ms8sqrg';
@@ -23,7 +24,7 @@ const products: Product[] = [
     name: 'DataWhere',
     description: '一个搜索框，秒级定位任意数据源中的数据资产',
     category: 'software',
-    image: '/opc-homePage/images/products/dataquery/home.webp',
+    image: assetPath('/images/products/dataquery/home.webp'),
   },
 ];
 

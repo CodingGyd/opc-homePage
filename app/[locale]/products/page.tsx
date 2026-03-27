@@ -3,6 +3,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { assetPath } from '@/lib/utils';
 
 interface Product {
   id: string;
@@ -21,7 +22,7 @@ const products: Product[] = [
     name: 'DataWhere',
     short_description: '一个搜索框，秒级定位任意数据源',
     category: 'software',
-    image: '/opc-homePage/images/products/dataquery/home.webp',
+    image: assetPath('/images/products/dataquery/home.webp'),
   },
 ];
 

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Check, ExternalLink, Play, X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import { assetPath } from '@/lib/utils';
 
 interface Screenshot {
   url: string;
@@ -63,46 +64,46 @@ const demoProducts: Record<string, Product> = {
       {
         platform: 'Windows (exe)',
         version: '0.1.0',
-        url: '/opc-homePage/downloads/dataquery-tool-0.1.0-windows-x64.exe',
+        url: assetPath('/downloads/dataquery-tool-0.1.0-windows-x64.exe'),
         size: '5.5 MB',
         icon: '🪟',
       },
       {
         platform: 'Windows (msi)',
         version: '0.1.0',
-        url: '/opc-homePage/downloads/dataquery-tool-0.1.0-windows-x64.msi',
+        url: assetPath('/downloads/dataquery-tool-0.1.0-windows-x64.msi'),
         size: '8 MB',
         icon: '🪟',
       },
     ],
     screenshots: [
       {
-        url: '/opc-homePage/images/products/dataquery/home.webp',
+        url: assetPath('/images/products/dataquery/home.webp'),
         title: '首页',
         description: '简洁直观的首页设计',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/search.webp',
+        url: assetPath('/images/products/dataquery/search.webp'),
         title: '聚合搜索',
         description: '一个搜索框，跨数据源检索',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/mysql.webp',
+        url: assetPath('/images/products/dataquery/mysql.webp'),
         title: 'MySQL 工作台',
         description: 'MySQL 数据库查询与管理',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/redis.webp',
+        url: assetPath('/images/products/dataquery/redis.webp'),
         title: 'Redis 工作台',
         description: 'Redis 键值浏览与管理',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/kafka.webp',
+        url: assetPath('/images/products/dataquery/kafka.webp'),
         title: 'Kafka 工作台',
         description: 'Kafka 消息浏览与查看',
       },
       {
-        url: '/opc-homePage/images/products/dataquery/datasource.webp',
+        url: assetPath('/images/products/dataquery/datasource.webp'),
         title: '数据源管理',
         description: '统一管理所有数据源连接',
       },
@@ -152,12 +153,12 @@ const demoProducts: Record<string, Product> = {
     ],
     screenshots: [
       {
-        url: '/opc-homePage/images/products/devtools/main.svg',
+        url: assetPath('/images/products/devtools/main.svg'),
         title: '工具集主界面',
         description: '所有工具一目了然',
       },
       {
-        url: '/opc-homePage/images/products/devtools/json.svg',
+        url: assetPath('/images/products/devtools/json.svg'),
         title: 'JSON 工具',
         description: 'JSON 格式化与验证',
       },
@@ -186,12 +187,12 @@ const demoProducts: Record<string, Product> = {
     downloads: [],
     screenshots: [
       {
-        url: '/opc-homePage/images/products/clouddev/ide.svg',
+        url: assetPath('/images/products/clouddev/ide.svg'),
         title: '在线 IDE',
         description: '功能完整的在线代码编辑器',
       },
       {
-        url: '/opc-homePage/images/products/clouddev/ai.svg',
+        url: assetPath('/images/products/clouddev/ai.svg'),
         title: 'AI 助手',
         description: '智能代码补全与建议',
       },
