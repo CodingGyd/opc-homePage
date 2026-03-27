@@ -5,33 +5,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, Gift, MessageSquare, Rocket, ExternalLink } from 'lucide-react';
 import { assetPath } from '@/lib/utils';
 
-// 飞书表单链接配置
 const FEEDBACK_FORM_URL = 'https://my.feishu.cn/share/base/form/shrcnZWJTCblyIq5rjC4Ms8sqrg';
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  icon?: string;
-  image?: string;
-  video?: string;
-}
-
-// 产品展示数据
-const products: Product[] = [
+// Non-translatable product config (media, category, etc.)
+const productConfigs = [
   {
     id: '1',
-    name: 'DataWhere',
-    description: '一个搜索框，搜遍你所有的数据',
     category: 'software',
     image: assetPath('/images/products/dataquery/home.webp'),
     video: assetPath('/video/products/datawhere/promo-muted.mp4'),
   },
   {
     id: '4',
-    name: '摸鱼表格',
-    description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
     category: 'game',
     image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
     icon: '🐟',
@@ -40,6 +25,7 @@ const products: Product[] = [
 
 export function ProductShowcase() {
   const t = useTranslations('products');
+  const tc = useTranslations('common');
   const locale = useLocale();
 
   return (
@@ -48,67 +34,65 @@ export function ProductShowcase() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              {locale === 'en' ? 'Featured Products' : '精选产品'}
+              {t('showcase.title')}
             </h2>
             <p className="text-sm text-amber-600 dark:text-amber-400 mb-3">
-              🚀 {locale === 'en' ? 'Early Exploration Stage' : '早期探索阶段'} · {locale === 'en' ? 'Actively iterating and improving' : '积极迭代优化中'}
+              🚀 {t('showcase.badge')} · {t('showcase.badge_desc')}
             </p>
             <p className="text-lg text-muted-foreground">
-              {locale === 'en' ? 'Explore my most popular products' : '探索我最受欢迎的产品'}
+              {t('showcase.subtitle')}
             </p>
           </div>
           <Link href={`/${locale}/products`} className="mt-4 md:mt-0">
             <Button variant="outline" className="gap-2">
-              {locale === 'en' ? 'View All' : '查看全部'}
+              {t('showcase.view_all')}
               <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* 真实产品 */}
-          {products.map((product) => (
-            <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
+          {productConfigs.map((config) => (
+            <Card key={config.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader>
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                  {product.video ? (
+                  {config.video ? (
                     <video
-                      src={product.video}
+                      src={config.video}
                       muted
                       autoPlay
                       loop
                       playsInline
                       className="w-full h-full object-cover"
                     />
-                  ) : product.image ? (
-                    <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                  ) : config.image ? (
+                    <img src={config.image} alt={t(`data.${config.id}.name`)} className="w-full h-full object-cover" />
                   ) : (
-                    <span className="text-4xl">{product.icon || '📦'}</span>
+                    <span className="text-4xl">{config.icon || '📦'}</span>
                   )}
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
-                    {t(`category.${product.category}`)}
+                    {t(`category.${config.category}`)}
                   </span>
                 </div>
                 <CardTitle className="group-hover:text-primary transition-colors">
-                  {product.name}
+                  {t(`data.${config.id}.name`)}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground line-clamp-2 mb-4">
-                  {product.description}
+                  {t(`data.${config.id}.short_description`)}
                 </p>
-                <Link href={`/${locale}/products/${product.id}`} className="block">
+                <Link href={`/${locale}/products/${config.id}`} className="block">
                   <Button size="sm" className="w-full">
-                    {locale === 'en' ? 'Learn More' : '了解更多'}
+                    {t('showcase.learn_more')}
                   </Button>
                 </Link>
               </CardContent>
             </Card>
           ))}
 
-          {/* 即将推出占位 */}
           <Card className="group relative overflow-hidden opacity-60 hover:opacity-80 transition-all border-dashed">
             <CardHeader>
               <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
@@ -116,19 +100,19 @@ export function ProductShowcase() {
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
-                  {locale === 'en' ? 'Coming Soon' : '即将推出'}
+                  {t('showcase.coming_soon')}
                 </span>
               </div>
               <CardTitle className="text-muted-foreground">
-                {locale === 'en' ? 'Mini Program' : '小程序'}
+                {t('showcase.miniprogram')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground/70 line-clamp-2 mb-4">
-                {locale === 'en' ? 'WeChat mini program development tools' : '微信小程序开发'}
+                {t('showcase.miniprogram_desc')}
               </p>
               <Button size="sm" className="w-full" disabled>
-                {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+                {t('showcase.coming_soon_btn')}
               </Button>
             </CardContent>
           </Card>
@@ -140,19 +124,19 @@ export function ProductShowcase() {
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
-                  {locale === 'en' ? 'Coming Soon' : '即将推出'}
+                  {t('showcase.coming_soon')}
                 </span>
               </div>
               <CardTitle className="text-muted-foreground">
-                {locale === 'en' ? 'SaaS Platform' : 'SaaS 平台'}
+                {t('showcase.saas_platform')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground/70 line-clamp-2 mb-4">
-                {locale === 'en' ? 'Cloud services, access anywhere' : '云端服务，随时随地访问'}
+                {t('showcase.saas_platform_desc')}
               </p>
               <Button size="sm" className="w-full" disabled>
-                {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+                {t('showcase.coming_soon_btn')}
               </Button>
             </CardContent>
           </Card>
@@ -163,12 +147,10 @@ export function ProductShowcase() {
           <div className="text-center mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               <Rocket className="w-4 h-4" />
-              {locale === 'en' ? 'Early Access' : '早期探索阶段'}
+              {t('showcase.notice_badge')}
             </span>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              {locale === 'en'
-                ? 'All products are currently in the early exploration stage. We are actively iterating and improving. Thank you for your support and patience!'
-                : '所有产品目前均处于早期探索阶段，我正在积极迭代优化中。感谢您的支持与包容！'}
+              {t('showcase.notice_desc')}
             </p>
           </div>
 
@@ -179,12 +161,10 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'More Coming' : '持续迭代'}
+                  {t('showcase.iterate_title')}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {locale === 'en'
-                    ? 'New products and features are under development. Stay tuned for updates.'
-                    : '更多新产品和功能正在开发中，后续将陆续上架。'}
+                  {t('showcase.iterate_desc')}
                 </p>
               </div>
             </div>
@@ -195,12 +175,10 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'Early Adopter Privilege' : '早期用户特权'}
+                  {t('showcase.adopter_title')}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {locale === 'en'
-                    ? 'Become a founding supporter and enjoy lifetime benefits as products evolve!'
-                    : '成为早期精神股东，享受产品成长过程中的专属权益与优先支持！'}
+                  {t('showcase.adopter_desc')}
                 </p>
               </div>
             </div>
@@ -211,12 +189,10 @@ export function ProductShowcase() {
               </div>
               <div>
                 <h3 className="font-semibold mb-1">
-                  {locale === 'en' ? 'Need Your Help' : '需要您的帮助'}
+                  {t('showcase.feedback_title')}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {locale === 'en'
-                    ? 'Your feedback is invaluable. Help us build better products together!'
-                    : '您的使用反馈非常宝贵，帮助我打造更好的产品！'}
+                  {t('showcase.feedback_desc')}
                 </p>
               </div>
             </div>
@@ -224,14 +200,12 @@ export function ProductShowcase() {
 
           <div className="mt-6 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              {locale === 'en'
-                ? 'Have suggestions or found a bug? Submit via our feedback form.'
-                : '有建议或发现问题？通过反馈表单告诉我，支持上传截图。'}
+              {t('showcase.feedback_prompt')}
             </p>
             <a href={FEEDBACK_FORM_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="secondary" size="sm" className="gap-2">
                 <MessageSquare className="w-4 h-4" />
-                {locale === 'en' ? 'Submit Feedback' : '提交反馈'}
+                {t('showcase.feedback_btn')}
                 <ExternalLink className="w-3 h-3" />
               </Button>
             </a>

@@ -53,14 +53,133 @@
       "saas": "SaaS",
       "game": "游戏"
     },
-    "card": {
-      "view_details": "查看详情",
-      "get_it": "了解更多"
+    "showcase": {
+      "title": "精选产品",
+      "badge": "早期探索阶段",
+      "badge_desc": "积极迭代优化中",
+      "subtitle": "探索我最受欢迎的产品",
+      "view_all": "查看全部",
+      "learn_more": "了解更多",
+      "coming_soon": "即将推出",
+      "coming_soon_btn": "敬请期待",
+      "miniprogram": "小程序",
+      "miniprogram_desc": "微信小程序开发",
+      "saas_platform": "SaaS 平台",
+      "saas_platform_desc": "云端服务，随时随地访问",
+      "notice_badge": "早期探索阶段",
+      "notice_desc": "所有产品目前均处于早期探索阶段，我正在积极迭代优化中。感谢您的支持与包容！",
+      "iterate_title": "持续迭代",
+      "iterate_desc": "更多新产品和功能正在开发中，后续将陆续上架。",
+      "adopter_title": "早期用户特权",
+      "adopter_desc": "成为早期精神股东，享受产品成长过程中的专属权益与优先支持！",
+      "feedback_title": "需要您的帮助",
+      "feedback_desc": "您的使用反馈非常宝贵，帮助我打造更好的产品！",
+      "feedback_prompt": "有建议或发现问题？通过反馈表单告诉我，支持上传截图。",
+      "feedback_btn": "提交反馈"
+    },
+    "data": {
+      "1": {
+        "name": "DataWhere",
+        "short_description": "一个搜索框，搜遍你所有的数据",
+        "description": "DataWhere是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、Redis、Kafka 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。",
+        "features": [
+          "通用数据源接入：插件化架构，持续扩展更多数据源类型",
+          "已支持 MySQL 5.6.x ~ 8.4.x：数据库浏览、只读 SQL 查询",
+          "已支持 Redis 5.x ~ 7.x：Key 浏览和值查看",
+          "已支持 Kafka 2.8.x ~ 3.6.x：Topic 浏览和消息查看",
+          "全局搜索：一个搜索框，跨数据源类型、跨连接实例统一检索",
+          "数据源管理：统一管理所有数据源连接",
+          "元数据同步：自动同步数据源元数据到本地索引",
+          "跨平台支持：Windows、macOS、Linux",
+          "配置分享：支持复制分享数据源信息，新人入职即用",
+          "安全可靠：Ed25519 数字签名验证，严格只读模式"
+        ],
+        "screenshots": [
+          { "title": "首页", "description": "简洁直观的首页设计" },
+          { "title": "聚合搜索", "description": "一个搜索框，跨数据源检索" },
+          { "title": "MySQL 工作台", "description": "MySQL 数据库查询与管理" },
+          { "title": "Redis 工作台", "description": "Redis 键值浏览与管理" },
+          { "title": "Kafka 工作台", "description": "Kafka 消息浏览与查看" },
+          { "title": "数据源管理", "description": "统一管理所有数据源连接" }
+        ],
+        "rich": {
+          "intro": "告别数据查询切换不同工具的繁琐！",
+          "intro_highlight": "DataWhere",
+          "intro_desc": "为产品、运营、开发、运维等每一位团队成员打造专属的数据检索入口。",
+          "search_desc": "一个搜索框，秒级定位任意数据源中的数据资产。目前已支持",
+          "search_more": "，更多数据源持续扩展中——无需切换工具，无需记忆复杂命令，让数据查询像搜索引擎一样简单。",
+          "safety_badge": "只读查询",
+          "safety_desc": "天然杜绝误操作风险。与传统数据库工具不同，我们从根本上了限制写入权限——让您放心把工具交给任何需要查询数据的同事，再也不用担心数据被意外篡改或删除。",
+          "core_title": "核心理念",
+          "core_1_title": "统一",
+          "core_1_desc": "一个入口，接入任意数据源",
+          "core_2_title": "简单",
+          "core_2_desc": "像搜索引擎一样易用",
+          "core_3_title": "安全",
+          "core_3_desc": "只读模式，数据不出本地"
+        }
+      },
+      "2": {
+        "name": "DevTools Suite",
+        "short_description": "开发者日常效率工具集",
+        "description": "开发者日常必备工具集，包含 JSON 格式化、Base64 编码、正则测试、颜色选择器等实用工具。",
+        "features": [
+          "JSON 工具",
+          "编码工具",
+          "正则测试器",
+          "颜色选择器",
+          "代码美化",
+          "跨平台支持",
+          "离线使用"
+        ],
+        "screenshots": [
+          { "title": "工具集主界面", "description": "所有工具一目了然" },
+          { "title": "JSON 工具", "description": "JSON 格式化与验证" }
+        ]
+      },
+      "3": {
+        "name": "CloudDev Studio",
+        "short_description": "AI 驱动的在线开发环境",
+        "description": "AI 驱动的在线开发环境。随时随地编码，实时协作，一键部署。无需安装。",
+        "features": [
+          "AI 代码补全",
+          "云端 IDE",
+          "实时协作",
+          "Git 集成",
+          "实时预览",
+          "团队工作空间",
+          "一键部署",
+          "24/7 支持"
+        ],
+        "screenshots": [
+          { "title": "在线 IDE", "description": "功能完整的在线代码编辑器" },
+          { "title": "AI 助手", "description": "智能代码补全与建议" }
+        ]
+      },
+      "4": {
+        "name": "摸鱼表格",
+        "short_description": "伪装成 Excel 的摸鱼消除游戏，老板来了也不怕",
+        "description": "一款伪装成 WPS Excel 表格的摸鱼消除游戏。界面高度还原电子表格软件，支持亮色/暗色/简约三种主题，老板走近时完美伪装。在\"认真工作\"的同时，享受消除游戏的乐趣。",
+        "features": [
+          "完美伪装：高度还原 WPS Excel 界面",
+          "三种主题：亮色、暗色、简约模式自由切换",
+          "一键隐身：老板键快速切换伪装",
+          "消除玩法：经典三消，简单有趣",
+          "零成本：完全免费，无广告"
+        ],
+        "screenshots": [
+          { "title": "游戏主界面", "description": "伪装成 Excel 表格的消除游戏" }
+        ]
+      }
     },
     "detail": {
       "description": "产品描述",
       "features": "功能特性",
-      "demo": "在线演示"
+      "demo": "在线演示",
+      "watch_demo": "观看演示",
+      "download": "下载体验",
+      "play_now": "在线玩",
+      "try_online": "在线体验"
     }
   },
   "about": {

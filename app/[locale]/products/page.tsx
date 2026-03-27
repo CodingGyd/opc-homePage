@@ -5,53 +5,24 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { assetPath } from '@/lib/utils';
 
-interface Product {
-  id: string;
-  name: string;
-  short_description: string;
-  category: string;
-  comingSoon?: boolean;
-  icon?: string;
-  image?: string;
-}
-
-// 产品数据
-const products: Product[] = [
+// Non-translatable product config
+const productConfigs = [
   {
     id: '1',
-    name: 'DataWhere',
-    short_description: '一个搜索框，搜遍你所有的数据',
     category: 'software',
     image: assetPath('/images/products/dataquery/home.webp'),
   },
   {
     id: '4',
-    name: '摸鱼表格',
-    short_description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
     category: 'game',
     image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
     icon: '🐟',
   },
 ];
 
-// 即将推出的产品
-const comingSoonProducts: Product[] = [
-  {
-    id: '',
-    name: '小程序',
-    short_description: '微信小程序开发',
-    category: 'miniprogram',
-    comingSoon: true,
-    icon: '📱',
-  },
-  {
-    id: '',
-    name: 'SaaS 平台',
-    short_description: '云端服务，随时随地访问',
-    category: 'saas',
-    comingSoon: true,
-    icon: '☁️',
-  },
+const comingSoonConfigs = [
+  { icon: '📱', nameKey: 'showcase.miniprogram', descKey: 'showcase.miniprogram_desc' },
+  { icon: '☁️', nameKey: 'showcase.saas_platform', descKey: 'showcase.saas_platform_desc' },
 ];
 
 export default async function ProductsPage({
@@ -62,11 +33,12 @@ export default async function ProductsPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ProductsList locale={locale} />;
+  return <ProductsList />;
 }
 
-function ProductsList({ locale }: { locale: string }) {
+function ProductsList() {
   const t = useTranslations('products');
+  const locale = useLocale();
 
   return (
     <div className="container py-12">
@@ -78,61 +50,60 @@ function ProductsList({ locale }: { locale: string }) {
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* 真实产品 */}
-        {products.map((product) => (
-          <Card key={product.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
+        {productConfigs.map((config) => (
+          <Card key={config.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
             <CardHeader>
               <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                {product.image ? (
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                {config.image ? (
+                  <img src={config.image} alt={t(`data.${config.id}.name`)} className="w-full h-full object-cover" />
                 ) : (
-                  <span className="text-4xl">{product.icon || '📦'}</span>
+                  <span className="text-4xl">{config.icon || '📦'}</span>
                 )}
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
-                  {t(`category.${product.category}`)}
+                  {t(`category.${config.category}`)}
                 </span>
               </div>
               <CardTitle className="group-hover:text-primary transition-colors">
-                {product.name}
+                {t(`data.${config.id}.name`)}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground line-clamp-2 mb-4">
-                {product.short_description}
+                {t(`data.${config.id}.short_description`)}
               </p>
-              <Link href={`/${locale}/products/${product.id}`}>
+              <Link href={`/${locale}/products/${config.id}`}>
                 <Button size="sm" className="w-full">
-                  {locale === 'en' ? 'Learn More' : '了解更多'}
+                  {t('showcase.learn_more')}
                 </Button>
               </Link>
             </CardContent>
           </Card>
         ))}
 
-        {/* 即将推出 */}
-        {comingSoonProducts.map((product, index) => (
+        {/* Coming Soon */}
+        {comingSoonConfigs.map((config, index) => (
           <Card key={index} className="group relative overflow-hidden opacity-75 hover:opacity-100 transition-all">
             <CardHeader>
               <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-4xl">{product.icon}</span>
+                <span className="text-4xl">{config.icon}</span>
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
-                  {locale === 'en' ? 'Coming Soon' : '即将推出'}
+                  {t('showcase.coming_soon')}
                 </span>
               </div>
               <CardTitle className="text-muted-foreground">
-                {product.name}
+                {t(config.nameKey)}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground/70 line-clamp-2 mb-4">
-                {product.short_description}
+                {t(config.descKey)}
               </p>
               <Button size="sm" className="w-full" disabled>
-                {locale === 'en' ? 'Coming Soon' : '敬请期待'}
+                {t('showcase.coming_soon_btn')}
               </Button>
             </CardContent>
           </Card>

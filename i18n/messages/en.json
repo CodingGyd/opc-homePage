@@ -57,15 +57,133 @@
       "ebook": "E-Books",
       "other": "Other"
     },
-    "card": {
-      "view_details": "View Details",
-      "get_it": "Get It"
+    "showcase": {
+      "title": "Featured Products",
+      "badge": "Early Exploration Stage",
+      "badge_desc": "Actively iterating and improving",
+      "subtitle": "Explore my most popular products",
+      "view_all": "View All",
+      "learn_more": "Learn More",
+      "coming_soon": "Coming Soon",
+      "coming_soon_btn": "Coming Soon",
+      "miniprogram": "Mini Program",
+      "miniprogram_desc": "WeChat mini program development tools",
+      "saas_platform": "SaaS Platform",
+      "saas_platform_desc": "Cloud services, access anywhere",
+      "notice_badge": "Early Access",
+      "notice_desc": "All products are currently in the early exploration stage. We are actively iterating and improving. Thank you for your support and patience!",
+      "iterate_title": "More Coming",
+      "iterate_desc": "New products and features are under development. Stay tuned for updates.",
+      "adopter_title": "Early Adopter Privilege",
+      "adopter_desc": "Become a founding supporter and enjoy lifetime benefits as products evolve!",
+      "feedback_title": "Need Your Help",
+      "feedback_desc": "Your feedback is invaluable. Help us build better products together!",
+      "feedback_prompt": "Have suggestions or found a bug? Submit via our feedback form.",
+      "feedback_btn": "Submit Feedback"
+    },
+    "data": {
+      "1": {
+        "name": "DataWhere",
+        "short_description": "One search box, search through all your data",
+        "description": "DataWhere is a universal data source access platform, designed to be a unified data query entry. Through pluggable data source adapters, it supports connecting to various databases, caches, message queues, and more. Currently supports MySQL, Redis, and Kafka, with more data source types being added continuously. Core principles: Unified (one entry for any data source), Simple (as easy to use as a search engine), Secure (read-only mode, data stays local).",
+        "features": [
+          "Universal data source access: pluggable architecture, continuously expanding",
+          "MySQL 5.6.x ~ 8.4.x: database browsing, read-only SQL queries",
+          "Redis 5.x ~ 7.x: key browsing and value inspection",
+          "Kafka 2.8.x ~ 3.6.x: topic browsing and message viewing",
+          "Global search: one search box across data source types and instances",
+          "Data source management: unified management of all connections",
+          "Metadata sync: automatic sync of data source metadata to local index",
+          "Cross-platform: Windows, macOS, Linux",
+          "Config sharing: copy and share data source info for onboarding",
+          "Secure: Ed25519 digital signature verification, strict read-only mode"
+        ],
+        "screenshots": [
+          { "title": "Home", "description": "Clean and intuitive home design" },
+          { "title": "Global Search", "description": "One search box across data sources" },
+          { "title": "MySQL Workspace", "description": "MySQL database query and management" },
+          { "title": "Redis Workspace", "description": "Redis key-value browsing and management" },
+          { "title": "Kafka Workspace", "description": "Kafka message browsing and viewing" },
+          { "title": "Data Source Management", "description": "Unified management of all connections" }
+        ],
+        "rich": {
+          "intro": "Say goodbye to the hassle of switching tools for data queries!",
+          "intro_highlight": "DataWhere",
+          "intro_desc": "Building a dedicated data retrieval entry for every team member — product, operations, development, and DevOps.",
+          "search_desc": "One search box to instantly locate data assets across any data source. Currently supports",
+          "search_more": ", with more data sources being added — no tool switching, no complex commands, making data queries as simple as using a search engine.",
+          "safety_badge": "Read-Only Queries",
+          "safety_desc": "Naturally eliminates the risk of accidental operations. Unlike traditional database tools, we fundamentally restrict write permissions — so you can confidently hand the tool to any colleague who needs to query data, without worrying about accidental data modification or deletion.",
+          "core_title": "Core Principles",
+          "core_1_title": "Unified",
+          "core_1_desc": "One entry point for any data source",
+          "core_2_title": "Simple",
+          "core_2_desc": "As easy to use as a search engine",
+          "core_3_title": "Secure",
+          "core_3_desc": "Read-only mode, data stays local"
+        }
+      },
+      "2": {
+        "name": "DevTools Suite",
+        "short_description": "Daily efficiency toolkit for developers",
+        "description": "An essential developer toolkit featuring JSON formatting, Base64 encoding, regex testing, color picker, and more practical tools.",
+        "features": [
+          "JSON Tools",
+          "Encoding Tools",
+          "Regex Tester",
+          "Color Picker",
+          "Code Beautifier",
+          "Cross-platform Support",
+          "Offline Usage"
+        ],
+        "screenshots": [
+          { "title": "Toolkit Main Interface", "description": "All tools at a glance" },
+          { "title": "JSON Tool", "description": "JSON formatting and validation" }
+        ]
+      },
+      "3": {
+        "name": "CloudDev Studio",
+        "short_description": "AI-powered online development environment",
+        "description": "An AI-driven online development environment. Code anywhere, collaborate in real-time, deploy with one click. No installation required.",
+        "features": [
+          "AI Code Completion",
+          "Cloud IDE",
+          "Real-time Collaboration",
+          "Git Integration",
+          "Live Preview",
+          "Team Workspace",
+          "One-click Deploy",
+          "24/7 Support"
+        ],
+        "screenshots": [
+          { "title": "Online IDE", "description": "Full-featured online code editor" },
+          { "title": "AI Assistant", "description": "Intelligent code completion and suggestions" }
+        ]
+      },
+      "4": {
+        "name": "MoyuSpreadsheet",
+        "short_description": "A disguised spreadsheet game — perfect for slacking off at work",
+        "description": "A match-3 puzzle game disguised as a WPS Excel spreadsheet. The interface faithfully replicates spreadsheet software with light/dark/minimal themes, making it the perfect camouflage when the boss approaches. Enjoy a fun puzzle game while looking like you're hard at work.",
+        "features": [
+          "Perfect disguise: faithfully replicates WPS Excel interface",
+          "Three themes: light, dark, and minimal modes",
+          "Quick hide: boss key for instant camouflage switch",
+          "Match-3 gameplay: classic and simple puzzle fun",
+          "Zero cost: completely free, no ads"
+        ],
+        "screenshots": [
+          { "title": "Game Main Interface", "description": "A match-3 game disguised as a spreadsheet" }
+        ]
+      }
     },
     "detail": {
       "description": "Description",
       "features": "Features",
       "demo": "Live Demo",
-      "download": "Download"
+      "watch_demo": "Watch Demo",
+      "download": "Download",
+      "play_now": "Play Now",
+      "try_online": "Try Online"
     }
   },
   "about": {
