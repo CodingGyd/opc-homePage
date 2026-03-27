@@ -201,7 +201,7 @@ const demoProducts: Record<string, Product> = {
   '4': {
     id: '4',
     name: '摸鱼表格',
-    description: '一款伪装成 WPS Excel 表格的摸鱼消除游戏。界面高度还原电子表格软件，支持亮色/暗色/简约三种主题，老板走近时完美伪装。在"认真工作"的同时，享受消除游戏的乐趣。纯前端实现，无需安装，打开即玩。',
+    description: '一款伪装成 WPS Excel 表格的摸鱼消除游戏。界面高度还原电子表格软件，支持亮色/暗色/简约三种主题，老板走近时完美伪装。在"认真工作"的同时，享受消除游戏的乐趣。',
     short_description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
     category: 'game',
     features: [
@@ -209,7 +209,6 @@ const demoProducts: Record<string, Product> = {
       '三种主题：亮色、暗色、简约模式自由切换',
       '一键隐身：老板键快速切换伪装',
       '消除玩法：经典三消，简单有趣',
-      '纯前端：无需安装，浏览器打开即玩',
       '零成本：完全免费，无广告',
     ],
     demo_url: assetPath('/games/moyu-spreadsheet.html'),
