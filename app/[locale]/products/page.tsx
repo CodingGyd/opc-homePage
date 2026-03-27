@@ -18,7 +18,7 @@ interface Product {
 const products: Product[] = [
   {
     id: '1',
-    name: 'DataQuery Pro',
+    name: 'DataWhere',
     short_description: '一个搜索框，秒级定位任意数据源',
     category: 'software',
     image: '/opc-homePage/images/products/dataquery/home.webp',
