@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { locales } from '@/i18n/config';
+import { assetPath } from '@/lib/utils';
 import '../globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -14,8 +15,8 @@ export const metadata = {
   title: 'OPC - 一人公司',
   description: '用热情和专注打造优质软件产品',
   icons: {
-    icon: '/icon.svg',
-    apple: '/icon.svg',
+    icon: assetPath('/icon.svg'),
+    apple: assetPath('/icon.svg'),
   },
 };
 

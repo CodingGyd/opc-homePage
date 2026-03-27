@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Check, ExternalLink, Play, X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { assetPath } from '@/lib/utils';
 
 interface ScreenshotConfig {
@@ -157,6 +157,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
   const tc = useTranslations('common');
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [showVideo, setShowVideo] = useState(false);
+  const mainVideoRef = useRef<HTMLVideoElement>(null);
 
   const config = productConfigs[id] || productConfigs['1'];
   const isSoftware = config.category === 'software';
@@ -218,6 +219,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
           <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 overflow-hidden">
             {config.video_url ? (
               <video
+                ref={mainVideoRef}
                 src={config.video_url}
                 controls
                 preload="metadata"
@@ -274,7 +276,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 mb-8">
             {config.video_url && (
-              <Button className="gap-2" onClick={() => setShowVideo(true)}>
+              <Button className="gap-2" onClick={() => { mainVideoRef.current?.pause(); setShowVideo(true); }}>
                 <Play className="w-4 h-4" />
                 {t('detail.watch_demo')}
               </Button>
