@@ -217,7 +217,13 @@ const demoProducts: Record<string, Product> = {
     video_url: '',
     latest_version: 'v1.0.0',
     downloads: [],
-    screenshots: [],
+    screenshots: [
+      {
+        url: assetPath('/images/products/moyu-spreadsheet/home.webp'),
+        title: '游戏主界面',
+        description: '伪装成 Excel 表格的消除游戏',
+      },
+    ],
   },
 };
 

@@ -33,6 +33,7 @@ const products: Product[] = [
     name: '摸鱼表格',
     description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
     category: 'game',
+    image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
     icon: '🐟',
   },
 ];
