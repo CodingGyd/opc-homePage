@@ -7,8 +7,9 @@ const nextConfig = {
   // 静态导出配置
   output: 'export',
 
-  // 自定义域名 opclite.com，无需 basePath
-  // basePath: '/opc-homePage',
+  // 动态 basePath：GitHub Pages 需要，Cloudflare Pages 不需要
+  // 设置环境变量 BASE_PATH=/opc-homePage 启用
+  basePath: process.env.BASE_PATH || '',
 
   // 确保目录结构正确（/zh/ 而不是 /zh.html）
   trailingSlash: true,
