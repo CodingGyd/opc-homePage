@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q1 销售数据分析.xlsx - WPS Office</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23217346'/%3E%3Ctext x='6' y='24' font-size='22' font-family='Arial' font-weight='bold' fill='white'%3EX%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --title-bg: linear-gradient(135deg, #1a9f5c 0%, #217346 50%, #185a38 100%);
+  --title-bg-solid: #217346;
+  --title-color: #fff;
+  --menu-bg: rgba(243, 243, 243, 0.95);
+  --menu-color: #333;
+  --menu-hover-bg: rgba(33, 115, 70, 0.08);
+  --toolbar-bg: rgba(248, 248, 248, 0.98);
+  --toolbar-border: rgba(0,0,0,0.06);
+  --cell-border: rgba(0,0,0,0.06);
+  --cell-bg: #fff;
+  --cell-hover-bg: rgba(33, 115, 70, 0.06);
+  --grid-bg: #fff;
+  --header-bg: rgba(248, 248, 248, 0.9);
+  --header-color: #888;
+  --rownum-bg: rgba(248, 248, 248, 0.9);
+  --rownum-color: #aaa;
+  --formula-bg: #fff;
+  --status-bg: linear-gradient(135deg, #1a9f5c 0%, #217346 100%);
+  --status-color: rgba(255,255,255,0.9);
+  --text-primary: #1a1a2e;
+  --text-secondary: #666;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --shadow-glow: 0 0 20px rgba(33, 115, 70, 0.15);
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 20px;
+  --accent: #217346;
+  --accent-light: rgba(33, 115, 70, 0.1);
+}
+
+[data-theme="dark"] {
+  --title-bg: linear-gradient(135deg, #2d2d3d 0%, #1e1e2e 100%);
+  --title-bg-solid: #252535;
+  --title-color: rgba(255,255,255,0.9);
+  --menu-bg: rgba(45, 45, 65, 0.95);
+  --menu-color: rgba(224, 224, 224, 0.9);
+  --menu-hover-bg: rgba(255,255,255,0.06);
+  --toolbar-bg: rgba(35, 35, 55, 0.98);
+  --toolbar-border: rgba(255,255,255,0.06);
+  --cell-border: rgba(255,255,255,0.04);
+  --cell-bg: #1a1a2e;
+  --cell-hover-bg: rgba(79, 195, 247, 0.08);
+  --grid-bg: #16162a;
+  --header-bg: rgba(30, 30, 50, 0.9);
+  --header-color: rgba(153, 153, 153, 0.8);
+  --rownum-bg: rgba(30, 30, 50, 0.9);
+  --rownum-color: rgba(153, 153, 153, 0.6);
+  --formula-bg: #1a1a2e;
+  --status-bg: linear-gradient(135deg, #0a3d62 0%, #072a44 100%);
+  --status-color: rgba(224, 224, 224, 0.8);
+  --text-primary: rgba(224, 224, 224, 0.95);
+  --text-secondary: rgba(153, 153, 153, 0.8);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 20px rgba(79, 195, 247, 0.1);
+  --glass-bg: rgba(30, 30, 55, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent: #4fc3f7;
+  --accent-light: rgba(79, 195, 247, 0.1);
+}
+
+[data-theme="simple"] {
+  --title-bg: linear-gradient(135deg, #f8f9fa 0%, #f0f1f3 100%);
+  --title-bg-solid: #f3f3f3;
+  --title-color: #444;
+  --menu-bg: rgba(255, 255, 255, 0.98);
+  --menu-color: #444;
+  --menu-hover-bg: rgba(66, 133, 244, 0.06);
+  --toolbar-bg: rgba(255, 255, 255, 0.98);
+  --toolbar-border: rgba(0,0,0,0.04);
+  --cell-border: rgba(0,0,0,0.04);
+  --cell-bg: #fff;
+  --cell-hover-bg: rgba(66, 133, 244, 0.04);
+  --grid-bg: #fafbfc;
+  --header-bg: rgba(250, 251, 252, 0.95);
+  --header-color: #999;
+  --rownum-bg: rgba(250, 251, 252, 0.95);
+  --rownum-color: #bbb;
+  --formula-bg: #fff;
+  --status-bg: linear-gradient(135deg, #f0f1f3 0%, #e8eaed 100%);
+  --status-color: #666;
+  --text-primary: #333;
+  --text-secondary: #888;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.03);
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.08);
+  --shadow-glow: 0 0 20px rgba(66, 133, 244, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --accent: #4285f4;
+  --accent-light: rgba(66, 133, 244, 0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  font-size: 12px;
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--grid-bg);
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Title Bar === */
+.title-bar {
+  background: var(--title-bg);
+  color: var(--title-color);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+}
+.title-bar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+.title-bar .file-name {
+  margin-left: 10px;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+/* === Menu Bar === */
+.menu-bar {
+  background: var(--menu-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--toolbar-border);
+  display: flex;
+  padding: 0 6px;
+  flex-shrink: 0;
+  z-index: 9;
+}
+.menu-item {
+  padding: 5px 12px;
+  cursor: pointer;
+  color: var(--menu-color);
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: all var(--transition);
+}
+.menu-item:hover { background: var(--menu-hover-bg); }
+
+/* === Toolbar === */
+.toolbar {
+  background: var(--toolbar-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--toolbar-border);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.tool-btn {
+  width: 30px; height: 30px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.tool-btn:hover {
+  border-color: var(--toolbar-border);
+  background: var(--menu-hover-bg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.tool-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.tool-sep { width:1px; height:22px; background:var(--toolbar-border); margin:0 5px; }
+.tool-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 2px 6px;
+  font-weight: 500;
+}
+
+/* === Formula Bar === */
+.formula-bar {
+  background: var(--formula-bg);
+  border-bottom: 1px solid var(--toolbar-border);
+  display: flex;
+  align-items: center;
+  padding: 3px 6px;
+  flex-shrink: 0;
+  height: 30px;
+}
+.formula-bar .cell-ref {
+  width: 60px;
+  text-align: center;
+  border: 1px solid var(--toolbar-border);
+  height: 22px;
+  line-height: 22px;
+  margin-right: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+}
+.formula-bar .fx {
+  margin: 0 6px;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 13px;
+}
+.formula-bar .formula-input {
+  flex: 1;
+  border: 1px solid var(--toolbar-border);
+  height: 22px;
+  line-height: 22px;
+  padding: 0 8px;
+  font-size: 12px;
+  color: var(--text-primary);
+  background: var(--cell-bg);
+  border-radius: var(--radius-sm);
+}
+
+/* === Grid Area === */
+.grid-wrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Column Headers */
+.col-headers {
+  display: flex;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--cell-border);
+  flex-shrink: 0;
+  padding-left: 42px;
+}
+.col-header {
+  flex: 1;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--header-color);
+  border-right: 1px solid var(--cell-border);
+  min-width: 0;
+}
+
+/* Row numbers + Grid */
+.row-area {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+.row-numbers {
+  width: 42px;
+  flex-shrink: 0;
+  background: var(--rownum-bg);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid var(--cell-border);
+  display: flex;
+  flex-direction: column;
+}
+.row-num {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--rownum-color);
+  border-bottom: 1px solid var(--cell-border);
+  min-height: 0;
+}
+
+/* Game Grid */
+.game-grid {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+  padding: 2px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.02);
+  border-radius: 2px;
+}
+[data-theme="dark"] .game-grid {
+  background: rgba(255,255,255,0.02);
+}
+.cell {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+  overflow: hidden;
+  min-height: 0;
+  min-width: 0;
+  border-radius: 4px;
+}
+.cell:hover {
+  z-index: 1;
+}
+.cell.highlighted {
+  transform: scale(1.08);
+  z-index: 2;
+  filter: brightness(1.15);
+}
+.cell.highlighted .cell-block {
+  box-shadow: 0 0 12px rgba(255,255,255,0.4), inset 0 1px 2px rgba(255,255,255,0.3);
+}
+.cell.removing {
+  transform: scale(0) rotate(180deg);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.55, 0, 1, 0.45);
+}
+.cell.falling {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cell.empty-cell {
+  cursor: default;
+}
+.cell .cell-text {
+  font-size: 10px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+.cell.highlighted .cell-text {
+  opacity: 0.15;
+}
+.cell .cell-block {
+  position: absolute;
+  inset: 2px;
+  border-radius: 5px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  z-index: 1;
+}
+
+/* Block Colors - Modern Gradient Style */
+.block-0 {
+  background: linear-gradient(145deg, #ff6b6b 0%, #ee5a24 50%, #d63031 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.35), inset 0 -1px 2px rgba(0,0,0,0.15), 0 2px 4px rgba(214,48,49,0.2);
+}
+.block-1 {
+  background: linear-gradient(145deg, #74b9ff 0%, #0984e3 50%, #0652DD 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.35), inset 0 -1px 2px rgba(0,0,0,0.15), 0 2px 4px rgba(6,82,221,0.2);
+}
+.block-2 {
+  background: linear-gradient(145deg, #55efc4 0%, #00b894 50%, #00a86b 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.35), inset 0 -1px 2px rgba(0,0,0,0.15), 0 2px 4px rgba(0,168,107,0.2);
+}
+.block-3 {
+  background: linear-gradient(145deg, #ffeaa7 0%, #fdcb6e 50%, #f39c12 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.45), inset 0 -1px 2px rgba(0,0,0,0.1), 0 2px 4px rgba(243,156,18,0.2);
+}
+.block-4 {
+  background: linear-gradient(145deg, #d6a2e8 0%, #a55eea 50%, #8854d0 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.35), inset 0 -1px 2px rgba(0,0,0,0.15), 0 2px 4px rgba(136,84,208,0.2);
+}
+
+/* Cover cell colors (subtle) */
+.block-0.cover { background: linear-gradient(145deg, #fff5f5, #ffe0e0); }
+.block-1.cover { background: linear-gradient(145deg, #f0f7ff, #dbeafe); }
+.block-2.cover { background: linear-gradient(145deg, #f0fdf4, #dcfce7); }
+.block-3.cover { background: linear-gradient(145deg, #fffef5, #fef3c7); }
+.block-4.cover { background: linear-gradient(145deg, #faf5ff, #f3e8ff); }
+
+[data-theme="dark"] .block-0 {
+  background: linear-gradient(145deg, #e17055 0%, #d63031 50%, #c0392b 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(214,48,49,0.25);
+}
+[data-theme="dark"] .block-1 {
+  background: linear-gradient(145deg, #74b9ff 0%, #0984e3 50%, #2980b9 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(41,128,185,0.25);
+}
+[data-theme="dark"] .block-2 {
+  background: linear-gradient(145deg, #55efc4 0%, #00b894 50%, #27ae60 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(39,174,96,0.25);
+}
+[data-theme="dark"] .block-3 {
+  background: linear-gradient(145deg, #ffeaa7 0%, #fdcb6e 50%, #d4ac0d 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(212,172,13,0.25);
+}
+[data-theme="dark"] .block-4 {
+  background: linear-gradient(145deg, #d6a2e8 0%, #a55eea 50%, #8e44ad 100%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(142,68,173,0.25);
+}
+
+/* Particles - Enhanced */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100;
+  animation: particleFly 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  filter: blur(0.5px);
+}
+@keyframes particleFly {
+  0% { transform: translate(0,0) scale(1); opacity:1; }
+  50% { opacity: 0.8; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity:0; }
+}
+
+/* Combo - Modern Gradient Text */
+.combo-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #ff6b6b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 200;
+  pointer-events: none;
+  animation: comboAnim 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(255,107,107,0.3));
+}
+@keyframes comboAnim {
+  0% { transform: translate(-50%,-50%) scale(0.2) rotate(-5deg); opacity:0; }
+  25% { transform: translate(-50%,-50%) scale(1.25) rotate(2deg); opacity:1; }
+  40% { transform: translate(-50%,-50%) scale(1) rotate(0deg); opacity:1; }
+  100% { transform: translate(-50%,-65%) scale(0.9); opacity:0; }
+}
+
+/* Score popup - Modern style */
+.score-popup {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  pointer-events: none;
+  z-index: 150;
+  animation: scoreFloat 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.5);
+  padding: 2px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+@keyframes scoreFloat {
+  0% { transform: translateY(0) scale(0.5); opacity:0; }
+  15% { transform: translateY(-5px) scale(1.1); opacity:1; }
+  100% { transform: translateY(-45px) scale(0.9); opacity:0; }
+}
+
+/* Game Over Overlay - Glassmorphism */
+.game-over-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(24px) saturate(1.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  animation: overlayIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[data-theme="dark"] .game-over-overlay {
+  background: rgba(0,0,0,0.5);
+}
+@keyframes overlayIn {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to { opacity: 1; backdrop-filter: blur(24px) saturate(1.2); }
+}
+
+.game-over-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 48px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: cardIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+  max-width: 360px;
+  width: 90%;
+}
+@keyframes cardIn {
+  from { transform: translateY(20px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.game-over-overlay h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.game-over-overlay .final-score {
+  font-size: 56px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 12px 0;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.game-over-overlay .sub-text {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.game-over-overlay .btn-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.game-over-overlay .btn {
+  padding: 10px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--toolbar-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+}
+.game-over-overlay .btn:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(33, 115, 70, 0.3);
+}
+.game-over-overlay .btn:active {
+  transform: translateY(0);
+}
+.game-over-overlay .btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.game-over-overlay .btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 20px rgba(33, 115, 70, 0.4);
+}
+
+/* === Status Bar === */
+.status-bar {
+  background: var(--status-bg);
+  color: var(--status-color);
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 11px;
+  font-weight: 400;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 10;
+}
+.status-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+.status-bar .status-left { display:flex; align-items:center; gap:16px; }
+.status-bar .status-right { display:flex; align-items:center; gap:16px; }
+
+/* === Cover Mode === */
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--grid-bg);
+  z-index: 500;
+  display: none;
+  flex-direction: column;
+  overflow: auto;
+}
+.cover-overlay.active {
+  display: flex;
+  animation: fadeIn 0.25s ease;
+}
+
+.cover-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.cover-table th {
+  background: var(--header-bg);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  text-align: left;
+  border: 1px solid var(--cell-border);
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+}
+.cover-table td {
+  padding: 6px 14px;
+  border: 1px solid var(--cell-border);
+  color: var(--text-primary);
+  transition: background 0.15s;
+}
+.cover-table tr:hover td { background: var(--cell-hover-bg); }
+.cover-table tr:nth-child(even) td { background: var(--rownum-bg); }
+.cover-table tr:nth-child(even):hover td { background: var(--cell-hover-bg); }
+
+.cover-chart {
+  width: 220px;
+  height: 220px;
+  margin: 20px auto;
+  flex-shrink: 0;
+}
+
+/* === Settings Panel - Glassmorphism === */
+.settings-panel {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 300px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 400;
+  display: none;
+  overflow: hidden;
+}
+.settings-panel.active {
+  display: block;
+  animation: panelIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes panelIn {
+  from { transform: translateY(-10px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.settings-header {
+  background: var(--title-bg);
+  color: var(--title-color);
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: -0.01em;
+}
+.settings-header .close-btn {
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.7;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+.settings-header .close-btn:hover { opacity: 1; background: rgba(255,255,255,0.15); }
+
+.settings-body { padding: 16px; }
+.settings-section { margin-bottom: 16px; }
+.settings-section h4 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.settings-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+.settings-option:hover { background: var(--menu-hover-bg); }
+.settings-option input[type="radio"] { accent-color: var(--accent); }
+.settings-option.active { font-weight: 600; background: var(--accent-light); }
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--cell-border);
+}
+.leaderboard-table th, .leaderboard-table td {
+  padding: 6px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--cell-border);
+}
+.leaderboard-table th {
+  background: var(--header-bg);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.leaderboard-table tr:last-child td { border-bottom: none; }
+.leaderboard-table tbody tr {
+  transition: background var(--transition);
+}
+.leaderboard-table tbody tr:hover { background: var(--cell-hover-bg); }
+
+/* === Menu Dropdown - Glassmorphism === */
+.menu-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 600;
+  min-width: 180px;
+  display: none;
+  padding: 6px;
+  animation: dropIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes dropIn {
+  from { transform: translateY(-6px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.menu-dropdown.active { display: block; }
+.menu-dropdown-item {
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+.menu-dropdown-item:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.menu-dropdown-sep { height:1px; background:var(--toolbar-border); margin:4px 6px; border-radius: 1px; }
+
+/* Cell enter animation - Staggered spring */
+.cell.entering {
+  animation: cellEnter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes cellEnter {
+  from { transform: scale(0) rotate(10deg); opacity:0; }
+  to { transform: scale(1) rotate(0deg); opacity:1; }
+}
+
+/* Score bar in toolbar - Modern */
+.score-display {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 400;
+}
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.score-label {
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+.score-display .score-val {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  min-width: 30px;
+}
+
+/* Help hint - Modern pill */
+.help-hint {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 400;
+  z-index: 200;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  box-shadow: var(--shadow);
+}
+.help-hint.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+/* Settings footer */
+.settings-footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 11px;
+  padding: 4px 0;
+  line-height: 1.6;
+}
+.settings-footer .version {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.35); }
+
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+</style>
+</head>
+<body data-theme="classic">
+
+<!-- Title Bar -->
+<div class="title-bar">
+  <svg width="16" height="16" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#fff" opacity="0.9"/><text x="6" y="24" font-size="22" font-family="Arial" font-weight="bold" fill="#217346">X</text></svg>
+  <span class="file-name">Q1 销售数据分析.xlsx - WPS Office</span>
+</div>
+
+<!-- Menu Bar -->
+<div class="menu-bar" id="menuBar">
+  <div class="menu-item" data-menu="file">文件
+    <div class="menu-dropdown" id="menuFile">
+      <div class="menu-dropdown-item" onclick="startNewGame()">新建工作表</div>
+      <div class="menu-dropdown-sep"></div>
+      <div class="menu-dropdown-item" onclick="toggleCover()">切换视图</div>
+    </div>
+  </div>
+  <div class="menu-item" data-menu="start">开始
+    <div class="menu-dropdown" id="menuStart">
+      <div class="menu-dropdown-item" onclick="startNewGame()">新游戏</div>
+      <div class="menu-dropdown-item" onclick="restartGame()">重新开始</div>
+    </div>
+  </div>
+  <div class="menu-item" data-menu="insert">插入</div>
+  <div class="menu-item" data-menu="formula">公式</div>
+  <div class="menu-item" data-menu="data">数据</div>
+  <div class="menu-item" data-menu="tools">工具
+    <div class="menu-dropdown" id="menuTools">
+      <div class="menu-dropdown-item" onclick="openSettings()">选项</div>
+      <div class="menu-dropdown-sep"></div>
+      <div class="menu-dropdown-item" onclick="clearData()">清除数据</div>
+    </div>
+  </div>
+  <div class="menu-item" data-menu="help">帮助
+    <div class="menu-dropdown" id="menuHelp">
+      <div class="menu-dropdown-item" onclick="showHelp()">操作说明</div>
+      <div class="menu-dropdown-sep"></div>
+      <div class="menu-dropdown-item" onclick="openSettings()">关于</div>
+    </div>
+  </div>
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <button class="tool-btn" title="新建" onclick="startNewGame()">📄</button>
+  <button class="tool-btn" title="保存" onclick="saveGame()">💾</button>
+  <div class="tool-sep"></div>
+  <button class="tool-btn" title="撤销" onclick="undoAction()">↩️</button>
+  <button class="tool-btn" title="重做">↪️</button>
+  <div class="tool-sep"></div>
+  <button class="tool-btn" title="加粗">B</button>
+  <button class="tool-btn" title="斜体"><i>I</i></button>
+  <div class="tool-sep"></div>
+  <button class="tool-btn" title="左对齐">⫷</button>
+  <button class="tool-btn" title="居中">≡</button>
+  <button class="tool-btn" title="右对齐">⫸</button>
+  <div class="tool-sep"></div>
+  <span class="tool-label">主题:</span>
+  <button class="tool-btn" title="经典绿白" onclick="setTheme('classic')">🟢</button>
+  <button class="tool-btn" title="深色" onclick="setTheme('dark')">🌑</button>
+  <button class="tool-btn" title="简约" onclick="setTheme('simple')">☁️</button>
+  <div class="score-display">
+    <div class="score-item">
+      <span class="score-label">分数</span>
+      <span class="score-val" id="scoreDisplay">0</span>
+    </div>
+    <div class="score-item">
+      <span class="score-label">最高</span>
+      <span class="score-val" id="highScoreDisplay">0</span>
+    </div>
+  </div>
+</div>
+
+<!-- Formula Bar -->
+<div class="formula-bar">
+  <div class="cell-ref" id="cellRef">A1</div>
+  <span class="fx">fx</span>
+  <div class="formula-input" id="formulaInput">=SUM(B2:B13)</div>
+</div>
+
+<!-- Grid Area -->
+<div class="grid-wrapper" id="gridWrapper">
+  <!-- Column Headers -->
+  <div class="col-headers" id="colHeaders"></div>
+
+  <!-- Row numbers + Game Grid -->
+  <div class="row-area">
+    <div class="row-numbers" id="rowNumbers"></div>
+    <div class="game-grid" id="gameGrid"></div>
+  </div>
+
+  <!-- Cover Overlay -->
+  <div class="cover-overlay" id="coverOverlay">
+    <table class="cover-table" id="coverTable"></table>
+    <div class="cover-chart" id="coverChart"></div>
+  </div>
+
+  <!-- Game Over -->
+  <div class="game-over-overlay" id="gameOverOverlay" style="display:none">
+    <div class="game-over-card">
+      <h2>数据处理完成</h2>
+      <div class="final-score" id="finalScore">0</div>
+      <div class="sub-text">本次处理 <span id="finalCount">0</span> 条数据</div>
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="startNewGame()">开始新任务</button>
+        <button class="btn" onclick="closeGameOver()">查看报表</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help hint -->
+  <div class="help-hint" id="helpHint">点击 2 个及以上相邻同色方块即可消除 · 按 Esc 切换伪装</div>
+</div>
+
+<!-- Status Bar -->
+<div class="status-bar">
+  <div class="status-left">
+    <span id="sheetName">Sheet1</span>
+    <span id="statusText">就绪</span>
+  </div>
+  <div class="status-right">
+    <span id="processedCount">今日处理量：0 条数据</span>
+    <span>100%</span>
+  </div>
+</div>
+
+<!-- Settings Panel -->
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-header">
+    选项
+    <span class="close-btn" onclick="closeSettings()">✕</span>
+  </div>
+  <div class="settings-body">
+    <div class="settings-section">
+      <h4>主题</h4>
+      <label class="settings-option" data-theme-opt="classic">
+        <input type="radio" name="theme" value="classic"> 经典绿白
+      </label>
+      <label class="settings-option" data-theme-opt="dark">
+        <input type="radio" name="theme" value="dark"> 深色模式
+      </label>
+      <label class="settings-option" data-theme-opt="simple">
+        <input type="radio" name="theme" value="simple"> 简约灰色
+      </label>
+    </div>
+    <div class="settings-section">
+      <h4>网格大小</h4>
+      <label class="settings-option" data-grid-opt="8x6">
+        <input type="radio" name="grid" value="8x6"> 8 × 6（紧凑）
+      </label>
+      <label class="settings-option" data-grid-opt="10x8">
+        <input type="radio" name="grid" value="10x8"> 10 × 8（经典）
+      </label>
+      <label class="settings-option" data-grid-opt="12x10">
+        <input type="radio" name="grid" value="12x10"> 12 × 10（大棋盘）
+      </label>
+    </div>
+    <div class="settings-section">
+      <h4>排行榜</h4>
+      <table class="leaderboard-table" id="leaderboardTable">
+        <thead><tr><th>#</th><th>分数</th><th>时间</th></tr></thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+    </div>
+    <div class="settings-footer">
+      <span class="version">摸鱼表格 v2.0</span><br>上班摸鱼必备神器
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================
+// CONFIG
+// ============================================
+const GRID_CONFIGS = {
+  '8x6':  { cols: 8,  rows: 6 },
+  '10x8': { cols: 10, rows: 8 },
+  '12x10':{ cols: 12, rows: 10 }
+};
+
+const BLOCK_COLORS = ['#ee5a24','#0984e3','#00b894','#f39c12','#8854d0'];
+const BLOCK_GLOWS = ['rgba(238,90,36,0.5)','rgba(9,132,227,0.5)','rgba(0,184,148,0.5)','rgba(243,156,18,0.5)','rgba(136,84,208,0.5)'];
+const COVER_COLORS = ['#FDECEA','#EBF5FB','#EAFAF1','#FEF9E7','#F4ECF7'];
+const NUM_COLORS = 5;
+const CELL_TEXTS = [
+  '¥128,400','+12.3%','95.2%','3,842','¥76,500',
+  '+8.7%','88.4%','2,156','¥203,100','+15.6%',
+  '91.7%','5,231','¥45,800','+3.2%','97.8%','1,893',
+  '¥167,200','+11.9%','93.5%','4,107','¥92,600',
+  '+6.4%','89.1%','2,740','¥315,800','+18.2%'
+];
+
+const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const HEADERS = ['月份','销售额(万)','利润率','客户满意度','客户数'];
+
+// ============================================
+// STATE
+// ============================================
+let state = {
+  grid: [],
+  cols: 10,
+  rows: 8,
+  score: 0,
+  combo: 0,
+  totalEliminated: 0,
+  isAnimating: false,
+  isGameOver: false,
+  isCoverMode: false,
+  theme: 'classic',
+  gridKey: '10x8',
+  highScores: [],
+  totalProcessed: 0,
+  gamesPlayed: 0,
+  history: []
+};
+
+// ============================================
+// STORAGE
+// ============================================
+function loadState() {
+  try {
+    const saved = localStorage.getItem('moyu_table_state');
+    if (saved) {
+      const data = JSON.parse(saved);
+      state.highScores = data.highScores || [];
+      state.totalProcessed = data.totalProcessed || 0;
+      state.gamesPlayed = data.gamesPlayed || 0;
+      state.theme = data.theme || 'classic';
+      state.gridKey = data.gridKey || '10x8';
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    localStorage.setItem('moyu_table_state', JSON.stringify({
+      highScores: state.highScores,
+      totalProcessed: state.totalProcessed,
+      gamesPlayed: state.gamesPlayed,
+      theme: state.theme,
+      gridKey: state.gridKey
+    }));
+  } catch(e) {}
+}
+
+// ============================================
+// THEME
+// ============================================
+function setTheme(theme) {
+  state.theme = theme;
+  document.body.setAttribute('data-theme', theme);
+  document.querySelectorAll('[data-theme-opt]').forEach(el => {
+    el.classList.toggle('active', el.dataset.themeOpt === theme);
+    el.querySelector('input').checked = el.dataset.themeOpt === theme;
+  });
+  saveState();
+}
+
+// ============================================
+// GRID SIZE
+// ============================================
+function setGridSize(key) {
+  state.gridKey = key;
+  const cfg = GRID_CONFIGS[key];
+  state.cols = cfg.cols;
+  state.rows = cfg.rows;
+  document.querySelectorAll('[data-grid-opt]').forEach(el => {
+    el.classList.toggle('active', el.dataset.gridOpt === key);
+    el.querySelector('input').checked = el.dataset.gridOpt === key;
+  });
+  saveState();
+  startNewGame();
+}
+
+// ============================================
+// INIT GRID
+// ============================================
+function createGrid() {
+  state.grid = [];
+  for (let r = 0; r < state.rows; r++) {
+    const row = [];
+    for (let c = 0; c < state.cols; c++) {
+      row.push(Math.floor(Math.random() * NUM_COLORS));
+    }
+    state.grid.push(row);
+  }
+}
+
+// ============================================
+// RENDER
+// ============================================
+function renderGrid(animate) {
+  const grid = document.getElementById('gameGrid');
+  const colHeaders = document.getElementById('colHeaders');
+  const rowNumbers = document.getElementById('rowNumbers');
+
+  grid.innerHTML = '';
+  colHeaders.innerHTML = '';
+  rowNumbers.innerHTML = '';
+
+  grid.style.gridTemplateColumns = `repeat(${state.cols}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${state.rows}, 1fr)`;
+
+  // Column headers
+  for (let c = 0; c < state.cols; c++) {
+    const div = document.createElement('div');
+    div.className = 'col-header';
+    div.textContent = getColName(c);
+    colHeaders.appendChild(div);
+  }
+
+  // Row numbers
+  for (let r = 0; r < state.rows; r++) {
+    const div = document.createElement('div');
+    div.className = 'row-num';
+    div.textContent = r + 1;
+    rowNumbers.appendChild(div);
+  }
+
+  // Cells
+  for (let r = 0; r < state.rows; r++) {
+    for (let c = 0; c < state.cols; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      if (animate) {
+        cell.classList.add('entering');
+        cell.style.animationDelay = `${(r * state.cols + c) * 12}ms`;
+      }
+      cell.dataset.row = r;
+      cell.dataset.col = c;
+
+      const colorIdx = state.grid[r][c];
+      if (colorIdx >= 0) {
+        const block = document.createElement('div');
+        block.className = `cell-block block-${colorIdx}`;
+        cell.appendChild(block);
+
+        const text = document.createElement('span');
+        text.className = 'cell-text';
+        text.textContent = CELL_TEXTS[Math.floor(Math.random() * CELL_TEXTS.length)];
+        cell.appendChild(text);
+      } else {
+        cell.classList.add('empty-cell');
+      }
+
+      cell.addEventListener('click', () => onCellClick(r, c));
+      cell.addEventListener('mouseenter', () => onCellHover(r, c));
+      cell.addEventListener('mouseleave', () => clearHighlights());
+
+      grid.appendChild(cell);
+    }
+  }
+
+  updateScoreDisplay();
+  updateStatus();
+}
+
+function getColName(idx) {
+  let name = '';
+  while (idx >= 0) {
+    name = String.fromCharCode(65 + (idx % 26)) + name;
+    idx = Math.floor(idx / 26) - 1;
+  }
+  return name;
+}
+
+function getCellEl(r, c) {
+  const grid = document.getElementById('gameGrid');
+  return grid.children[r * state.cols + c];
+}
+
+// ============================================
+// HIGHLIGHT
+// ============================================
+function findGroup(r, c) {
+  const color = state.grid[r][c];
+  if (color < 0) return [];
+  const visited = new Set();
+  const group = [];
+  const queue = [[r, c]];
+  visited.add(`${r},${c}`);
+  while (queue.length > 0) {
+    const [cr, cc] = queue.shift();
+    group.push([cr, cc]);
+    for (const [dr, dc] of [[-1,0],[1,0],[0,-1],[0,1]]) {
+      const nr = cr + dr, nc = cc + dc;
+      const key = `${nr},${nc}`;
+      if (nr >= 0 && nr < state.rows && nc >= 0 && nc < state.cols &&
+          !visited.has(key) && state.grid[nr][nc] === color) {
+        visited.add(key);
+        queue.push([nr, nc]);
+      }
+    }
+  }
+  return group;
+}
+
+function onCellHover(r, c) {
+  if (state.isAnimating || state.isGameOver || state.isCoverMode) return;
+  clearHighlights();
+  const group = findGroup(r, c);
+  if (group.length < 2) return;
+  group.forEach(([gr, gc]) => {
+    const el = getCellEl(gr, gc);
+    if (el) el.classList.add('highlighted');
+  });
+
+  // Update formula bar
+  const color = state.grid[r][c];
+  const colorNames = ['红','蓝','绿','黄','紫'];
+  document.getElementById('cellRef').textContent = `${getColName(c)}${r+1}`;
+  document.getElementById('formulaInput').textContent =
+    `=COUNTIF(区域,"${colorNames[color]}色") → ${group.length}个`;
+}
+
+function clearHighlights() {
+  document.querySelectorAll('.cell.highlighted').forEach(el => {
+    el.classList.remove('highlighted');
+  });
+  document.getElementById('cellRef').textContent = 'A1';
+  document.getElementById('formulaInput').textContent = '=SUM(B2:B13)';
+}
+
+// ============================================
+// ELIMINATE
+// ============================================
+function onCellClick(r, c) {
+  if (state.isAnimating || state.isGameOver || state.isCoverMode) return;
+  const group = findGroup(r, c);
+  if (group.length < 2) return;
+
+  // Save state for undo
+  state.history.push({
+    grid: state.grid.map(row => [...row]),
+    score: state.score,
+    combo: state.combo,
+    totalEliminated: state.totalEliminated
+  });
+  if (state.history.length > 20) state.history.shift();
+
+  const color = state.grid[r][c];
+  const count = group.length;
+
+  // Calculate score
+  const baseScore = count * 10;
+  state.combo++;
+  const comboMultiplier = Math.min(state.combo, 5);
+  const points = baseScore * comboMultiplier;
+  state.score += points;
+  state.totalEliminated += count;
+
+  // Show combo
+  if (state.combo >= 2) {
+    showCombo(state.combo);
+  }
+
+  // Show score popup at center of group
+  const centerR = group.reduce((s,[r]) => s+r, 0) / count;
+  const centerC = group.reduce((s,[,c]) => s+c, 0) / count;
+  showScorePopup(centerR, centerC, `+${points}`);
+
+  // Remove blocks
+  state.isAnimating = true;
+  group.forEach(([gr, gc]) => {
+    state.grid[gr][gc] = -1;
+    const el = getCellEl(gr, gc);
+    if (el) {
+      el.classList.add('removing');
+      spawnParticles(el, color);
+    }
+  });
+
+  setTimeout(() => {
+    applyGravity();
+    compactColumns();
+    renderGrid(false);
+    state.isAnimating = false;
+
+    // Check game over
+    if (!hasValidMoves()) {
+      gameOver();
+    }
+
+    updateScoreDisplay();
+    updateStatus();
+  }, 300);
+}
+
+// ============================================
+// GRAVITY & COMPACT
+// ============================================
+function applyGravity() {
+  for (let c = 0; c < state.cols; c++) {
+    const column = [];
+    for (let r = state.rows - 1; r >= 0; r--) {
+      if (state.grid[r][c] >= 0) column.push(state.grid[r][c]);
+    }
+    for (let r = state.rows - 1; r >= 0; r--) {
+      const idx = state.rows - 1 - r;
+      state.grid[r][c] = idx < column.length ? column[idx] : -1;
+    }
+  }
+}
+
+function compactColumns() {
+  // Move non-empty columns to the left
+  const nonEmpty = [];
+  for (let c = 0; c < state.cols; c++) {
+    if (state.grid[state.rows - 1][c] >= 0) {
+      nonEmpty.push(c);
+    }
+  }
+  const newGrid = [];
+  for (let r = 0; r < state.rows; r++) {
+    const row = [];
+    for (let c = 0; c < state.cols; c++) {
+      const srcC = c < nonEmpty.length ? nonEmpty[c] : -1;
+      row.push(srcC >= 0 ? state.grid[r][srcC] : -1);
+    }
+    newGrid.push(row);
+  }
+  state.grid = newGrid;
+}
+
+// ============================================
+// GAME CHECK
+// ============================================
+function hasValidMoves() {
+  for (let r = 0; r < state.rows; r++) {
+    for (let c = 0; c < state.cols; c++) {
+      if (state.grid[r][c] < 0) continue;
+      // Check right
+      if (c + 1 < state.cols && state.grid[r][c+1] === state.grid[r][c]) return true;
+      // Check down
+      if (r + 1 < state.rows && state.grid[r+1][c] === state.grid[r][c]) return true;
+    }
+  }
+  return false;
+}
+
+// ============================================
+// GAME OVER
+// ============================================
+function gameOver() {
+  state.isGameOver = true;
+  state.combo = 0;
+  state.gamesPlayed++;
+  state.totalProcessed += state.totalEliminated;
+
+  // Save high score
+  state.highScores.push({
+    score: state.score,
+    date: new Date().toLocaleDateString('zh-CN'),
+    grid: state.gridKey
+  });
+  state.highScores.sort((a, b) => b.score - a.score);
+  state.highScores = state.highScores.slice(0, 5);
+
+  saveState();
+
+  document.getElementById('finalScore').textContent = state.score;
+  document.getElementById('finalCount').textContent = state.totalEliminated;
+  document.getElementById('gameOverOverlay').style.display = 'flex';
+}
+
+function closeGameOver() {
+  document.getElementById('gameOverOverlay').style.display = 'none';
+  toggleCover();
+}
+
+// ============================================
+// NEW GAME / RESTART
+// ============================================
+function startNewGame() {
+  closeAllMenus();
+  document.getElementById('gameOverOverlay').style.display = 'none';
+  if (state.isCoverMode) toggleCover();
+
+  state.score = 0;
+  state.combo = 0;
+  state.totalEliminated = 0;
+  state.isGameOver = false;
+  state.isAnimating = false;
+  state.history = [];
+
+  // Sync settings UI
+  document.querySelectorAll('[data-theme-opt]').forEach(el => {
+    el.classList.toggle('active', el.dataset.themeOpt === state.theme);
+    el.querySelector('input').checked = el.dataset.themeOpt === state.theme;
+  });
+  document.querySelectorAll('[data-grid-opt]').forEach(el => {
+    el.classList.toggle('active', el.dataset.gridOpt === state.gridKey);
+    el.querySelector('input').checked = el.dataset.gridOpt === state.gridKey;
+  });
+
+  const cfg = GRID_CONFIGS[state.gridKey];
+  state.cols = cfg.cols;
+  state.rows = cfg.rows;
+
+  createGrid();
+  renderGrid(true);
+  showHelpHint();
+}
+
+function restartGame() {
+  closeAllMenus();
+  if (state.isCoverMode) toggleCover();
+  state.score = 0;
+  state.combo = 0;
+  state.totalEliminated = 0;
+  state.isGameOver = false;
+  state.isAnimating = false;
+  state.history = [];
+  document.getElementById('gameOverOverlay').style.display = 'none';
+  createGrid();
+  renderGrid(true);
+}
+
+function saveGame() {
+  saveState();
+  document.getElementById('statusText').textContent = '已保存';
+  setTimeout(() => {
+    document.getElementById('statusText').textContent = '就绪';
+  }, 1500);
+}
+
+// ============================================
+// UNDO
+// ============================================
+function undoAction() {
+  if (state.history.length === 0 || state.isAnimating || state.isGameOver) return;
+  const prev = state.history.pop();
+  state.grid = prev.grid;
+  state.score = prev.score;
+  state.combo = prev.combo;
+  state.totalEliminated = prev.totalEliminated;
+  renderGrid(false);
+  updateScoreDisplay();
+}
+
+// ============================================
+// PARTICLES - Enhanced
+// ============================================
+function spawnParticles(cellEl, colorIdx) {
+  const rect = cellEl.getBoundingClientRect();
+  const gridRect = document.getElementById('gridWrapper').getBoundingClientRect();
+  const cx = rect.left - gridRect.left + rect.width / 2;
+  const cy = rect.top - gridRect.top + rect.height / 2;
+
+  const particleCount = 8;
+  for (let i = 0; i < particleCount; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = 4 + Math.random() * 6;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.background = BLOCK_COLORS[colorIdx];
+    p.style.boxShadow = `0 0 ${size}px ${BLOCK_GLOWS[colorIdx]}`;
+    p.style.left = cx + 'px';
+    p.style.top = cy + 'px';
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 25 + Math.random() * 50;
+    p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+    p.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+    document.getElementById('gridWrapper').appendChild(p);
+    setTimeout(() => p.remove(), 650);
+  }
+}
+
+// ============================================
+// COMBO & SCORE POPUP
+// ============================================
+function showCombo(combo) {
+  const el = document.createElement('div');
+  el.className = 'combo-popup';
+  el.textContent = `${combo}x COMBO!`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1000);
+}
+
+function showScorePopup(r, c, text) {
+  const el = document.createElement('div');
+  el.className = 'score-popup';
+  el.textContent = text;
+  const cellEl = getCellEl(r, c);
+  if (cellEl) {
+    const rect = cellEl.getBoundingClientRect();
+    const gridRect = document.getElementById('gridWrapper').getBoundingClientRect();
+    el.style.left = (rect.left - gridRect.left + rect.width/2) + 'px';
+    el.style.top = (rect.top - gridRect.top) + 'px';
+    el.style.transform = 'translateX(-50%)';
+  }
+  document.getElementById('gridWrapper').appendChild(el);
+  setTimeout(() => el.remove(), 700);
+}
+
+// ============================================
+// UI UPDATES
+// ============================================
+function updateScoreDisplay() {
+  document.getElementById('scoreDisplay').textContent = state.score;
+  const best = state.highScores.length > 0 ? state.highScores[0].score : 0;
+  document.getElementById('highScoreDisplay').textContent = best;
+}
+
+function updateStatus() {
+  const total = state.totalProcessed + state.totalEliminated;
+  document.getElementById('processedCount').textContent =
+    `今日处理量：${total.toLocaleString()} 条数据`;
+  if (state.combo >= 2) {
+    document.getElementById('statusText').textContent = `连续处理中 ×${state.combo}`;
+  } else {
+    document.getElementById('statusText').textContent = '就绪';
+  }
+}
+
+// ============================================
+// COVER MODE
+// ============================================
+function toggleCover() {
+  state.isCoverMode = !state.isCoverMode;
+  const overlay = document.getElementById('coverOverlay');
+  if (state.isCoverMode) {
+    overlay.classList.add('active');
+    generateCoverData();
+  } else {
+    overlay.classList.remove('active');
+  }
+  closeAllMenus();
+}
+
+function generateCoverData() {
+  // Simple deterministic random based on date
+  let s = new Date().getDate() * 137 + new Date().getMonth() * 31 + 42;
+  function rand(min, max) {
+    s = (s * 1103515245 + 12345) & 0x7fffffff;
+    return min + (s % (max - min + 1));
+  }
+
+  const data = MONTHS.map(m => ({
+    month: m,
+    sales: rand(80, 350),
+    profit: (rand(50, 200) / 10).toFixed(1) + '%',
+    satisfaction: (rand(850, 990) / 10).toFixed(1) + '%',
+    customers: rand(1500, 6000)
+  }));
+
+  // Build table
+  const table = document.getElementById('coverTable');
+  let html = '<thead><tr>';
+  HEADERS.forEach(h => html += `<th>${h}</th>`);
+  html += '</tr></thead><tbody>';
+  data.forEach(d => {
+    html += `<tr>
+      <td>${d.month}</td>
+      <td>¥${d.sales.toLocaleString()}</td>
+      <td>${d.profit}</td>
+      <td>${d.satisfaction}</td>
+      <td>${d.customers.toLocaleString()}</td>
+    </tr>`;
+  });
+  html += '</tbody>';
+  table.innerHTML = html;
+
+  // Build pie chart (SVG)
+  buildPieChart(data);
+}
+
+function buildPieChart(data) {
+  const chart = document.getElementById('coverChart');
+  const total = data.reduce((s, d) => s + d.sales, 0);
+  let cumulative = 0;
+  const colors = ['#ff6b6b','#74b9ff','#55efc4','#ffeaa7','#d6a2e8',
+                  '#e17055','#00cec9','#fd79a8','#a29bfe','#81ecec',
+                  '#fdcb6e','#74b9ff'];
+
+  let paths = '';
+  const cx = 110, cy = 110, r = 88;
+
+  data.forEach((d, i) => {
+    const startAngle = (cumulative / total) * Math.PI * 2 - Math.PI / 2;
+    cumulative += d.sales;
+    const endAngle = (cumulative / total) * Math.PI * 2 - Math.PI / 2;
+
+    const x1 = cx + r * Math.cos(startAngle);
+    const y1 = cy + r * Math.sin(startAngle);
+    const x2 = cx + r * Math.cos(endAngle);
+    const y2 = cy + r * Math.sin(endAngle);
+
+    const largeArc = (endAngle - startAngle) > Math.PI ? 1 : 0;
+
+    paths += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${largeArc} 1 ${x2},${y2} Z" fill="${colors[i % colors.length]}" opacity="0.85"/>`;
+  });
+
+  chart.innerHTML = `<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="110" cy="110" r="88" fill="var(--cell-bg)" stroke="var(--cell-border)"/>
+    ${paths}
+    <circle cx="110" cy="110" r="40" fill="var(--grid-bg)"/>
+    <text x="110" y="104" text-anchor="middle" font-size="11" fill="var(--text-secondary)" font-weight="500">总计</text>
+    <text x="110" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="var(--text-primary)">¥${total.toLocaleString()}万</text>
+  </svg>`;
+}
+
+// ============================================
+// SETTINGS
+// ============================================
+function openSettings() {
+  closeAllMenus();
+  const panel = document.getElementById('settingsPanel');
+  panel.classList.toggle('active');
+
+  // Sync theme radios
+  document.querySelectorAll('[data-theme-opt]').forEach(el => {
+    el.classList.toggle('active', el.dataset.themeOpt === state.theme);
+    el.querySelector('input').checked = el.dataset.themeOpt === state.theme;
+  });
+
+  // Sync grid radios
+  document.querySelectorAll('[data-grid-opt]').forEach(el => {
+    el.classList.toggle('active', el.dataset.gridOpt === state.gridKey);
+    el.querySelector('input').checked = el.dataset.gridOpt === state.gridKey;
+  });
+
+  // Render leaderboard
+  const tbody = document.getElementById('leaderboardBody');
+  if (state.highScores.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" style="color:var(--text-secondary)">暂无记录</td></tr>';
+  } else {
+    tbody.innerHTML = state.highScores.map((h, i) =>
+      `<tr><td>${i+1}</td><td>${h.score}</td><td>${h.date}</td></tr>`
+    ).join('');
+  }
+}
+
+function closeSettings() {
+  document.getElementById('settingsPanel').classList.remove('active');
+}
+
+function clearData() {
+  closeAllMenus();
+  if (!confirm('确定清除所有数据？')) return;
+  localStorage.removeItem('moyu_table_state');
+  state.highScores = [];
+  state.totalProcessed = 0;
+  state.gamesPlayed = 0;
+  updateScoreDisplay();
+  updateStatus();
+}
+
+// ============================================
+// MENUS
+// ============================================
+function closeAllMenus() {
+  document.querySelectorAll('.menu-dropdown').forEach(d => d.classList.remove('active'));
+}
+
+document.querySelectorAll('.menu-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dropdown = item.querySelector('.menu-dropdown');
+    if (!dropdown) return;
+    const isActive = dropdown.classList.contains('active');
+    closeAllMenus();
+    if (!isActive) dropdown.classList.add('active');
+  });
+});
+
+// Theme radio listeners
+document.querySelectorAll('[data-theme-opt]').forEach(el => {
+  el.addEventListener('click', () => setTheme(el.dataset.themeOpt));
+});
+
+// Grid size radio listeners
+document.querySelectorAll('[data-grid-opt]').forEach(el => {
+  el.addEventListener('click', () => setGridSize(el.dataset.gridOpt));
+});
+
+// Close menus on outside click
+document.addEventListener('click', () => {
+  closeAllMenus();
+  closeSettings();
+});
+
+// ============================================
+// KEYBOARD SHORTCUTS
+// ============================================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    closeAllMenus();
+    closeSettings();
+    // Don't switch back from auto-cover (mouse left window)
+    if (!mouseLeft) toggleCover();
+  }
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault();
+    undoAction();
+  }
+});
+
+// ============================================
+// MOUSE LEAVE/ENTER (AUTO COVER)
+// ============================================
+let mouseLeft = false;
+document.addEventListener('mouseleave', () => {
+  mouseLeft = true;
+  if (!state.isCoverMode && !state.isGameOver) {
+    state.isCoverMode = true;
+    document.getElementById('coverOverlay').classList.add('active');
+    generateCoverData();
+  }
+});
+document.addEventListener('mouseenter', () => {
+  if (mouseLeft && state.isCoverMode) {
+    mouseLeft = false;
+    state.isCoverMode = false;
+    document.getElementById('coverOverlay').classList.remove('active');
+  }
+});
+
+// ============================================
+// HELP HINT
+// ============================================
+function showHelp() {
+  closeAllMenus();
+  showHelpHint();
+}
+
+function showHelpHint() {
+  const hint = document.getElementById('helpHint');
+  hint.classList.add('show');
+  setTimeout(() => hint.classList.remove('show'), 3000);
+}
+
+// ============================================
+// INIT
+// ============================================
+loadState();
+
+// Apply saved settings without restarting
+document.body.setAttribute('data-theme', state.theme);
+const cfg = GRID_CONFIGS[state.gridKey];
+state.cols = cfg.cols;
+state.rows = cfg.rows;
+
+// Start first game
+startNewGame();
+</script>
+</body>
+</html>

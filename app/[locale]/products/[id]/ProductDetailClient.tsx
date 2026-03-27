@@ -198,6 +198,27 @@ const demoProducts: Record<string, Product> = {
       },
     ],
   },
+  '4': {
+    id: '4',
+    name: '摸鱼表格',
+    description: '一款伪装成 WPS Excel 表格的摸鱼消除游戏。界面高度还原电子表格软件，支持亮色/暗色/简约三种主题，老板走近时完美伪装。在"认真工作"的同时，享受消除游戏的乐趣。纯前端实现，无需安装，打开即玩。',
+    short_description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
+    category: 'game',
+    features: [
+      '完美伪装：高度还原 WPS Excel 界面',
+      '三种主题：亮色、暗色、简约模式自由切换',
+      '一键隐身：老板键快速切换伪装',
+      '消除玩法：经典三消，简单有趣',
+      '纯前端：无需安装，浏览器打开即玩',
+      '零成本：完全免费，无广告',
+    ],
+    demo_url: assetPath('/games/moyu-spreadsheet.html'),
+    website_url: '',
+    video_url: '',
+    latest_version: 'v1.0.0',
+    downloads: [],
+    screenshots: [],
+  },
 };
 
 interface ProductDetailClientProps {
@@ -212,6 +233,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
 
   const product = demoProducts[id] || demoProducts['1'];
   const isSoftware = product.category === 'software';
+  const isGame = product.category === 'game';
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -332,7 +354,9 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               <a href={product.demo_url} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="gap-2">
                   <ExternalLink className="w-4 h-4" />
-                  {locale === 'en' ? 'Try Online' : '在线体验'}
+                  {isGame
+                    ? (locale === 'en' ? 'Play Now' : '在线玩')
+                    : (locale === 'en' ? 'Try Online' : '在线体验')}
                 </Button>
               </a>
             )}

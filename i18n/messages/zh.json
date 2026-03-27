@@ -50,7 +50,8 @@
     "category": {
       "all": "全部",
       "software": "软件",
-      "saas": "SaaS"
+      "saas": "SaaS",
+      "game": "游戏"
     },
     "card": {
       "view_details": "查看详情",

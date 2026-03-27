@@ -28,6 +28,13 @@ const products: Product[] = [
     image: assetPath('/images/products/dataquery/home.webp'),
     video: assetPath('/video/products/datawhere/promo-muted.mp4'),
   },
+  {
+    id: '4',
+    name: '摸鱼表格',
+    description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
+    category: 'game',
+    icon: '🐟',
+  },
 ];
 
 export function ProductShowcase() {

@@ -24,6 +24,13 @@ const products: Product[] = [
     category: 'software',
     image: assetPath('/images/products/dataquery/home.webp'),
   },
+  {
+    id: '4',
+    name: '摸鱼表格',
+    short_description: '伪装成 Excel 的摸鱼消除游戏，老板来了也不怕',
+    category: 'game',
+    icon: '🐟',
+  },
 ];
 
 // 即将推出的产品
