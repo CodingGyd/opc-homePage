@@ -37,7 +37,7 @@ interface Product {
 const products: Record<string, Product> = {
   '1': {
     id: '1',
-    name: '数据统一查询工具',
+    name: 'DataWhere',
     description: '通用数据源接入工具，一个入口统一管理多种数据源（目前已支持 MySQL、Redis、Kafka）',
     latest_version: 'v0.1.0',
     releaseDate: '2026-03-24',

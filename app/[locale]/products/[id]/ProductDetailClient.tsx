@@ -39,8 +39,8 @@ interface Product {
 const demoProducts: Record<string, Product> = {
   '1': {
     id: '1',
-    name: '数据统一查询工具',
-    description: '数据统一查询工具是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、Redis、Kafka 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。',
+    name: 'DataWhere',
+    description: 'DataWhere是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、Redis、Kafka 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。',
     short_description: '通用数据源接入工具，一个入口统一管理多种数据源（目前已支持 MySQL、Redis、Kafka）',
     category: 'software',
     features: [
@@ -350,7 +350,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
             <p className="text-lg leading-relaxed">
               告别数据查询切换不同工具的繁琐！
               <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent font-semibold">
-                数据统一查询工具
+                DataWhere
               </span>
               为产品、运营、开发、运维等每一位团队成员打造专属的数据检索入口。
             </p>
