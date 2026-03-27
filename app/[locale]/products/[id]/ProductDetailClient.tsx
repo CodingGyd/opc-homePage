@@ -52,7 +52,7 @@ const demoProducts: Record<string, Product> = {
       '数据源管理：统一管理所有数据源连接',
       '元数据同步：自动同步数据源元数据到本地索引',
       '跨平台支持：Windows、macOS、Linux',
-      '本地优先：所有数据留在本地，无需联网',
+      '配置分享：支持复制分享数据源信息，新人入职即用',
       '安全可靠：Ed25519 数字签名验证，严格只读模式',
     ],
     demo_url: '',
@@ -348,7 +348,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
         {product.id === '1' ? (
           <div className="prose prose-lg max-w-none space-y-6">
             <p className="text-lg leading-relaxed">
-              告别数据查询的繁琐！
+              告别数据查询切换不同工具的繁琐
               <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent font-semibold">
                 数据统一查询工具
               </span>
