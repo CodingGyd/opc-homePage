@@ -2,26 +2,36 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Download, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
+import {
+  ArrowLeft, Download, ExternalLink, ChevronDown, ChevronUp,
+  ChevronRight, Monitor, History,
+} from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { assetPath } from '@/lib/utils';
 
+// --- Types ---
+
+type Platform = 'Windows' | 'macOS' | 'Linux';
+type DetectedOS = 'Windows' | 'macOS' | 'Linux' | 'Unknown';
+
 interface DownloadItem {
-  platform: string;
-  arch?: string;
-  version: string;
+  platform: Platform;
+  arch: string;
   url: string;
   size: string;
-  icon: string;
   requirements?: string;
-  releaseDate?: string;
   status: 'stable' | 'beta' | 'experimental';
+  format: string;
+  recommended?: boolean;
 }
 
-interface ReleaseNote {
+interface VersionDownloads {
   version: string;
-  date: string;
-  notes: string[];
+  releaseDate: string;
+  status: 'stable' | 'beta' | 'experimental';
+  isLatest: boolean;
+  downloads: DownloadItem[];
+  releaseNotes: string[];
 }
 
 interface Product {
@@ -29,24 +39,152 @@ interface Product {
   name: string;
   description: string;
   latest_version: string;
-  releaseDate: string;
-  downloads: DownloadItem[];
-  releaseNotes: ReleaseNote[];
+  versions: VersionDownloads[];
 }
 
-// 产品数据
+// --- OS Detection ---
+
+function detectOS(): DetectedOS {
+  if (typeof window === 'undefined') return 'Unknown';
+  const ua = navigator.userAgent;
+  if (ua.includes('Win')) return 'Windows';
+  if (ua.includes('Mac')) return 'macOS';
+  if (ua.includes('Linux')) return 'Linux';
+  return 'Unknown';
+}
+
+function detectArch(): 'x64' | 'x86' | 'Unknown' {
+  if (typeof window === 'undefined') return 'Unknown';
+  const ua = navigator.userAgent;
+  const platform = navigator.platform || '';
+  if (ua.includes('x86_64') || ua.includes('x64') || ua.includes('WOW64') || ua.includes('Win64')) return 'x64';
+  if (ua.includes('x86') || ua.includes('i686') || ua.includes('i386')) return 'x86';
+  if (platform.includes('Mac')) return 'x64';
+  return 'Unknown';
+}
+
+function getRecommendedDownload(
+  version: VersionDownloads,
+  os: DetectedOS,
+  arch: string,
+): DownloadItem | null {
+  const platformDownloads = version.downloads.filter((d) => d.platform === os);
+  if (platformDownloads.length === 0) return null;
+
+  const recommended = platformDownloads.find((d) => d.recommended);
+  if (recommended) return recommended;
+
+  if (os === 'Windows') {
+    const archMatch = platformDownloads.find((d) =>
+      arch === 'x64' ? d.arch.includes('64-bit') : d.arch.includes('32-bit'),
+    );
+    if (archMatch) return archMatch;
+    return platformDownloads.find((d) => d.format === 'exe') || platformDownloads[0];
+  }
+
+  if (os === 'macOS') {
+    return platformDownloads.find((d) => d.arch.includes('Universal')) || platformDownloads[0];
+  }
+
+  return platformDownloads.find((d) => d.format === 'deb')
+    || platformDownloads.find((d) => d.format === 'rpm')
+    || platformDownloads[0];
+}
+
+const platformIcon = (p: Platform) => (p === 'Windows' ? '🪟' : p === 'macOS' ? '🍎' : '🐧');
+
+// --- Product Data ---
+
 const products: Record<string, Product> = {
   '1': {
     id: '1',
     name: 'DataWhere',
     description: '一个搜索框，搜遍你所有的数据',
     latest_version: 'v1.0.0',
-    releaseDate: '2026-03-27',
-    releaseNotes: [
+    versions: [
       {
-        version: 'v1.0.0',
-        date: '2026-03-27',
-        notes: [
+        version: '1.0.0',
+        releaseDate: '2026-03-27',
+        status: 'stable',
+        isLatest: true,
+        downloads: [
+          {
+            platform: 'Windows',
+            arch: 'exe (64-bit)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x64-setup.exe',
+            size: '5.6 MB',
+            requirements: 'Windows 10+ (64-bit)',
+            status: 'stable',
+            format: 'exe',
+            recommended: true,
+          },
+          {
+            platform: 'Windows',
+            arch: 'msi (64-bit)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x64_zh-CN.msi',
+            size: '8.1 MB',
+            requirements: 'Windows 10+ (64-bit)',
+            status: 'stable',
+            format: 'msi',
+          },
+          {
+            platform: 'Windows',
+            arch: 'exe (32-bit)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x86-setup.exe',
+            size: '5.0 MB',
+            requirements: 'Windows 10+ (32-bit)',
+            status: 'stable',
+            format: 'exe',
+          },
+          {
+            platform: 'Windows',
+            arch: 'msi (32-bit)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x86_zh-CN.msi',
+            size: '7.2 MB',
+            requirements: 'Windows 10+ (32-bit)',
+            status: 'stable',
+            format: 'msi',
+          },
+          {
+            platform: 'macOS',
+            arch: 'Universal',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_universal.dmg',
+            size: '17.1 MB',
+            requirements: 'macOS 10.15+',
+            status: 'stable',
+            format: 'dmg',
+            recommended: true,
+          },
+          {
+            platform: 'Linux',
+            arch: 'deb (amd64)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere_1.0.0_amd64.deb',
+            size: '10.1 MB',
+            requirements: 'Debian/Ubuntu',
+            status: 'stable',
+            format: 'deb',
+            recommended: true,
+          },
+          {
+            platform: 'Linux',
+            arch: 'rpm (x86_64)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0-1.x86_64.rpm',
+            size: '10.1 MB',
+            requirements: 'RHEL/CentOS/Fedora',
+            status: 'stable',
+            format: 'rpm',
+          },
+          {
+            platform: 'Linux',
+            arch: 'AppImage (amd64)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere_1.0.0_amd64.AppImage',
+            size: '83.3 MB',
+            requirements: '通用 Linux 发行版',
+            status: 'stable',
+            format: 'AppImage',
+          },
+        ],
+        releaseNotes: [
           '首个正式发布版本',
           '统一搜索：跨 MySQL、Redis、Kafka 的元数据全文搜索，一个搜索框直达目标',
           '支持按数据源类型、对象类型、连接实例进行精准筛选',
@@ -64,9 +202,43 @@ const products: Record<string, Product> = {
         ],
       },
       {
-        version: 'v0.1.0',
-        date: '2026-03-24',
-        notes: [
+        version: '0.1.0',
+        releaseDate: '2026-03-24',
+        status: 'stable',
+        isLatest: false,
+        downloads: [
+          {
+            platform: 'Windows',
+            arch: 'exe (64-bit)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v0.1.0/DataWhere-0.1.0_x64-setup.exe',
+            size: '5.2 MB',
+            requirements: 'Windows 10+ (64-bit)',
+            status: 'stable',
+            format: 'exe',
+            recommended: true,
+          },
+          {
+            platform: 'macOS',
+            arch: 'Universal',
+            url: 'http://cdn.gydblog.com/files/datawhere/v0.1.0/DataWhere-0.1.0_universal.dmg',
+            size: '15.8 MB',
+            requirements: 'macOS 10.15+',
+            status: 'stable',
+            format: 'dmg',
+            recommended: true,
+          },
+          {
+            platform: 'Linux',
+            arch: 'deb (amd64)',
+            url: 'http://cdn.gydblog.com/files/datawhere/v0.1.0/DataWhere_0.1.0_amd64.deb',
+            size: '9.5 MB',
+            requirements: 'Debian/Ubuntu',
+            status: 'stable',
+            format: 'deb',
+            recommended: true,
+          },
+        ],
+        releaseNotes: [
           '首个版本发布',
           '通用数据源接入架构：插件化设计，可持续扩展新数据源',
           '已支持 MySQL 5.6.x, 5.7.x, 8.0.x, 8.4.x',
@@ -81,164 +253,71 @@ const products: Record<string, Product> = {
         ],
       },
     ],
-    downloads: [
-      {
-        platform: 'Windows',
-        arch: 'exe (64-bit)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x64-setup.exe',
-        size: '5.6 MB',
-        icon: '🪟',
-        requirements: 'Windows 10+ (64-bit)',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'Windows',
-        arch: 'msi (64-bit)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x64_zh-CN.msi',
-        size: '8.1 MB',
-        icon: '🪟',
-        requirements: 'Windows 10+ (64-bit)',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'Windows',
-        arch: 'exe (32-bit)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x86-setup.exe',
-        size: '5.0 MB',
-        icon: '🪟',
-        requirements: 'Windows 10+ (32-bit)',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'Windows',
-        arch: 'msi (32-bit)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x86_zh-CN.msi',
-        size: '7.2 MB',
-        icon: '🪟',
-        requirements: 'Windows 10+ (32-bit)',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'macOS',
-        arch: 'Universal',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0_universal.dmg',
-        size: '17.1 MB',
-        icon: '🍎',
-        requirements: 'macOS 10.15+',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'Linux',
-        arch: 'deb (amd64)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere_1.0.0_amd64.deb',
-        size: '10.1 MB',
-        icon: '🐧',
-        requirements: 'Debian/Ubuntu',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'Linux',
-        arch: 'rpm (x86_64)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere-1.0.0-1.x86_64.rpm',
-        size: '10.1 MB',
-        icon: '🐧',
-        requirements: 'RHEL/CentOS/Fedora',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-      {
-        platform: 'Linux',
-        arch: 'AppImage (amd64)',
-        version: '1.0.0',
-        url: 'http://cdn.gydblog.com/files/datawhere/v1.0.0/DataWhere_1.0.0_amd64.AppImage',
-        size: '83.3 MB',
-        icon: '🐧',
-        requirements: '通用 Linux 发行版',
-        releaseDate: '2026-03-27',
-        status: 'stable',
-      },
-    ],
   },
   '2': {
     id: '2',
     name: 'DevTools Suite',
     description: '开发者日常效率工具集',
     latest_version: 'v1.0.0',
-    releaseDate: '2026-03-15',
-    releaseNotes: [
+    versions: [
       {
-        version: 'v1.0.0',
-        date: '2026-03-15',
-        notes: [
+        version: '1.0.0',
+        releaseDate: '2026-03-15',
+        status: 'stable',
+        isLatest: true,
+        downloads: [
+          {
+            platform: 'Windows',
+            arch: '64-bit',
+            url: '/downloads/devtools-suite-1.0.0-windows-x64.exe',
+            size: '65 MB',
+            requirements: 'Windows 10/11 (64-bit)',
+            status: 'stable',
+            format: 'exe',
+            recommended: true,
+          },
+          {
+            platform: 'Windows',
+            arch: '32-bit',
+            url: '/downloads/devtools-suite-1.0.0-windows-ia32.exe',
+            size: '58 MB',
+            requirements: 'Windows 10/11 (32-bit)',
+            status: 'stable',
+            format: 'exe',
+          },
+          {
+            platform: 'macOS',
+            arch: 'Universal',
+            url: '/downloads/devtools-suite-1.0.0-macos-universal.dmg',
+            size: '70 MB',
+            requirements: 'macOS 11.0+',
+            status: 'experimental',
+            format: 'dmg',
+            recommended: true,
+          },
+          {
+            platform: 'Linux',
+            arch: 'x64',
+            url: '/downloads/devtools-suite-1.0.0-linux-x64.AppImage',
+            size: '68 MB',
+            requirements: 'Ubuntu 20.04+',
+            status: 'experimental',
+            format: 'AppImage',
+            recommended: true,
+          },
+        ],
+        releaseNotes: [
           '首次发布',
           '包含 JSON 工具、编码工具、正则测试器等',
           '支持 Windows、macOS、Linux',
         ],
       },
     ],
-    downloads: [
-      {
-        platform: 'Windows',
-        arch: '64-bit',
-        version: '1.0.0',
-        url: '/downloads/devtools-suite-1.0.0-windows-x64.exe',
-        size: '65 MB',
-        icon: '🪟',
-        requirements: 'Windows 10/11 (64-bit)',
-        releaseDate: '2026-03-15',
-        status: 'stable',
-      },
-      {
-        platform: 'Windows',
-        arch: '32-bit',
-        version: '1.0.0',
-        url: '/downloads/devtools-suite-1.0.0-windows-ia32.exe',
-        size: '58 MB',
-        icon: '🪟',
-        requirements: 'Windows 10/11 (32-bit)',
-        releaseDate: '2026-03-15',
-        status: 'stable',
-      },
-      {
-        platform: 'macOS',
-        arch: 'Universal',
-        version: '1.0.0',
-        url: '/downloads/devtools-suite-1.0.0-macos-universal.dmg',
-        size: '70 MB',
-        icon: '🍎',
-        requirements: 'macOS 11.0+',
-        releaseDate: '2026-03-15',
-        status: 'experimental',
-      },
-      {
-        platform: 'Linux',
-        arch: 'x64',
-        version: '1.0.0',
-        url: '/downloads/devtools-suite-1.0.0-linux-x64.AppImage',
-        size: '68 MB',
-        icon: '🐧',
-        requirements: 'Ubuntu 20.04+',
-        releaseDate: '2026-03-15',
-        status: 'experimental',
-      },
-    ],
   },
 };
 
-// 赞助配置
+// --- Sponsor Config ---
+
 const sponsorInfo = {
   alipay: {
     name: '支付宝',
@@ -251,6 +330,8 @@ const sponsorInfo = {
   registerFormUrl: 'https://my.feishu.cn/share/base/form/shrcnj9KL4CDSbHZIEXKr4WR08e',
 };
 
+// --- Component ---
+
 export default function DownloadPageClient({
   locale,
   id,
@@ -259,26 +340,38 @@ export default function DownloadPageClient({
   id: string;
 }) {
   const product = products[id] || products['1'];
+  const latestVersion = product.versions.find((v) => v.isLatest)!;
+  const historicalVersions = product.versions.filter((v) => !v.isLatest);
+
+  const [detectedOS, setDetectedOS] = useState<DetectedOS>('Unknown');
+  const [detectedArch, setDetectedArch] = useState<string>('Unknown');
   const [selectedPlatform, setSelectedPlatform] = useState<string>('all');
-  const [expandedVersions, setExpandedVersions] = useState<Set<string>>(new Set([product.releaseNotes[0]?.version]));
+  const [showHistoricalVersions, setShowHistoricalVersions] = useState(false);
+  const [expandedHistoricalNotes, setExpandedHistoricalNotes] = useState<Set<string>>(new Set());
 
-  // 按平台分组下载项
-  const platforms = ['all', ...Array.from(new Set(product.downloads.map((d) => d.platform)))];
-  const filteredDownloads =
+  useEffect(() => {
+    setDetectedOS(detectOS());
+    setDetectedArch(detectArch());
+  }, []);
+
+  const recommendedDownload =
+    detectedOS !== 'Unknown' ? getRecommendedDownload(latestVersion, detectedOS, detectedArch) : null;
+
+  // Platform filter for latest version
+  const allPlatforms = ['Windows', 'macOS', 'Linux'] as Platform[];
+  const latestPlatforms = ['all', ...Array.from(new Set(latestVersion.downloads.map((d) => d.platform)))] as string[];
+
+  const filteredLatestDownloads =
     selectedPlatform === 'all'
-      ? product.downloads
-      : product.downloads.filter((d) => d.platform === selectedPlatform);
+      ? latestVersion.downloads
+      : latestVersion.downloads.filter((d) => d.platform === selectedPlatform);
 
-  // 切换版本展开/折叠
-  const toggleVersion = (version: string) => {
-    setExpandedVersions((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(version)) {
-        newSet.delete(version);
-      } else {
-        newSet.add(version);
-      }
-      return newSet;
+  const toggleHistoricalNotes = (version: string) => {
+    setExpandedHistoricalNotes((prev) => {
+      const s = new Set(prev);
+      if (s.has(version)) s.delete(version);
+      else s.add(version);
+      return s;
     });
   };
 
@@ -310,7 +403,6 @@ export default function DownloadPageClient({
           <ArrowLeft className="w-4 h-4" />
           {locale === 'en' ? 'Back to product' : '返回产品详情'}
         </Link>
-
         <div className="flex items-center gap-4 mb-4">
           <h1 className="text-3xl md:text-4xl font-bold">{product.name}</h1>
           <span className="px-3 py-1 text-sm rounded-full bg-primary text-primary-foreground">
@@ -321,162 +413,303 @@ export default function DownloadPageClient({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Download Section */}
+        {/* Left Column */}
         <div className="lg:col-span-2 space-y-8">
-          {/* Platform Filter */}
-          <div className="flex flex-wrap gap-2">
-            {platforms.map((platform) => (
-              <button
-                key={platform}
-                onClick={() => setSelectedPlatform(platform)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedPlatform === platform
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted hover:bg-muted/80'
-                }`}
-              >
-                {platform === 'all'
-                  ? locale === 'en'
-                    ? 'All Platforms'
-                    : '全部平台'
-                  : platform}
-              </button>
-            ))}
-          </div>
 
-          {/* Download Cards - grouped by platform */}
-          <div className="space-y-8">
-            {(() => {
-              const platformOrder = ['Windows', 'macOS', 'Linux'];
-              const platformDownloads = selectedPlatform === 'all'
-                ? platformOrder.map((p) => ({
-                    platform: p,
-                    icon: p === 'Windows' ? '🪟' : p === 'macOS' ? '🍎' : '🐧',
-                    items: product.downloads.filter((d) => d.platform === p),
-                  }))
-                : [{
-                    platform: selectedPlatform,
-                    icon: selectedPlatform === 'Windows' ? '🪟' : selectedPlatform === 'macOS' ? '🍎' : '🐧',
-                    items: filteredDownloads,
-                  }];
-
-              return platformDownloads.map((group) => (
-                <div key={group.platform} className="rounded-xl border bg-card overflow-hidden">
-                  <div className="p-5 border-b bg-muted/30 flex items-center gap-3">
-                    <span className="text-2xl">{group.icon}</span>
-                    <h3 className="font-semibold text-lg">{group.platform}</h3>
-                    <span className="text-xs text-muted-foreground">
-                      {group.items.length} {locale === 'en' ? 'files available' : '个安装包'}
-                    </span>
-                  </div>
-                  <div className="p-4 space-y-3">
-                    {group.items.map((download, index) => (
-                      <a
-                        key={index}
-                        href={download.url}
-                        download
-                        className={`flex items-center gap-4 p-3 rounded-lg transition-colors hover:bg-muted/50 group ${
-                          download.status === 'experimental' ? 'border border-orange-200 bg-orange-50/30' : ''
-                        }`}
-                      >
-                        <div className={`flex-1 min-w-0 ${download.status === 'experimental' ? 'pl-2' : ''}`}>
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium">{download.arch}</span>
-                            <span className="text-xs text-muted-foreground">v{download.version}</span>
-                            {download.status === 'stable' ? (
-                              <span className="px-1.5 py-0.5 text-[10px] rounded bg-green-100 text-green-700">
-                                {locale === 'en' ? 'Stable' : '稳定版'}
-                              </span>
-                            ) : (
-                              <span className="px-1.5 py-0.5 text-[10px] rounded bg-orange-100 text-orange-700">
-                                {locale === 'en' ? 'Experimental' : '实验版'}
-                              </span>
-                            )}
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-0.5">
-                            {download.size}
-                            {download.requirements && (
-                              <span> · {download.requirements}</span>
-                            )}
-                          </div>
-                        </div>
-                        <Button
-                          size="sm"
-                          className={`gap-1.5 ${
-                            download.status === 'experimental' ? 'bg-orange-600 hover:bg-orange-700' : ''
-                          }`}
-                        >
-                          <Download className="w-3.5 h-3.5" />
-                          {locale === 'en' ? 'Download' : '下载'}
-                        </Button>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ));
-            })()}
-          </div>
-
-          {/* Release Notes */}
-          <div className="rounded-xl border bg-muted/30 overflow-hidden">
-            <div className="p-6 border-b">
-              <h2 className="text-xl font-bold">
-                {locale === 'en' ? 'Release Notes' : '更新日志'}
-              </h2>
-            </div>
-            <div className="divide-y max-h-[500px] overflow-y-auto">
-              {product.releaseNotes.map((release, index) => (
-                <div key={release.version} className="bg-card">
-                  <button
-                    onClick={() => toggleVersion(release.version)}
-                    className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="px-2 py-1 text-xs font-medium rounded bg-primary/10 text-primary">
-                        {release.version}
-                      </span>
-                      <span className="text-sm text-muted-foreground">{release.date}</span>
-                      {index === 0 && (
-                        <span className="px-2 py-0.5 text-xs rounded bg-green-100 text-green-700">
-                          {locale === 'en' ? 'Latest' : '最新'}
-                        </span>
-                      )}
-                    </div>
-                    {expandedVersions.has(release.version) ? (
-                      <ChevronUp className="w-5 h-5 text-muted-foreground" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                    )}
-                  </button>
-                  {expandedVersions.has(release.version) && (
-                    <div className="px-4 pb-4 pt-1">
-                      <ul className="space-y-2 ml-2">
-                        {release.notes.map((note, noteIndex) => (
-                          <li key={noteIndex} className="flex items-start gap-2 text-sm">
-                            <span className="text-primary mt-1">•</span>
-                            <span className="text-muted-foreground">{note}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+          {/* OS Detection Banner */}
+          <div className="rounded-xl border border-primary/20 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <Monitor className="w-6 h-6 text-primary shrink-0" />
+                <div className="min-w-0">
+                  {recommendedDownload ? (
+                    <>
+                      <p className="font-medium text-sm">
+                        {locale === 'en'
+                          ? `Detected your OS: ${detectedOS}${detectedArch !== 'Unknown' ? ` ${detectedArch}` : ''}`
+                          : `检测到您的系统：${detectedOS}${detectedArch !== 'Unknown' ? ` ${detectedArch}` : ''}`}
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-0.5 truncate">
+                        {product.name} v{latestVersion.version} · {recommendedDownload.arch} · {recommendedDownload.size}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="font-medium text-sm">
+                      {locale === 'en' ? 'Choose your platform' : '请选择您的平台'}
+                    </p>
                   )}
                 </div>
-              ))}
+              </div>
+              <div className="flex items-center gap-3 shrink-0">
+                {recommendedDownload ? (
+                  <a href={recommendedDownload.url} download>
+                    <Button size="lg" className="gap-2 px-8 h-12 text-base">
+                      <Download className="w-5 h-5" />
+                      {locale === 'en' ? 'Download Now' : '立即下载'}
+                    </Button>
+                  </a>
+                ) : (
+                  allPlatforms
+                    .filter((p) => latestVersion.downloads.some((d) => d.platform === p))
+                    .map((p) => (
+                      <a
+                        key={p}
+                        href={latestVersion.downloads.find((d) => d.platform === p && d.recommended)?.url
+                          || latestVersion.downloads.find((d) => d.platform === p)?.url
+                          || '#'}
+                        download
+                      >
+                        <Button variant="outline" size="default" className="gap-1.5">
+                          {platformIcon(p)} {p}
+                        </Button>
+                      </a>
+                    ))
+                )}
+              </div>
             </div>
-            {product.releaseNotes.length > 3 && (
-              <div className="p-4 border-t bg-muted/30 text-center">
-                <button
-                  onClick={() => {
-                    const allVersions = new Set(product.releaseNotes.map((r) => r.version));
-                    setExpandedVersions(allVersions);
-                  }}
-                  className="text-sm text-primary hover:underline"
-                >
-                  {locale === 'en' ? 'View All Versions' : '查看所有版本'}
-                </button>
+            {/* Other platform quick links */}
+            {recommendedDownload && (
+              <div className="mt-3 pt-3 border-t border-primary/10 flex items-center gap-4 text-xs text-muted-foreground">
+                <span>{locale === 'en' ? 'Other platforms:' : '其他平台：'}</span>
+                {allPlatforms
+                  .filter((p) => p !== detectedOS && latestVersion.downloads.some((d) => d.platform === p))
+                  .map((p) => {
+                    const dl = latestVersion.downloads.find((d) => d.platform === p && d.recommended)
+                      || latestVersion.downloads.find((d) => d.platform === p);
+                    return (
+                      <a key={p} href={dl?.url} download className="inline-flex items-center gap-1 hover:text-foreground transition-colors">
+                        {platformIcon(p)} {p}
+                        <ChevronRight className="w-3 h-3" />
+                      </a>
+                    );
+                  })}
               </div>
             )}
           </div>
+
+          {/* Latest Version Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <h2 className="text-xl font-bold">v{latestVersion.version}</h2>
+              <span className="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                {locale === 'en' ? 'Latest' : '最新'}
+              </span>
+              <span className="text-sm text-muted-foreground">{latestVersion.releaseDate}</span>
+            </div>
+
+            {/* Platform Filter */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {latestPlatforms.map((platform) => (
+                <button
+                  key={platform}
+                  onClick={() => setSelectedPlatform(platform)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedPlatform === platform
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted hover:bg-muted/80'
+                  }`}
+                >
+                  {platform === 'all'
+                    ? locale === 'en' ? 'All Platforms' : '全部平台'
+                    : platform}
+                </button>
+              ))}
+            </div>
+
+            {/* Platform Download Cards */}
+            <div className="space-y-4">
+              {(() => {
+                const platformOrder: Platform[] = ['Windows', 'macOS', 'Linux'];
+                const groups = (selectedPlatform === 'all' ? platformOrder : [selectedPlatform as Platform])
+                  .map((p) => ({
+                    platform: p,
+                    icon: platformIcon(p),
+                    items: filteredLatestDownloads.filter((d) => d.platform === p),
+                  }))
+                  .filter((g) => g.items.length > 0);
+
+                return groups.map((group) => (
+                  <div
+                    key={group.platform}
+                    className={`rounded-xl border bg-card overflow-hidden transition-all ${
+                      detectedOS === group.platform ? 'ring-2 ring-primary/20 border-primary/30' : ''
+                    }`}
+                  >
+                    <div className="p-4 border-b bg-muted/30 flex items-center gap-3">
+                      <span className="text-xl">{group.icon}</span>
+                      <h3 className="font-semibold">{group.platform}</h3>
+                      <span className="text-xs text-muted-foreground">
+                        {group.items.length} {locale === 'en' ? 'files' : '个安装包'}
+                      </span>
+                      {detectedOS === group.platform && (
+                        <span className="px-1.5 py-0.5 text-[10px] rounded bg-primary/10 text-primary">
+                          {locale === 'en' ? 'Recommended' : '推荐'}
+                        </span>
+                      )}
+                    </div>
+                    <div className="p-3 space-y-2">
+                      {group.items.map((dl, index) => (
+                        <a
+                          key={index}
+                          href={dl.url}
+                          download
+                          className={`flex items-center gap-4 p-3 rounded-lg transition-colors hover:bg-muted/50 group ${
+                            dl.recommended ? 'bg-primary/5 border border-primary/10' : ''
+                          } ${dl.status === 'experimental' ? 'border border-orange-200 bg-orange-50/30' : ''}`}
+                        >
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-medium">{dl.arch}</span>
+                              {dl.recommended && (
+                                <span className="px-1.5 py-0.5 text-[10px] rounded bg-primary/10 text-primary">
+                                  {locale === 'en' ? 'Recommended' : '推荐'}
+                                </span>
+                              )}
+                              {dl.status === 'stable' ? (
+                                <span className="px-1.5 py-0.5 text-[10px] rounded bg-green-100 text-green-700">
+                                  {locale === 'en' ? 'Stable' : '稳定版'}
+                                </span>
+                              ) : (
+                                <span className="px-1.5 py-0.5 text-[10px] rounded bg-orange-100 text-orange-700">
+                                  {locale === 'en' ? 'Experimental' : '实验版'}
+                                </span>
+                              )}
+                            </div>
+                            <div className="text-xs text-muted-foreground mt-0.5">
+                              {dl.size}
+                              {dl.requirements && <span> · {dl.requirements}</span>}
+                            </div>
+                          </div>
+                          <Button
+                            size="sm"
+                            className={`gap-1.5 ${dl.status === 'experimental' ? 'bg-orange-600 hover:bg-orange-700' : ''}`}
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                            {locale === 'en' ? 'Download' : '下载'}
+                          </Button>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ));
+              })()}
+            </div>
+
+            {/* Latest Release Notes */}
+            {latestVersion.releaseNotes.length > 0 && (
+              <div className="rounded-xl border bg-muted/30 overflow-hidden mt-6">
+                <div className="p-5 border-b">
+                  <h3 className="font-semibold">
+                    {locale === 'en' ? 'Release Notes' : '更新日志'} · v{latestVersion.version}
+                  </h3>
+                </div>
+                <div className="p-5">
+                  <ul className="space-y-2 ml-1">
+                    {latestVersion.releaseNotes.map((note, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <span className="text-primary mt-0.5 shrink-0">•</span>
+                        <span className="text-muted-foreground">{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Historical Versions */}
+          {historicalVersions.length > 0 && (
+            <div className="border-t pt-8">
+              <button
+                onClick={() => setShowHistoricalVersions((prev) => !prev)}
+                className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <History className="w-4 h-4" />
+                {locale === 'en'
+                  ? `Previous Versions (${historicalVersions.length})`
+                  : `历史版本 (${historicalVersions.length})`}
+                {showHistoricalVersions ? (
+                  <ChevronUp className="w-4 h-4" />
+                ) : (
+                  <ChevronDown className="w-4 h-4" />
+                )}
+              </button>
+
+              {showHistoricalVersions && (
+                <div className="mt-6 space-y-4">
+                  {historicalVersions.map((version) => (
+                    <div key={version.version} className="rounded-lg border bg-muted/20 overflow-hidden">
+                      {/* Version Header */}
+                      <div className="p-4 border-b bg-muted/30 flex items-center gap-3">
+                        <span className="px-2 py-0.5 text-xs font-medium rounded bg-muted text-muted-foreground">
+                          v{version.version}
+                        </span>
+                        <span className="text-xs text-muted-foreground">{version.releaseDate}</span>
+                        {version.status === 'stable' && (
+                          <span className="px-1.5 py-0.5 text-[10px] rounded bg-green-100 text-green-700">
+                            {locale === 'en' ? 'Stable' : '稳定版'}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Compact Downloads */}
+                      <div className="p-3 space-y-1">
+                        {version.downloads.map((dl, i) => (
+                          <a
+                            key={i}
+                            href={dl.url}
+                            download
+                            className="flex items-center justify-between p-2 rounded hover:bg-muted/50 transition-colors"
+                          >
+                            <div className="flex items-center gap-2 text-xs">
+                              <span>{platformIcon(dl.platform)}</span>
+                              <span className="font-medium">{dl.arch}</span>
+                              <span className="text-muted-foreground">{dl.size}</span>
+                              {dl.requirements && (
+                                <span className="text-muted-foreground hidden sm:inline">· {dl.requirements}</span>
+                              )}
+                            </div>
+                            <Button variant="ghost" size="sm" className="text-xs text-muted-foreground h-7 px-2">
+                              <Download className="w-3 h-3" />
+                            </Button>
+                          </a>
+                        ))}
+                      </div>
+
+                      {/* Collapsible Release Notes */}
+                      {version.releaseNotes.length > 0 && (
+                        <div className="border-t">
+                          <button
+                            onClick={() => toggleHistoricalNotes(version.version)}
+                            className="w-full p-3 text-xs text-muted-foreground hover:text-foreground flex items-center justify-between transition-colors"
+                          >
+                            {locale === 'en' ? 'Release Notes' : '更新日志'}
+                            {expandedHistoricalNotes.has(version.version) ? (
+                              <ChevronUp className="w-3 h-3" />
+                            ) : (
+                              <ChevronDown className="w-3 h-3" />
+                            )}
+                          </button>
+                          {expandedHistoricalNotes.has(version.version) && (
+                            <div className="px-3 pb-3">
+                              <ul className="space-y-1 text-xs text-muted-foreground">
+                                {version.releaseNotes.map((note, i) => (
+                                  <li key={i} className="flex gap-1.5">
+                                    <span>•</span>
+                                    <span>{note}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Sidebar */}
