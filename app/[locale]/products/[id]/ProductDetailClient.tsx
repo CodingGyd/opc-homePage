@@ -42,7 +42,7 @@ const demoProducts: Record<string, Product> = {
     id: '1',
     name: 'DataWhere',
     description: 'DataWhere是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、Redis、Kafka 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。',
-    short_description: '通用数据源接入工具，一个入口统一管理多种数据源（目前已支持 MySQL、Redis、Kafka）',
+    short_description: '一个搜索框，搜遍你所有的数据',
     category: 'software',
     features: [
       '通用数据源接入：插件化架构，持续扩展更多数据源类型',

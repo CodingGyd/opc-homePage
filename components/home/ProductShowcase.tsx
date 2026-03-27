@@ -22,7 +22,7 @@ const products: Product[] = [
   {
     id: '1',
     name: 'DataWhere',
-    description: '一个搜索框，秒级定位任意数据源中的数据资产',
+    description: '一个搜索框，搜遍你所有的数据',
     category: 'software',
     image: assetPath('/images/products/dataquery/home.webp'),
   },
