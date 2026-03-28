@@ -42,6 +42,14 @@
       "title": "Ready to Get Started?",
       "subtitle": "Explore our products and find the perfect solution for your needs",
       "button": "View All Products"
+    },
+    "supporter": {
+      "badge": "Support Developer",
+      "title": "Become a Supporter",
+      "description": "Support our development to unlock more features and get priority updates. Your support keeps the project alive!",
+      "price_label": "One-time payment",
+      "register_btn": "Register as Supporter",
+      "register_hint": "After payment, fill in the form and we'll unlock features for you right away"
     }
   },
   "products": {
