@@ -167,7 +167,7 @@
       },
       "4": {
         "name": "摸鱼表格",
-        "short_description": "伪装成 Excel 的摸鱼消除游戏，老板来了也不怕",
+        "short_description": "伪装成 Excel 的摸鱼消除游戏",
         "description": "一款伪装成 WPS Excel 表格的摸鱼消除游戏。界面高度还原电子表格软件，支持亮色/暗色/简约三种主题，老板走近时完美伪装。在\"认真工作\"的同时，享受消除游戏的乐趣。",
         "features": [
           "完美伪装：高度还原 WPS Excel 界面",
