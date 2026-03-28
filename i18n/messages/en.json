@@ -11,6 +11,8 @@
     }
   },
   "home": {
+    "tab_home": "Home",
+    "tab_support": "Support Me",
     "hero": {
       "badge": "Independent Developer",
       "title": "One Person Company",
