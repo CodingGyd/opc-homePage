@@ -1,8 +1,8 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.0.0 首个正式版发布！\n\n- 插件化数据源架构，支持 MySQL、Redis、Kafka 三大数据源接入\n- MySQL 5.6.x ~ 8.4.x：数据库浏览与只读 SQL 查询\n- Redis 5.x ~ 7.x：Key 浏览和值查看\n- Kafka 2.8.x ~ 3.6.x：Topic 浏览和消息查看\n- 全局搜索：一个搜索框，跨数据源类型、跨连接实例统一检索\n- 数据源管理：统一管理所有数据源连接，支持配置分享\n- 元数据同步：自动同步数据源元数据到本地索引\n- 跨平台支持：Windows、macOS、Linux\n- Ed25519 数字签名验证，严格只读模式保障数据安全",
-    "en-US": "DataWhere 1.0.0 initial release!\n\n- Pluggable data source architecture with MySQL, Redis, and Kafka support\n- MySQL 5.6.x ~ 8.4.x: database browsing and read-only SQL queries\n- Redis 5.x ~ 7.x: key browsing and value inspection\n- Kafka 2.8.x ~ 3.6.x: topic browsing and message viewing\n- Global search: one search box across data source types and connections\n- Data source management: unified connection management with config sharing\n- Metadata sync: automatic metadata indexing to local storage\n- Cross-platform support: Windows, macOS, Linux\n- Ed25519 digital signature verification and strict read-only mode for data security"
+    "zh-CN": "DataWhere 1.0.1 更新\n\n- 新增版本更新检查功能，启动时自动检测新版本\n- 设置页增加「更新」区域，支持手动检查更新\n- 有新版本时在设置按钮上显示红点提示\n- 其他优化与修复",
+    "en-US": "DataWhere 1.0.1\n\n- Added automatic update check on app startup\n- Added 'Update' section in Settings with manual check\n- Red dot indicator on Settings button when update available\n- Other improvements and bug fixes"
   },
   "downloadUrl": "https://www.opclite.com/downloads/data-where",
   "releaseDate": "2026-03-28"
