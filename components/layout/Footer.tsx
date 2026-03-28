@@ -81,7 +81,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {year} OPC Studio. {locale === 'en' ? 'All rights reserved.' : '保留所有权利。'}</p>
+          <p>© {year} OPC LITE. {locale === 'en' ? 'All rights reserved.' : '保留所有权利。'}</p>
         </div>
       </div>
     </footer>
