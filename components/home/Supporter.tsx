@@ -36,10 +36,11 @@ export function Supporter() {
             <div className="text-center mb-8">
               <span className="text-4xl font-bold text-amber-600 dark:text-amber-400">¥29.9</span>
               <span className="text-sm text-muted-foreground ml-2">{t('price_label')}</span>
-              <div className="mt-1 text-xs text-red-500 font-medium">
-                {locale === 'en'
-                  ? 'Seed user price — will be ¥199.9 after the first batch closes'
-                  : '种子用户专享价 — 首批名额满后恢复原价199.9'}
+              <div className="mt-2 flex items-center justify-center gap-2">
+                <span className="text-lg text-red-400 line-through font-medium">¥199.9</span>
+                <span className="text-xs text-red-500 font-medium bg-red-50 dark:bg-red-950/30 px-2 py-0.5 rounded-full">
+                  {locale === 'en' ? 'Save 85%' : '省 ¥170'}
+                </span>
               </div>
             </div>
 
