@@ -105,7 +105,7 @@ export function ProductShowcase() {
                       poster={config.image || undefined}
                     />
                   ) : config.image ? (
-                    <img src={config.image} alt={t(`data.${config.id}.name`)} className="w-full h-full object-cover" />
+                    <img src={config.image} alt={t(`data.${config.id}.name`)} className="w-full h-full object-cover" loading="lazy" />
                   ) : (
                     <span className="text-4xl">{config.icon || '📦'}</span>
                   )}
