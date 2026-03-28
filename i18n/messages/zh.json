@@ -3,7 +3,8 @@
     "nav": {
       "home": "首页",
       "products": "产品",
-      "about": "关于"
+      "about": "关于",
+      "support": "支持我"
     },
     "buttons": {
       "learn_more": "了解更多",
@@ -11,8 +12,6 @@
     }
   },
   "home": {
-    "tab_home": "首页",
-    "tab_support": "支持我",
     "hero": {
       "badge": "独立开发者",
       "title": "一人公司",

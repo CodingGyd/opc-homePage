@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Heart } from 'lucide-react';
 
 export function Header() {
   const t = useTranslations('common.nav');
@@ -24,6 +24,7 @@ export function Header() {
   const navLinks = [
     { href: `/${locale}`, label: t('home'), pattern: /^\/(en|zh)$/ },
     { href: `/${locale}/products`, label: t('products'), pattern: /^\/(en|zh)\/products/ },
+    { href: `/${locale}/support`, label: t('support'), pattern: /^\/(en|zh)\/support/ },
     { href: `/${locale}/about`, label: t('about'), pattern: /^\/(en|zh)\/about/ },
   ];
 

@@ -1,5 +1,8 @@
 import { setRequestLocale } from 'next-intl/server';
-import { HomeTabs } from '@/components/home/HomeTabs';
+import { Hero } from '@/components/home/Hero';
+import { Features } from '@/components/home/Features';
+import { ProductShowcase } from '@/components/home/ProductShowcase';
+import { CTA } from '@/components/home/CTA';
 
 export default async function HomePage({
   params,
@@ -9,5 +12,12 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <HomeTabs />;
+  return (
+    <>
+      <Hero />
+      <ProductShowcase />
+      <Features />
+      <CTA />
+    </>
+  );
 }

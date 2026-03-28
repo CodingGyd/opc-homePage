@@ -3,7 +3,8 @@
     "nav": {
       "home": "Home",
       "products": "Products",
-      "about": "About"
+      "about": "About",
+      "support": "Support Me"
     },
     "buttons": {
       "learn_more": "Learn More",
@@ -11,8 +12,6 @@
     }
   },
   "home": {
-    "tab_home": "Home",
-    "tab_support": "Support Me",
     "hero": {
       "badge": "Independent Developer",
       "title": "One Person Company",
