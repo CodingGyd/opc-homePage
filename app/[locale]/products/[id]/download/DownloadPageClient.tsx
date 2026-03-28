@@ -100,18 +100,18 @@ const products: Record<string, Product> = {
     id: '1',
     name: 'DataWhere',
     description: '一个搜索框，搜遍你所有的数据',
-    latest_version: 'v1.0.0',
+    latest_version: 'v1.0.1',
     versions: [
       {
-        version: '1.0.0',
-        releaseDate: '2026-03-27',
+        version: '1.0.1',
+        releaseDate: '2026-03-28',
         status: 'stable',
         isLatest: true,
         downloads: [
           {
             platform: 'Windows',
             arch: 'exe (64-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x64-setup.exe',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x64-setup.exe',
             size: '5.6 MB',
             requirements: 'Windows 10+ (64-bit)',
             status: 'stable',
@@ -121,7 +121,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'msi (64-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x64_zh-CN.msi',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x64_zh-CN.msi',
             size: '8.1 MB',
             requirements: 'Windows 10+ (64-bit)',
             status: 'stable',
@@ -130,7 +130,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'exe (32-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x86-setup.exe',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x86-setup.exe',
             size: '5.0 MB',
             requirements: 'Windows 10+ (32-bit)',
             status: 'stable',
@@ -139,7 +139,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'msi (32-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere-1.0.0_x86_zh-CN.msi',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x86_zh-CN.msi',
             size: '7.2 MB',
             requirements: 'Windows 10+ (32-bit)',
             status: 'stable',
@@ -148,7 +148,7 @@ const products: Record<string, Product> = {
           {
             platform: 'macOS',
             arch: 'Universal',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere-1.0.0_universal.dmg',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_universal.dmg',
             size: '17.1 MB',
             requirements: 'macOS 10.15+',
             status: 'stable',
@@ -158,7 +158,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'deb (amd64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere_1.0.0_amd64.deb',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_amd64.deb',
             size: '10.1 MB',
             requirements: 'Debian/Ubuntu',
             status: 'stable',
@@ -168,7 +168,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'rpm (x86_64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere-1.0.0-1.x86_64.rpm',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1-1.x86_64.rpm',
             size: '10.1 MB',
             requirements: 'RHEL/CentOS/Fedora',
             status: 'stable',
@@ -177,7 +177,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'AppImage (amd64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/DataWhere_1.0.0_amd64.AppImage',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_amd64.AppImage',
             size: '83.3 MB',
             requirements: '通用 Linux 发行版',
             status: 'stable',
@@ -185,20 +185,10 @@ const products: Record<string, Product> = {
           },
         ],
         releaseNotes: [
-          '首个正式发布版本',
-          '统一搜索：跨 MySQL、Redis、Kafka 的元数据全文搜索，一个搜索框直达目标',
-          '支持按数据源类型、对象类型、连接实例进行精准筛选',
-          '数据源管理：数据源增删改查，支持导入/导出配置',
-          '连接测试与版本自动探测',
-          '环境标签管理（生产、测试、开发），快速区分不同环境',
-          'MySQL 工作台：SQL 查询执行（仅限 SELECT / SHOW / DESC / EXPLAIN），数据库、表结构浏览',
-          'Redis 工作台：Key 模式扫描与模糊搜索，各数据类型 Value 读取，过期 Key 自动清理',
-          'Kafka 工作台：Topic / Partition 列表浏览，消息拉取与查看，消息一键复制',
-          '元数据同步：全量/增量同步，支持定时自动同步，同步进度实时展示，支持暂停/恢复/取消',
-          '离线激活，设备绑定',
-          '系统托盘最小化，单实例运行',
-          '中英双语界面',
-          '支持平台：Windows 10+、macOS 10.15+、Linux',
+          '新增版本更新检查功能，启动时自动检测新版本',
+          '设置页增加「更新」区域，支持手动检查更新',
+          '有新版本时在设置按钮上显示红点提示',
+          '其他优化与修复',
         ],
       },
       {
