@@ -51,24 +51,10 @@ export function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 md:gap-16 pt-8 mt-8 border-t">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary">5+</div>
-              <div className="text-sm text-muted-foreground mt-1">
-                {locale === 'en' ? 'Products' : '款产品'}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary">1000+</div>
-              <div className="text-sm text-muted-foreground mt-1">
-                {locale === 'en' ? 'Users' : '用户'}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground mt-1">
-                {locale === 'en' ? 'Support' : '支持'}
-              </div>
+          <div className="pt-8 mt-8 border-t text-center">
+            <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
+            <div className="text-sm text-muted-foreground mt-1">
+              {locale === 'en' ? 'Support' : '小时支持'}
             </div>
           </div>
         </div>
