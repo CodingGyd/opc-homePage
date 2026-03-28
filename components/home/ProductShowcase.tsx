@@ -1,9 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Gift, MessageSquare, Rocket, ExternalLink } from 'lucide-react';
+import { ArrowRight, Gift, MessageSquare, Rocket, ExternalLink, Play } from 'lucide-react';
 import { assetPath } from '@/lib/utils';
+import { useRef, useState } from 'react';
 
 const FEEDBACK_FORM_URL = 'https://my.feishu.cn/share/base/form/shrcnZWJTCblyIq5rjC4Ms8sqrg';
 
@@ -18,10 +21,50 @@ const productConfigs = [
   {
     id: '4',
     category: 'game',
+    image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
     video: 'https://gydblog2.su.bcebos.com/files/moyu-games/promo.mp4',
     icon: '🐟',
   },
 ];
+
+function ProductVideo({ src, poster }: { src: string; poster?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setPlaying(true);
+    }
+  };
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        muted
+        autoPlay
+        loop
+        playsInline
+        className="w-full h-full object-cover"
+        onPlaying={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+      />
+      {!playing && (
+        <button
+          onClick={handlePlay}
+          className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity hover:bg-black/30"
+        >
+          <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+            <Play className="w-5 h-5 text-primary ml-0.5" />
+          </div>
+        </button>
+      )}
+    </>
+  );
+}
 
 export function ProductShowcase() {
   const t = useTranslations('products');
@@ -55,15 +98,11 @@ export function ProductShowcase() {
           {productConfigs.map((config) => (
             <Card key={config.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader>
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
                   {config.video ? (
-                    <video
+                    <ProductVideo
                       src={config.video}
-                      muted
-                      autoPlay
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover"
+                      poster={config.image || undefined}
                     />
                   ) : config.image ? (
                     <img src={config.image} alt={t(`data.${config.id}.name`)} className="w-full h-full object-cover" />
