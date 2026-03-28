@@ -75,6 +75,9 @@ export function Footer() {
                   2307990428@qq.com
                 </a>
               </li>
+              <li>
+                <span>QQ: 2307990428</span>
+              </li>
             </ul>
           </div>
         </div>
