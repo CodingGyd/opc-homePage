@@ -35,7 +35,7 @@ const productConfigs: Record<string, ProductConfig> = {
   '1': {
     id: '1',
     category: 'software',
-    video_url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/promo.mp4',
+    video_url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/promo.mp4',
     demo_url: '',
     website_url: '',
     latest_version: 'v1.0.1',
