@@ -71,12 +71,13 @@ export function Footer() {
             </h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
+                {locale === 'en' ? 'Email: ' : '邮箱：'}
                 <a href="mailto:2307990428@qq.com" className="hover:text-foreground transition-colors">
                   2307990428@qq.com
                 </a>
               </li>
               <li>
-                <span>QQ: 2307990428</span>
+                QQ: 2307990428
               </li>
             </ul>
           </div>
