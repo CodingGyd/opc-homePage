@@ -909,6 +909,54 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.35); }
 
 @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* === Mobile Responsive === */
+@media (max-width: 768px) {
+  .menu-bar { display: none; }
+  .title-bar { height: 32px; padding: 0 10px; font-size: 11px; }
+  .title-bar .file-name { font-size: 10px; margin-left: 6px; }
+  .toolbar { padding: 3px 6px; gap: 2px; }
+  .tool-btn { width: 28px; height: 28px; font-size: 13px; }
+  .tool-label { display: none; }
+  .formula-bar { height: 26px; padding: 2px 6px; }
+  .formula-bar .cell-ref { width: 44px; height: 20px; line-height: 20px; font-size: 11px; margin-right: 4px; }
+  .formula-bar .fx { font-size: 11px; margin: 0 4px; }
+  .formula-bar .formula-input { height: 20px; line-height: 20px; font-size: 11px; }
+  .status-bar { height: 22px; padding: 0 10px; font-size: 10px; }
+  .status-bar .status-right span:last-child { display: none; }
+  .row-numbers { width: 30px; }
+  .col-headers { padding-left: 30px; }
+  .col-header { height: 20px; line-height: 20px; font-size: 10px; }
+  .row-num { font-size: 10px; }
+  .game-grid { gap: 1px; padding: 1px; }
+  .cell .cell-text { font-size: 8px; }
+  .score-display { gap: 10px; }
+  .score-display .score-val { font-size: 13px; }
+  .score-label { font-size: 11px; }
+  .settings-panel {
+    width: calc(100% - 32px);
+    max-width: 300px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .game-over-card { padding: 28px 24px; }
+  .game-over-overlay .final-score { font-size: 44px; }
+  .game-over-overlay .btn { padding: 9px 20px; font-size: 12px; }
+  .combo-popup { font-size: 36px; }
+  .help-hint { font-size: 11px; padding: 6px 14px; bottom: 28px; }
+  .game-grid { touch-action: manipulation; }
+}
+
+@media (max-width: 400px) {
+  .tool-btn { width: 24px; height: 24px; font-size: 12px; }
+  .tool-sep { margin: 0 2px; }
+  .score-display { gap: 6px; }
+  .score-display .score-val { font-size: 12px; min-width: 24px; }
+  .score-label { font-size: 10px; }
+  .title-bar { height: 28px; font-size: 10px; }
+  .title-bar .file-name { font-size: 9px; }
+}
 </style>
 </head>
 <body data-theme="classic">
