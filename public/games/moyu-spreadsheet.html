@@ -389,9 +389,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3em;
-  line-height: 1;
-  user-select: none;
+  overflow: hidden;
+}
+.cell .cell-block .block-animal {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+  transition: transform 0.2s ease;
+}
+.cell.highlighted .cell-block .block-animal {
+  transform: scale(1.15) rotate(-5deg);
 }
 
 /* Block Colors - Modern Gradient Style */
@@ -442,15 +451,6 @@ body {
 [data-theme="dark"] .block-4 {
   background: linear-gradient(145deg, #d6a2e8 0%, #a55eea 50%, #8e44ad 100%);
   box-shadow: inset 0 1px 2px rgba(255,255,255,0.15), inset 0 -1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(142,68,173,0.25);
-}
-
-/* Cover blocks show emoji lighter */
-.block-0.cover::after,
-.block-1.cover::after,
-.block-2.cover::after,
-.block-3.cover::after,
-.block-4.cover::after {
-  opacity: 0.6;
 }
 
 /* Particles - Enhanced */
@@ -1094,7 +1094,13 @@ const GRID_CONFIGS = {
 const BLOCK_COLORS = ['#ee5a24','#0984e3','#00b894','#f39c12','#8854d0'];
 const BLOCK_GLOWS = ['rgba(238,90,36,0.5)','rgba(9,132,227,0.5)','rgba(0,184,148,0.5)','rgba(243,156,18,0.5)','rgba(136,84,208,0.5)'];
 const COVER_COLORS = ['#FDECEA','#EBF5FB','#EAFAF1','#FEF9E7','#F4ECF7'];
-const BLOCK_ANIMALS = ['🐱','🐶','🐸','🐼','🦊'];
+const BLOCK_ANIMALS = [
+  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f431.png',
+  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f436.png',
+  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f438.png',
+  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f43c.png',
+  'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f98a.png',
+];
 const NUM_COLORS = 5;
 const CELL_TEXTS = [
   '¥128,400','+12.3%','95.2%','3,842','¥76,500',
@@ -1247,7 +1253,12 @@ function renderGrid(animate) {
       if (colorIdx >= 0) {
         const block = document.createElement('div');
         block.className = `cell-block block-${colorIdx}`;
-        block.textContent = BLOCK_ANIMALS[colorIdx];
+        const img = document.createElement('img');
+        img.src = BLOCK_ANIMALS[colorIdx];
+        img.className = 'block-animal';
+        img.draggable = false;
+        img.alt = '';
+        block.appendChild(img);
         cell.appendChild(block);
 
         const text = document.createElement('span');
