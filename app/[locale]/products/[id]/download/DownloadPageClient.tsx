@@ -111,7 +111,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'exe (64-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x64-setup.exe',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_x64-setup.exe',
             size: '5.6 MB',
             requirements: 'Windows 10+ (64-bit)',
             status: 'stable',
@@ -121,7 +121,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'msi (64-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x64_zh-CN.msi',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_x64_zh-CN.msi',
             size: '8.1 MB',
             requirements: 'Windows 10+ (64-bit)',
             status: 'stable',
@@ -130,7 +130,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'exe (32-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x86-setup.exe',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_x86-setup.exe',
             size: '5.0 MB',
             requirements: 'Windows 10+ (32-bit)',
             status: 'stable',
@@ -139,7 +139,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'msi (32-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_x86_zh-CN.msi',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_x86_zh-CN.msi',
             size: '7.2 MB',
             requirements: 'Windows 10+ (32-bit)',
             status: 'stable',
@@ -148,7 +148,7 @@ const products: Record<string, Product> = {
           {
             platform: 'macOS',
             arch: 'Universal',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1_universal.dmg',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1_universal.dmg',
             size: '17.1 MB',
             requirements: 'macOS 10.15+',
             status: 'stable',
@@ -168,7 +168,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'rpm (x86_64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1-1.x86_64.rpm',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1-1.x86_64.rpm',
             size: '10.1 MB',
             requirements: 'RHEL/CentOS/Fedora',
             status: 'stable',
