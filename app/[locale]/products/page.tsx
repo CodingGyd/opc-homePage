@@ -15,7 +15,7 @@ const productConfigs = [
   {
     id: '4',
     category: 'game',
-    image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
+    video: 'https://gydblog2.su.bcebos.com/files/moyu-games/promo.mp4',
     icon: '🐟',
   },
 ];
@@ -54,7 +54,16 @@ function ProductsList() {
           <Card key={config.id} className="group hover:border-primary/50 transition-all hover:shadow-lg">
             <CardHeader>
               <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                {config.image ? (
+                {config.video ? (
+                  <video
+                    src={config.video}
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : config.image ? (
                   <img src={config.image} alt={t(`data.${config.id}.name`)} className="w-full h-full object-cover" />
                 ) : (
                   <span className="text-4xl">{config.icon || '📦'}</span>
