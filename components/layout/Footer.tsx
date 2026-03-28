@@ -57,9 +57,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:2307990428@qq.com" className="hover:text-foreground transition-colors">
-                  {locale === 'en' ? 'Contact' : '联系我'}
-                </a>
+                <Link href={`/${locale}/support`} className="hover:text-foreground transition-colors">
+                  {locale === 'en' ? 'Support Me' : '支持我'}
+                </Link>
               </li>
             </ul>
           </div>
