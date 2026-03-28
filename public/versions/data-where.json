@@ -4,6 +4,13 @@
     "zh-CN": "DataWhere 1.0.2 更新\n\n- 统一全系统数据源图标为官方品牌 SVG，移除 Emoji 确保跨平台兼容\n- 首页统计卡片使用语义化图标（数据库圆柱体、表格网格、消息队列、钥匙）\n- 暗色主题下图标自动切换为白色，明暗主题无缝切换\n- 新增设置页面字体大小调节功能，支持四档缩放（小/标准/大/特大），设置持久化",
     "en-US": "DataWhere 1.0.2\n\n- Unified all datasource icons to official brand SVGs, removed Emoji for cross-platform compatibility\n- Added semantic icons for stats cards (database cylinder, table grid, message queue, key)\n- Icons automatically switch to white in dark theme\n- Added font size setting with 4 zoom presets (Small/Standard/Large/Extra Large), persisted across restarts"
   },
-  "downloadUrl": "https://www.opclite.com/downloads/data-where",
-  "releaseDate": "2026-03-28"
+  "downloadUrl": "https://www.opclite.com/zh/products/1/download/",
+  "releaseDate": "2026-03-28",
+  "platforms": {
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_amd64.deb"
+  }
 }
