@@ -171,7 +171,7 @@
       },
       "4": {
         "name": "MoyuSpreadsheet",
-        "short_description": "A disguised spreadsheet game — perfect for slacking off at work",
+        "short_description": "A disguised spreadsheet puzzle game",
         "description": "A match-3 puzzle game disguised as a WPS Excel spreadsheet. The interface faithfully replicates spreadsheet software with light/dark/minimal themes, making it the perfect camouflage when the boss approaches. Enjoy a fun puzzle game while looking like you're hard at work.",
         "features": [
           "Perfect disguise: faithfully replicates WPS Excel interface",
