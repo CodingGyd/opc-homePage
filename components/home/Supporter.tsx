@@ -34,7 +34,7 @@ export function Supporter() {
 
             {/* Price */}
             <div className="text-center mb-8">
-              <span className="text-4xl font-bold text-amber-600 dark:text-amber-400">¥19.9</span>
+              <span className="text-4xl font-bold text-amber-600 dark:text-amber-400">¥29.9</span>
               <span className="text-sm text-muted-foreground ml-2">{t('price_label')}</span>
               <div className="mt-1 text-xs text-red-500 font-medium">
                 {locale === 'en'
