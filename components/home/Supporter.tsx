@@ -38,8 +38,8 @@ export function Supporter() {
               <span className="text-sm text-muted-foreground ml-2">{t('price_label')}</span>
               <div className="mt-1 text-xs text-red-500 font-medium">
                 {locale === 'en'
-                  ? 'Seed user price — will increase after the first batch closes'
-                  : '种子用户专享价 — 首批名额满后恢复原价'}
+                  ? 'Seed user price — will be ¥199.9 after the first batch closes'
+                  : '种子用户专享价 — 首批名额满后恢复原价199.9'}
               </div>
             </div>
 
