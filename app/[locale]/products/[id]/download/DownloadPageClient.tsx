@@ -168,7 +168,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'rpm (x86_64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere_1.0.1-1.x86_64.rpm',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.1/DataWhere-1.0.1-1.x86_64.rpm',
             size: '10.1 MB',
             requirements: 'RHEL/CentOS/Fedora',
             status: 'stable',
