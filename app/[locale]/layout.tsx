@@ -48,6 +48,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
+        <script dangerouslySetInnerHTML={{ __html: '(function(){var s=new MutationObserver(function(m){m.forEach(function(r){r.addedNodes.forEach(function(n){if(n.tagName==="SCRIPT"&&n.src&&n.src.includes("cloudflareinsights")){n.remove()}if(n.tagName==="LINK"&&n.href&&n.href.includes("cloudflareinsights")){n.remove()}})})});s.observe(document.documentElement,{childList:true,subtree:true})})()' }} />
         <NextIntlClientProvider messages={messages}>
           <div className="flex min-h-screen flex-col">
             <Header />
