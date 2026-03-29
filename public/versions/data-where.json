@@ -1,16 +1,16 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.0.2 更新\n\n- 统一全系统数据源图标为官方品牌 SVG，移除 Emoji 确保跨平台兼容\n- 首页统计卡片使用语义化图标（数据库圆柱体、表格网格、消息队列、钥匙）\n- 暗色主题下图标自动切换为白色，明暗主题无缝切换\n- 新增设置页面字体大小调节功能，支持四档缩放（小/标准/大/特大），设置持久化",
-    "en-US": "DataWhere 1.0.2\n\n- Unified all datasource icons to official brand SVGs, removed Emoji for cross-platform compatibility\n- Added semantic icons for stats cards (database cylinder, table grid, message queue, key)\n- Icons automatically switch to white in dark theme\n- Added font size setting with 4 zoom presets (Small/Standard/Large/Extra Large), persisted across restarts"
+    "zh-CN": "DataWhere 1.0.3\n\n新功能\n- 应用内一键更新：发现新版本后可直接在设置页面点击下载安装，下载过程实时显示进度，无需手动前往官网下载\n- 启动自动检测更新：每次打开应用自动检查是否有新版本，设置菜单出现红点提醒，不再错过任何更新\n- 静默下载模式：在设置中开启后，检测到新版本将自动后台下载，下载完成后直接弹出安装程序\n- 多平台智能下载：自动识别当前操作系统，下载对应平台的安装包（Windows / macOS / Linux）\n- 多语言更新说明：更新日志根据系统语言自动显示中文或英文\n\n优化\n- 更新说明支持完整格式展示，换行排版更加清晰\n- 下载失败时提供错误信息和重试按钮",
+    "en-US": "DataWhere 1.0.3\n\nNew Features\n- One-click in-app update: Download and install new versions directly from the Settings page with real-time progress display\n- Auto-check on startup: Automatically check for new versions every time the app launches, with red dot badge on Settings menu\n- Silent download mode: When enabled in Settings, new versions are automatically downloaded in the background and the installer launches when ready\n- Multi-platform smart download: Automatically detects your OS and downloads the correct installer (Windows / macOS / Linux)\n- Multi-language release notes: Update changelog automatically displays in Chinese or English based on system language\n\nImprovements\n- Release notes now support full formatting with better line break layout\n- Download failures now provide error details and a retry button"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-03-28",
+  "releaseDate": "2026-03-29",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.2/DataWhere_1.0.2_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.3/DataWhere_1.0.3_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.3/DataWhere_1.0.3_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.3/DataWhere_1.0.3_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.3/DataWhere_1.0.3_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.3/DataWhere_1.0.3_amd64.deb"
   }
 }
