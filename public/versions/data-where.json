@@ -1,16 +1,16 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.0.4\n\n新功能\n- 设置页更新区域新增「前往官网下载」链接，方便用户直接跳转官网下载页面\n- 安装向导欢迎页和完成页显示当前安装的版本号，安装过程更清晰\n\n优化\n- 修复版本检测误报问题：优化版本比较逻辑，当前版本与远程版本相同时不再错误提示有新版本\n- 修复更新检查在网络代理环境下失败的问题\n- 下载更新和安装更新状态提示中显示目标版本号\n- 发现新版本提示中同时显示当前版本号，便于确认",
-    "en-US": "DataWhere 1.0.4\n\nNew Features\n- Added \"Visit website to download\" link in the update settings section\n- Installer welcome and finish pages now display the version being installed\n\nImprovements\n- Fixed false positive update notifications: version comparison logic now correctly handles equal versions\n- Fixed update check failing in proxy environments\n- Download and installation progress now displays the target version number\n- Update available notification now shows current version for easy comparison"
+    "zh-CN": "DataWhere 1.0.5\n\n修复\n- 修复 Kafka 工作台访问空 topic 时报 OffsetOutOfRange 错误的问题",
+    "en-US": "DataWhere 1.0.5\n\nFixes\n- Fixed OffsetOutOfRange error when accessing empty Kafka topics in workspace"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
   "releaseDate": "2026-03-29",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.4/DataWhere_1.0.4_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.4/DataWhere_1.0.4_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.4/DataWhere_1.0.4_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.4/DataWhere_1.0.4_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.4/DataWhere_1.0.4_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/DataWhere_1.0.5_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/DataWhere_1.0.5_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/DataWhere_1.0.5_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/DataWhere_1.0.5_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/DataWhere_1.0.5_amd64.deb"
   }
 }
