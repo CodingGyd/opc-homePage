@@ -16,7 +16,7 @@ const productConfigs = [
     id: '1',
     category: 'software',
     image: assetPath('/images/products/dataquery/home.webp'),
-    video: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.0/promo-muted.mp4',
+    video: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/promo-muted.mp4',
   },
   {
     id: '4',
