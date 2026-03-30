@@ -1140,7 +1140,7 @@ export default function DownloadPageClient({
                   {locale === 'en' ? 'Become a Supporter' : '成为支持者'}
                 </h2>
               </div>
-              <span className="text-2xl font-bold text-amber-600">¥19.9</span>
+              <span className="text-2xl font-bold text-amber-600">¥29.9</span>
             </div>
 
             <p className="text-sm text-muted-foreground mb-4">
