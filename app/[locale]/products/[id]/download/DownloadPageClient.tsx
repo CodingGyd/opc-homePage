@@ -1131,6 +1131,46 @@ export default function DownloadPageClient({
             </div>
           </div>
 
+          {/* macOS Gatekeeper Warning */}
+          <div className="p-4 rounded-xl border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-800">
+            <div className="flex items-start gap-3">
+              <span className="text-xl">🍎</span>
+              <div className="space-y-3">
+                <h3 className="font-semibold text-blue-800 dark:text-blue-200">
+                  {locale === 'en' ? 'macOS Installation Guide' : 'macOS 安装说明'}
+                </h3>
+                <p className="text-sm text-blue-700 dark:text-blue-300">
+                  {locale === 'en'
+                    ? 'If you see "cannot be opened because the developer cannot be verified" when launching the app, follow these steps:'
+                    : '如果在安装软件成功后，打开应用时，提示："无法打开 XXX"，因为无法验证开发者。解决方法如下：'}
+                </p>
+                <div className="space-y-2 text-sm text-blue-700 dark:text-blue-300">
+                  <p className="font-medium">
+                    {locale === 'en' ? 'Method 1:' : '方法一：'}
+                  </p>
+                  <p className="pl-3">
+                    {locale === 'en'
+                      ? 'Find the app in Finder, right-click (or Control-click) and select "Open". A prompt will appear with an "Open" button — click it.'
+                      : '找到应用，右键打开，还会有提示，但是会多一个"打开"的按钮，点击打开即可。'}
+                  </p>
+                  <p className="font-medium mt-2">
+                    {locale === 'en' ? 'Method 2:' : '方法二：'}
+                  </p>
+                  <p className="pl-3">
+                    {locale === 'en'
+                      ? 'Click the Apple icon  → System Settings → Privacy & Security. At the bottom, find "was blocked from use because it is from an unidentified developer" and click "Open Anyway" → confirm with "Open".'
+                      : '点击屏幕左上角的苹果图标，选择菜单：系统偏好设置 → 安全性与隐私 → 通用，在窗口底部会看到"已阻止使用 XXX，因为来自身份不明的开发者"，点击后面的"仍要打开"按钮 → 在弹出的确认弹窗中，点击"打开"按钮即可。'}
+                  </p>
+                </div>
+                <p className="text-xs text-blue-600 dark:text-blue-400 mt-2">
+                  {locale === 'en'
+                    ? 'This is a completely offline, safe software. The above steps are only needed once.'
+                    : '本软件承诺为正规完全离线软件，按此操作即可正常安装。'}
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Supporter */}
           <div className="p-6 rounded-xl border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20">
             <div className="flex items-center justify-between mb-4">
