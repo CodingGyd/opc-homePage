@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { trackPageView, initDurationTracking } from '@/lib/tracker';
+import { trackPageView } from '@/lib/tracker';
 
 export function Tracker() {
   const pathname = usePathname();
@@ -10,10 +10,6 @@ export function Tracker() {
   useEffect(() => {
     trackPageView();
   }, [pathname]);
-
-  useEffect(() => {
-    initDurationTracking();
-  }, []);
 
   return null;
 }
