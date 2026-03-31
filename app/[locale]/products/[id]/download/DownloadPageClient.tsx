@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { assetPath } from '@/lib/utils';
+import { trackDownload } from '@/lib/tracker';
 
 // --- Types ---
 
@@ -827,7 +828,7 @@ export default function DownloadPageClient({
               </div>
               <div className="flex items-center gap-3 shrink-0">
                 {recommendedDownload ? (
-                  <a href={recommendedDownload.url} download>
+                  <a href={recommendedDownload.url} download onClick={() => trackDownload({ productId: product.id, productName: product.name, version: latestVersion.version, platform: recommendedDownload.platform, format: recommendedDownload.format })}>
                     <Button size="lg" className="gap-2 px-8 h-12 text-base">
                       <Download className="w-5 h-5" />
                       {locale === 'en' ? 'Download Now' : '立即下载'}
@@ -862,7 +863,7 @@ export default function DownloadPageClient({
                     const dl = latestVersion.downloads.find((d) => d.platform === p && d.recommended)
                       || latestVersion.downloads.find((d) => d.platform === p);
                     return (
-                      <a key={p} href={dl?.url} download className="inline-flex items-center gap-1 hover:text-foreground transition-colors">
+                      <a key={p} href={dl?.url} download className="inline-flex items-center gap-1 hover:text-foreground transition-colors" onClick={() => dl && trackDownload({ productId: product.id, productName: product.name, version: latestVersion.version, platform: dl.platform, format: dl.format })}>
                         {platformIcon(p)} {p}
                         <ChevronRight className="w-3 h-3" />
                       </a>
@@ -938,6 +939,7 @@ export default function DownloadPageClient({
                           key={index}
                           href={dl.url}
                           download
+                          onClick={() => trackDownload({ productId: product.id, productName: product.name, version: latestVersion.version, platform: dl.platform, format: dl.format })}
                           className={`flex items-center gap-4 p-3 rounded-lg transition-colors hover:bg-muted/50 group ${
                             dl.recommended ? 'bg-primary/5 border border-primary/10' : ''
                           } ${dl.status === 'experimental' ? 'border border-orange-200 bg-orange-50/30' : ''}`}
@@ -1044,6 +1046,7 @@ export default function DownloadPageClient({
                             key={i}
                             href={dl.url}
                             download
+                            onClick={() => trackDownload({ productId: product.id, productName: product.name, version: version.version, platform: dl.platform, format: dl.format })}
                             className="flex items-center justify-between p-2 rounded hover:bg-muted/50 transition-colors"
                           >
                             <div className="flex items-center gap-2 text-xs">
