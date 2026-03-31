@@ -31,6 +31,11 @@ function getSessionId(): string {
 /** 根据来源 URL 判断流量类型 */
 function classifySource(referrer: string): string {
   if (!referrer) return 'direct';
+  // 站内跳转视为直接访问
+  try {
+    const refHost = new URL(referrer).hostname;
+    if (refHost === window.location.hostname) return 'direct';
+  } catch {}
   const r = referrer.toLowerCase();
   if (/google|bing|baidu|yahoo|duckduckgo|sogou|so\.com|360/.test(r)) return 'search';
   if (/facebook|twitter|x\.com|linkedin|weibo|zhihu|douyin|tiktok/.test(r)) return 'social';
