@@ -101,6 +101,10 @@ function detectOS(): { name: string; version: string } {
   return { name, version };
 }
 
+/** 防抖：同一个页面路径短时间内只发送一次 */
+const lastTrackTime: Record<string, number> = {};
+const TRACK_DEBOUNCE_MS = 3000;
+
 /** 发送埋点数据到后台 */
 async function sendTrack(endpoint: string, data: object): Promise<void> {
   if (!TRACK_API_BASE) return;
@@ -129,6 +133,10 @@ function getLocale(): string {
  */
 export function trackPageView(): void {
   if (typeof window === 'undefined') return;
+  const url = window.location.pathname;
+  const now = Date.now();
+  if (lastTrackTime[url] && now - lastTrackTime[url] < TRACK_DEBOUNCE_MS) return;
+  lastTrackTime[url] = now;
   const browser = detectBrowser();
   const os = detectOS();
   sendTrack('visit', {
@@ -136,6 +144,7 @@ export function trackPageView(): void {
     sessionId: getSessionId(),
     pageUrl: window.location.pathname,
     pageTitle: document.title,
+    domain: window.location.hostname,
     referrer: document.referrer,
     sourceType: classifySource(document.referrer),
     deviceType: detectDeviceType(),
@@ -197,6 +206,7 @@ export function initDurationTracking(): void {
           sessionId: getSessionId(),
           pageUrl: window.location.pathname,
           pageTitle: document.title,
+          domain: window.location.hostname,
           referrer: document.referrer,
           sourceType: classifySource(document.referrer),
           deviceType: detectDeviceType(),
