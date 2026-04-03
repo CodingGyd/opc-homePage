@@ -1,16 +1,16 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.0.6\n\n新功能\n- MySQL 工作台结果表支持右键菜单（复制单元格/行/表）\n- MySQL 工作台 SQL 编辑器支持拖拽调整高度\n- MySQL 工作台结果表列头悬停显示列类型和注释\n- 系统托盘图标悬停显示应用名称提示\n- 应用数据存储在安装目录而非 AppData\n\n修复\n- 数据库连接添加超时处理和错误显示",
-    "en-US": "DataWhere 1.0.6\n\nNew Features\n- MySQL workspace result table supports right-click context menu (copy cell/row/table)\n- MySQL workspace SQL editor supports draggable resize\n- MySQL workspace result table header hover shows column type and comment tooltip\n- System tray icon hover shows app name tooltip\n- App data stored in install directory instead of AppData\n\nFixes\n- Added timeout handling and error display for database connections"
+    "zh-CN": "DataWhere 1.0.7\n\n修复\n- 修复导入激活文件成为支持者后，重启应用认证状态丢失的问题",
+    "en-US": "DataWhere 1.0.7\n\nFixes\n- Fixed supporter authentication state not persisting after app restart"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
   "releaseDate": "2026-04-03",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.6/DataWhere_1.0.6_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.6/DataWhere_1.0.6_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.6/DataWhere_1.0.6_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.6/DataWhere_1.0.6_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.6/DataWhere_1.0.6_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.7/DataWhere_1.0.7_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.7/DataWhere_1.0.7_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.7/DataWhere_1.0.7_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.7/DataWhere_1.0.7_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.7/DataWhere_1.0.7_amd64.deb"
   }
 }
