@@ -1,16 +1,16 @@
 {
-  "version": "1.0.8",
+  "version": "1.0.9",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.0.8\n\n新功能\n- 首次安装引导页：全新安装后自动展示欢迎介绍和快速上手引导\n- 版本更新日志弹窗：应用更新后首次启动自动弹出更新日志\n- 无缝覆盖更新：应用内更新静默覆盖安装，无需卸载旧版本\n- 安装器智能识别：自动区分首次安装和版本升级场景",
-    "en-US": "DataWhere 1.0.8\n\nNew Features\n- Onboarding guide: Welcome and quick start guide shown on first install\n- Update changelog modal: Automatically shows release notes after update\n- Seamless in-place updates: Silent overwrite installation without uninstalling old version\n- Smart installer: Automatically detects first install vs upgrade scenarios"
+    "zh-CN": "DataWhere 1.0.9\n\n修复\n- 版本更新提示弹窗不再需要联网获取更新日志，符合本地优先原则",
+    "en-US": "DataWhere 1.0.9\n\nFixes\n- Update notification modal no longer requires network access, aligned with local-first principle"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
   "releaseDate": "2026-04-06",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.8/DataWhere_1.0.8_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.8/DataWhere_1.0.8_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.8/DataWhere_1.0.8_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.8/DataWhere_1.0.8_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.8/DataWhere_1.0.8_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.9/DataWhere_1.0.9_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.9/DataWhere_1.0.9_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.9/DataWhere_1.0.9_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.9/DataWhere_1.0.9_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.0.9/DataWhere_1.0.9_amd64.deb"
   }
 }
