@@ -1,16 +1,16 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.1.1\n\n新功能\n- 新增 PostgreSQL 数据源支持（12.x ~ 17.x），包含数据库、Schema、表三级浏览和只读查询工作台\n- 数据源架构升级为插件化设计，后续新增数据源类型将更快、更稳定\n\n问题修复\n- 修复部分情况下支持者激活码导入后提示"签名无效"的问题\n- 修复手动安装新版本后数据源配置可能丢失的问题\n\n支持的数据源\n- MySQL 5.6 / 5.7 / 8.0 / 8.4\n- PostgreSQL 12 / 13 / 14 / 15 / 16 / 17\n- Redis 5.x / 6.x / 7.x\n- Kafka 2.8 / 3.3 / 3.6",
-    "en-US": "DataWhere 1.1.1\n\nWhat's New\n- Added PostgreSQL support (12.x ~ 17.x) with database, schema, and table browsing plus a read-only query workspace\n- Upgraded to a plugin-based data source architecture for faster and more stable additions of new data source types\n\nFixes\n- Fixed an issue where supporter activation code import would fail with \"invalid signature\"\n- Fixed data source configurations potentially being lost after manually installing a new version\n\nSupported Data Sources\n- MySQL 5.6 / 5.7 / 8.0 / 8.4\n- PostgreSQL 12 / 13 / 14 / 15 / 16 / 17\n- Redis 5.x / 6.x / 7.x\n- Kafka 2.8 / 3.3 / 3.6"
+    "zh-CN": "DataWhere 1.1.2\n\n问题修复\n- 修复应用内检查更新在部分网络环境下提示"网络不可用"的问题",
+    "en-US": "DataWhere 1.1.2\n\nFixes\n- Fixed update check failing with \"network unavailable\" error in certain network environments"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
   "releaseDate": "2026-04-07",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.1/DataWhere_1.1.1_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.1/DataWhere_1.1.1_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.1/DataWhere_1.1.1_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.1/DataWhere_1.1.1_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.1/DataWhere_1.1.1_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_amd64.deb"
   }
 }
