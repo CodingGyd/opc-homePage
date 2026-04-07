@@ -94,10 +94,11 @@
       "1": {
         "name": "DataWhere",
         "short_description": "One search box, search through all your data",
-        "description": "DataWhere is a universal data source access platform, designed to be a unified data query entry. Through pluggable data source adapters, it supports connecting to various databases, caches, message queues, and more. Currently supports MySQL, Redis, and Kafka, with more data source types being added continuously. Core principles: Unified (one entry for any data source), Simple (as easy to use as a search engine), Secure (read-only mode, data stays local).",
+        "description": "DataWhere is a universal data source access platform, designed to be a unified data query entry. Through pluggable data source adapters, it supports connecting to various databases, caches, message queues, and more. Currently supports MySQL, PostgreSQL, Redis, and Kafka, with more data source types being added continuously. Core principles: Unified (one entry for any data source), Simple (as easy to use as a search engine), Secure (read-only mode, data stays local).",
         "features": [
           "Universal data source access: pluggable architecture, continuously expanding",
           "MySQL 5.6.x ~ 8.4.x: database browsing, read-only SQL queries",
+          "PostgreSQL 12.x ~ 17.x: database, schema, and table browsing, read-only SQL queries",
           "Redis 5.x ~ 7.x: key browsing and value inspection",
           "Kafka 2.8.x ~ 3.6.x: topic browsing and message viewing",
           "Global search: one search box across data source types and instances",
@@ -111,6 +112,7 @@
           { "title": "Home", "description": "Clean and intuitive home design" },
           { "title": "Global Search", "description": "One search box across data sources" },
           { "title": "MySQL Workspace", "description": "MySQL database query and management" },
+          { "title": "PostgreSQL Workspace", "description": "PostgreSQL database, schema, and table browsing" },
           { "title": "Redis Workspace", "description": "Redis key-value browsing and management" },
           { "title": "Kafka Workspace", "description": "Kafka message browsing and viewing" },
           { "title": "Data Source Management", "description": "Unified management of all connections" }

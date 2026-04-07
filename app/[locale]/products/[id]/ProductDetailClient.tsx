@@ -334,6 +334,10 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                 MySQL
               </span>
               、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-900/50 border border-sky-300 dark:border-sky-700 text-sky-600 dark:text-sky-400 font-medium">
+                PostgreSQL
+              </span>
+              、
               <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 text-red-600 dark:text-red-400 font-medium">
                 Redis
               </span>
