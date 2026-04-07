@@ -1,16 +1,16 @@
 {
-  "version": "1.1.2",
+  "version": "1.1.3",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.1.2\n\n问题修复\n- 修复应用内检查更新在部分网络环境下提示「网络不可用」的问题",
-    "en-US": "DataWhere 1.1.2\n\nFixes\n- Fixed update check failing with \"network unavailable\" error in certain network environments"
+    "zh-CN": "DataWhere 1.1.3\n\n新功能\n- PostgreSQL 工作台支持视图(VIEW)和物化视图(MATERIALIZED VIEW)的浏览、搜索和 DDL 查看\n- 搜索结果类型标签国际化（中文环境显示「表」「视图」「物化视图」等）\n- 搜索跳转工作台时自动展开对应分类目录\n\n问题修复\n- 修复 Redis 5.0.14.1 元数据同步 UTF-8 转换错误\n- 修复重启应用后搜索无法找到数据的问题\n- 修复物化视图字段列表为空的问题\n- 修复 varchar 类型显示为「character varying」的问题",
+    "en-US": "DataWhere 1.1.3\n\nNew Features\n- PostgreSQL workspace now supports views and materialized views browsing, search, and DDL viewing\n- Search result type labels are now localized (e.g., Table, View, Materialized View)\n- Clicking a search result auto-expands the correct category in the workspace sidebar\n\nBug Fixes\n- Fixed Redis 5.0.14.1 metadata sync UTF-8 conversion error\n- Fixed search returning empty results after app restart\n- Fixed materialized view field list showing empty\n- Fixed varchar type displayed as \"character varying\""
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-04-07",
+  "releaseDate": "2026-04-08",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.2/DataWhere_1.1.2_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.3/DataWhere_1.1.3_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.3/DataWhere_1.1.3_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.3/DataWhere_1.1.3_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.3/DataWhere_1.1.3_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.3/DataWhere_1.1.3_amd64.deb"
   }
 }
