@@ -60,7 +60,8 @@
       "all": "全部",
       "software": "软件",
       "saas": "SaaS",
-      "game": "游戏"
+      "game": "游戏",
+      "miniprogram": "小程序"
     },
     "showcase": {
       "title": "精选产品",
@@ -72,7 +73,7 @@
       "coming_soon": "即将推出",
       "coming_soon_btn": "敬请期待",
       "miniprogram": "小程序",
-      "miniprogram_desc": "微信小程序开发",
+      "miniprogram_desc": "微信小程序，扫码即用",
       "saas_platform": "SaaS 平台",
       "saas_platform_desc": "云端服务，随时随地访问",
       "notice_badge": "早期探索阶段",
@@ -180,6 +181,43 @@
         "screenshots": [
           { "title": "游戏主界面", "description": "伪装成 Excel 表格的消除游戏" }
         ]
+      },
+      "5": {
+        "name": "便多星",
+        "short_description": "趣味排便记录与健康管理小程序",
+        "description": "便多星是一款轻松有趣的排便记录与健康管理微信小程序。通过趣味化的设计降低记录的心理门槛，用布里斯托大便分类法科学评估肠道健康，帮助用户养成良好的排便习惯。",
+        "features": [
+          "一键计时：快速记录排便时长，3 秒完成记录",
+          "布里斯托分类：科学评估便便形状，了解肠道健康",
+          "便便评分：趣味 emoji 评分，让记录不再尴尬",
+          "日历打卡：直观的日历视图，养成健康习惯",
+          "AI 智能点评：AI 分析排便数据，给出个性化健康建议",
+          "数据统计：周报月报，掌握健康趋势",
+          "微信小程序：无需下载，扫码即用"
+        ],
+        "screenshots": [
+          { "title": "首页", "description": "趣味化的排便记录首页" },
+          { "title": "计时记录", "description": "一键计时，快速完成记录" },
+          { "title": "便便评分", "description": "趣味 emoji 评分界面" },
+          { "title": "日历视图", "description": "直观的日历打卡界面" },
+          { "title": "记录详情", "description": "完整的排便记录详情" },
+          { "title": "数据统计", "description": "健康趋势统计分析" }
+        ],
+        "rich": {
+          "intro": "记录每一次「嗯嗯」，用数据守护肠道健康！",
+          "intro_highlight": "便多星",
+          "intro_desc": "让排便记录变得轻松有趣，科学了解自己的肠道状态。",
+          "scan_desc": "微信扫描下方小程序码，即可开始使用。无需下载安装，即开即用，数据安全保存在云端。",
+          "health_badge": "科学记录",
+          "health_desc": "基于布里斯托大便分类法，用 7 级科学标准评估肠道健康。配合 AI 智能点评，为你的每一次「嗯嗯」提供个性化健康建议。",
+          "core_title": "产品亮点",
+          "core_1_title": "趣味设计",
+          "core_1_desc": "Emoji 评分、轻松文案，告别尴尬",
+          "core_2_title": "3 秒记录",
+          "core_2_desc": "一键计时，极速完成记录",
+          "core_3_title": "AI 点评",
+          "core_3_desc": "智能分析，个性化健康建议"
+        }
       }
     },
     "detail": {

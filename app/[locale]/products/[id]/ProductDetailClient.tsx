@@ -145,6 +145,23 @@ const productConfigs: Record<string, ProductConfig> = {
       { url: assetPath('/images/products/moyu-spreadsheet/home.webp') },
     ],
   },
+  '5': {
+    id: '5',
+    category: 'miniprogram',
+    video_url: '',
+    demo_url: '',
+    website_url: '',
+    latest_version: 'v1.0.0',
+    downloads: [],
+    screenshots: [
+      { url: assetPath('/images/products/bdx/home.jpg') },
+      { url: assetPath('/images/products/bdx/timing.jpg') },
+      { url: assetPath('/images/products/bdx/score.jpg') },
+      { url: assetPath('/images/products/bdx/calendar.jpg') },
+      { url: assetPath('/images/products/bdx/detail.jpg') },
+      { url: assetPath('/images/products/bdx/statistics.jpg') },
+    ],
+  },
 };
 
 interface ProductDetailClientProps {
@@ -162,6 +179,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
   const config = productConfigs[id] || productConfigs['1'];
   const isSoftware = config.category === 'software';
   const isGame = config.category === 'game';
+  const isMiniprogram = config.category === 'miniprogram';
 
   // Translatable data from i18n
   const name = t(`data.${id}.name`);
@@ -215,6 +233,42 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left: Product Screenshots */}
         <div>
+          {isMiniprogram ? (
+            /* Mini Program: phone-size screenshots */
+            <>
+              {/* Main Screenshot */}
+              <div className="flex justify-center mb-4">
+                <div
+                  className="w-52 sm:w-60 aspect-[9/19.5] bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary transition-all shadow-md"
+                  onClick={() => openLightbox(0)}
+                >
+                  <img
+                    src={screenshots[0]?.url}
+                    alt={screenshots[0]?.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Screenshot Thumbnails */}
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 justify-items-center">
+                {screenshots.map((screenshot, index) => (
+                  <div
+                    key={index}
+                    className="w-20 sm:w-24 aspect-[9/19.5] bg-muted rounded-lg cursor-pointer hover:ring-2 hover:ring-primary overflow-hidden shadow-sm"
+                    onClick={() => openLightbox(index)}
+                  >
+                    <img
+                      src={screenshot.url}
+                      alt={screenshot.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+          <>
           {/* Main Screenshot / Video */}
           <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center mb-4 overflow-hidden">
             {config.video_url ? (
@@ -255,6 +309,8 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               </div>
             ))}
           </div>
+          </>
+          )}
         </div>
 
         {/* Right: Product Info */}
@@ -298,6 +354,20 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                   {isGame ? t('detail.play_now') : t('detail.try_online')}
                 </Button>
               </a>
+            )}
+
+            {isMiniprogram && (
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 border">
+                <img
+                  src={assetPath('/images/products/bdx/qrcode.png')}
+                  alt="小程序码"
+                  className="w-28 h-28 rounded-lg shadow-sm"
+                />
+                <div>
+                  <p className="font-medium">微信扫码，立即体验</p>
+                  <p className="text-sm text-muted-foreground mt-1">Scan with WeChat to start</p>
+                </div>
+              </div>
             )}
           </div>
         </div>
@@ -374,6 +444,52 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               </div>
             </div>
           </div>
+        ) : config.id === '5' ? (
+          <div className="prose prose-lg max-w-none space-y-6">
+            <p className="text-lg leading-relaxed">
+              {t('data.5.rich.intro')}
+              <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent font-semibold">
+                {t('data.5.rich.intro_highlight')}
+              </span>
+              {t('data.5.rich.intro_desc')}
+            </p>
+            <p className="text-lg leading-relaxed">
+              {t('data.5.rich.scan_desc')}
+            </p>
+            <div className="flex justify-center my-6">
+              <img
+                src={assetPath('/images/products/bdx/qrcode.png')}
+                alt="小程序码"
+                className="w-48 h-48 rounded-xl shadow-md"
+              />
+            </div>
+            <p className="text-lg leading-relaxed">
+              <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-green-100 dark:bg-green-900/50 border border-green-300 dark:border-green-700 text-green-600 dark:text-green-400 font-semibold">
+                {t('data.5.rich.health_badge')}
+              </span>
+              {t('data.5.rich.health_desc')}
+            </p>
+            <div className="mt-10 pt-8 border-t">
+              <h3 className="text-xl font-bold mb-6 text-center">{t('data.5.rich.core_title')}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="group p-5 rounded-xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800/50 hover:shadow-lg hover:border-orange-300 dark:hover:border-orange-700 transition-all text-center">
+                  <span className="text-4xl block mb-3">😄</span>
+                  <h4 className="font-bold text-lg text-orange-700 dark:text-orange-400 mb-2">{t('data.5.rich.core_1_title')}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t('data.5.rich.core_1_desc')}</p>
+                </div>
+                <div className="group p-5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700 transition-all text-center">
+                  <span className="text-4xl block mb-3">⚡</span>
+                  <h4 className="font-bold text-lg text-emerald-700 dark:text-emerald-400 mb-2">{t('data.5.rich.core_2_title')}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t('data.5.rich.core_2_desc')}</p>
+                </div>
+                <div className="group p-5 rounded-xl bg-violet-50 dark:bg-violet-950/30 border border-violet-200 dark:border-violet-800/50 hover:shadow-lg hover:border-violet-300 dark:hover:border-violet-700 transition-all text-center">
+                  <span className="text-4xl block mb-3">🤖</span>
+                  <h4 className="font-bold text-lg text-violet-700 dark:text-violet-400 mb-2">{t('data.5.rich.core_3_title')}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t('data.5.rich.core_3_desc')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         ) : (
           <div className="prose prose-lg max-w-none">
             <p>{description}</p>
@@ -410,7 +526,7 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
                 src={screenshots[selectedImage]?.url}
                 alt={screenshots[selectedImage]?.title}
                 className="rounded-lg"
-                style={{ maxWidth: '100%', height: 'auto' }}
+                style={{ maxWidth: isMiniprogram ? '240px' : '100%', height: 'auto' }}
               />
             </div>
             <div className="text-center mt-4 text-white">

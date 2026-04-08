@@ -13,6 +13,11 @@ const productConfigs = [
     image: assetPath('/images/products/dataquery/home.webp'),
   },
   {
+    id: '5',
+    category: 'miniprogram',
+    image: assetPath('/images/products/bdx/home.jpg'),
+  },
+  {
     id: '4',
     category: 'game',
     video: 'https://gydblog2.su.bcebos.com/files/moyu-games/promo.mp4',
@@ -21,7 +26,6 @@ const productConfigs = [
 ];
 
 const comingSoonConfigs = [
-  { icon: '📱', nameKey: 'showcase.miniprogram', descKey: 'showcase.miniprogram_desc' },
   { icon: '☁️', nameKey: 'showcase.saas_platform', descKey: 'showcase.saas_platform_desc' },
 ];
 

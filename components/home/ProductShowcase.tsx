@@ -19,6 +19,11 @@ const productConfigs = [
     video: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/promo-muted.mp4',
   },
   {
+    id: '5',
+    category: 'miniprogram',
+    image: assetPath('/images/products/bdx/home.jpg'),
+  },
+  {
     id: '4',
     category: 'game',
     image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
@@ -131,30 +136,6 @@ export function ProductShowcase() {
               </CardContent>
             </Card>
           ))}
-
-          <Card className="group relative overflow-hidden opacity-60 hover:opacity-80 transition-all border-dashed">
-            <CardHeader>
-              <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-4xl">📱</span>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
-                  {t('showcase.coming_soon')}
-                </span>
-              </div>
-              <CardTitle className="text-muted-foreground">
-                {t('showcase.miniprogram')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground/70 line-clamp-2 mb-4">
-                {t('showcase.miniprogram_desc')}
-              </p>
-              <Button size="sm" className="w-full" disabled>
-                {t('showcase.coming_soon_btn')}
-              </Button>
-            </CardContent>
-          </Card>
 
           <Card className="group relative overflow-hidden opacity-60 hover:opacity-80 transition-all border-dashed">
             <CardHeader>

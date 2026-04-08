@@ -61,6 +61,7 @@
       "software": "Software",
       "saas": "SaaS",
       "game": "Game",
+      "miniprogram": "Mini Program",
       "template": "Templates",
       "course": "Courses",
       "ebook": "E-Books",
@@ -76,7 +77,7 @@
       "coming_soon": "Coming Soon",
       "coming_soon_btn": "Coming Soon",
       "miniprogram": "Mini Program",
-      "miniprogram_desc": "WeChat mini program development tools",
+      "miniprogram_desc": "WeChat mini program, scan to use",
       "saas_platform": "SaaS Platform",
       "saas_platform_desc": "Cloud services, access anywhere",
       "notice_badge": "Early Access",
@@ -184,6 +185,43 @@
         "screenshots": [
           { "title": "Game Main Interface", "description": "A match-3 game disguised as a spreadsheet" }
         ]
+      },
+      "5": {
+        "name": "BianDuoXing",
+        "short_description": "Fun bowel movement tracker & gut health mini program",
+        "description": "BianDuoXing is a fun and lighthearted WeChat mini program for tracking bowel movements and managing gut health. It uses playful design to lower the barrier of recording, scientifically evaluates gut health with the Bristol Stool Scale, and helps users build healthy bathroom habits.",
+        "features": [
+          "One-tap timer: quickly record duration, done in 3 seconds",
+          "Bristol Scale: scientifically assess stool type for gut health insights",
+          "Fun scoring: emoji-based ratings make tracking embarrassment-free",
+          "Calendar view: intuitive daily check-in calendar for habit building",
+          "AI commentary: AI analyzes your data for personalized health tips",
+          "Statistics: weekly and monthly reports to track health trends",
+          "WeChat mini program: no download needed, scan and go"
+        ],
+        "screenshots": [
+          { "title": "Home", "description": "Fun and playful recording home screen" },
+          { "title": "Timer", "description": "One-tap timer for quick recording" },
+          { "title": "Score", "description": "Fun emoji scoring interface" },
+          { "title": "Calendar", "description": "Intuitive daily check-in calendar" },
+          { "title": "Record Detail", "description": "Complete bowel movement record details" },
+          { "title": "Statistics", "description": "Health trend analysis" }
+        ],
+        "rich": {
+          "intro": "Track every bathroom trip, protect your gut health with data!",
+          "intro_highlight": "BianDuoXing",
+          "intro_desc": "Making bowel movement tracking fun and easy — scientifically understand your gut health.",
+          "scan_desc": "Scan the mini program QR code below with WeChat to get started. No download or installation needed — open and use instantly, with data securely saved in the cloud.",
+          "health_badge": "Scientific Tracking",
+          "health_desc": "Based on the Bristol Stool Scale, using a 7-level scientific standard to evaluate gut health. Combined with AI-powered analysis, providing personalized health advice for every bathroom visit.",
+          "core_title": "Highlights",
+          "core_1_title": "Fun Design",
+          "core_1_desc": "Emoji scoring, lighthearted copy, no awkwardness",
+          "core_2_title": "3-Second Recording",
+          "core_2_desc": "One-tap timer, lightning-fast logging",
+          "core_3_title": "AI Insights",
+          "core_3_desc": "Smart analysis, personalized health tips"
+        }
       }
     },
     "detail": {
