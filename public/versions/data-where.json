@@ -1,16 +1,16 @@
 {
-  "version": "1.1.4",
+  "version": "1.1.6",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.1.4\n\n问题修复\n- 修复首页统计卡片不显示 Kafka 主题数量\n- 修复 Kafka 工作台拉取消息返回空（日志保留清理旧消息后 offset 越界）\n- 修复搜索结果缺少视图和物化视图的筛选项\n\n优化\n- 搜索页类型筛选从横排按钮改为下拉选择器\n- 首页统计卡片新增 PostgreSQL 视图和物化视图展示",
-    "en-US": "DataWhere 1.1.4\n\nBug Fixes\n- Fix Kafka topic count not showing on homepage\n- Fix Kafka workspace returning empty messages after log retention cleanup\n- Fix view and materialized view missing from search filter options\n\nImprovements\n- Search page type filter changed to dropdown selector\n- Homepage stats cards now display PostgreSQL views and materialized views"
+    "zh-CN": "DataWhere 1.1.6\n\n新增功能\n- SOCKS5 代理支持：新增全局 SOCKS5 代理配置，通过本地端口转发实现透明代理，解决 VPN 环境下无法连接远程数据源的问题\n- 连接自动回退：网络环境变化时自动切换直连/代理方式，无需手动干预\n- OceanBase 数据源：新增 OceanBase 数据源支持（MySQL 兼容模式）\n\n优化\n- 首页统计卡片展示优化\n- 代理配置自动识别：测试连接时自动判断是否需要代理并记忆",
+    "en-US": "DataWhere 1.1.6\n\nNew Features\n- SOCKS5 Proxy Support: Configure a global SOCKS5 proxy for transparent tunneling, resolving connectivity issues in VPN environments\n- Auto Connection Fallback: Automatically switch between direct/proxy connections when network environment changes\n- OceanBase Datasource: Add OceanBase datasource support (MySQL compatible mode)\n\nImprovements\n- Homepage stats cards display optimization\n- Auto proxy detection during connection testing with persistent memory"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-04-09",
+  "releaseDate": "2026-04-13",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.4/DataWhere_1.1.4_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.4/DataWhere_1.1.4_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.4/DataWhere_1.1.4_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.4/DataWhere_1.1.4_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.4/DataWhere_1.1.4_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.6/DataWhere_1.1.6_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.6/DataWhere_1.1.6_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.6/DataWhere_1.1.6_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.6/DataWhere_1.1.6_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.6/DataWhere_1.1.6_amd64.deb"
   }
 }
