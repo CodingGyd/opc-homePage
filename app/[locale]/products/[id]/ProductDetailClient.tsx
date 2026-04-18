@@ -419,6 +419,10 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-cyan-100 dark:bg-cyan-900/50 border border-cyan-300 dark:border-cyan-700 text-cyan-600 dark:text-cyan-400 font-medium">
                 OceanBase
               </span>
+              、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-orange-100 dark:bg-orange-900/50 border border-orange-300 dark:border-orange-700 text-orange-600 dark:text-orange-400 font-medium">
+                RocketMQ
+              </span>
               {t('data.1.rich.search_more')}
             </p>
             <p className="text-lg leading-relaxed">
