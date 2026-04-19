@@ -1,16 +1,16 @@
 {
-  "version": "1.1.7",
+  "version": "1.1.8",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.1.7\n\n新功能\n- 新增 RocketMQ 数据源支持（4.x ~ 5.x）\n  - Topic 列表浏览，自动过滤系统 Topic\n  - 消息查看：按队列拉取消息，解析消息体、属性、时间戳等完整信息\n  - 消费组管理：消费组列表及消费进度查看，自动过滤系统消费组\n  - 独立 RocketMQ 工作台，支持代理自动回退\n  - 元数据同步自动发现 Topic 并建立全文搜索索引\n  - 搜索结果跳转工作台，支持从全局搜索直达指定 Topic\n\n修复\n- 修复 MySQL/PostgreSQL/OceanBase 工作台 SELECT 查询含 update_time 等列名时误报「禁止执行写操作」的问题\n\n优化\n- 首页统计卡片将 Kafka Topic 和 RocketMQ Topic 合并为统一的「消息主题」展示",
-    "en-US": "DataWhere 1.1.7\n\nNew Features\n- RocketMQ datasource support (4.x ~ 5.x)\n  - Topic list browsing with automatic system topic filtering\n  - Message viewing: pull messages by queue, parse message body, properties, timestamps\n  - Consumer group management: list and consumption progress, auto-filter system groups\n  - Dedicated RocketMQ workspace with proxy auto-fallback\n  - Metadata sync auto-discovers topics and builds full-text search index\n  - Search results link to workspace, navigate directly to a specific topic\n\nBug Fixes\n- Fixed false positive 'write operations forbidden' error in MySQL/PostgreSQL/OceanBase workspaces when SELECT queries contain column names like update_time\n\nImprovements\n- Homepage stats cards merge Kafka topics and RocketMQ topics into unified 'Message Topics' display"
+    "zh-CN": "DataWhere 1.1.8\n\n新功能\n- 新增 RabbitMQ 数据源支持（3.8.x ~ 4.2.x）\n  - 队列列表浏览，展示消息数、消费者数、队列类型等信息\n  - 消息查看：从队列拉取消息，解析消息体、属性、路由键等完整信息\n  - 交换机列表浏览，展示交换机类型、持久化状态等信息\n  - 独立 RabbitMQ 工作台，双标签页布局（消息 + 交换机）\n  - 元数据同步自动发现队列并建立全文搜索索引\n  - 搜索结果跳转工作台，支持从全局搜索直达指定队列\n\n优化\n- 数据源测试连接优化：认证错误（用户名/密码错误）现在会精确提示，不再误报为网络连接问题",
+    "en-US": "DataWhere 1.1.8\n\nNew Features\n- RabbitMQ datasource support (3.8.x ~ 4.2.x)\n  - Queue list browsing with message count, consumer count, queue type info\n  - Message viewing: pull messages from queues, parse payload, properties, routing key\n  - Exchange list browsing with exchange type and durability info\n  - Dedicated RabbitMQ workspace with dual-tab layout (Messages + Exchanges)\n  - Metadata sync auto-discovers queues and builds full-text search index\n  - Search results link to workspace, navigate directly to a specific queue\n\nImprovements\n- Connection test optimization: authentication errors (wrong username/password) now show accurate messages instead of misleading network error"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-04-18",
+  "releaseDate": "2026-04-19",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.7/DataWhere_1.1.7_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.7/DataWhere_1.1.7_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.7/DataWhere_1.1.7_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.7/DataWhere_1.1.7_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.7/DataWhere_1.1.7_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_amd64.deb"
   }
 }
