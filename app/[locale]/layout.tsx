@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Header } from '@/components/layout/Header';
@@ -54,9 +53,9 @@ export default async function LocaleLayout({
       <head>
         <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; media-src 'self' https: blob:; connect-src 'self' https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; frame-src 'self' https: blob: https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;" />
         {adsenseId && adsenseId !== 'ca-pub-XXXXXXX' && (
-          <Script
+          <script
+            async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
-            strategy="afterInteractive"
             crossOrigin="anonymous"
           />
         )}
