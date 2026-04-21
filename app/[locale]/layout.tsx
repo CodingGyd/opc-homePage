@@ -52,7 +52,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; media-src 'self' https: blob:; connect-src 'self' https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; frame-src 'self' https: blob: https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;" />
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; media-src 'self' https: blob:; connect-src 'self' https: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net; frame-src 'self' https: blob: https://googleads.g.doubleclick.net https://tpc.googlesyndication.com;" />
         {adsenseId && adsenseId !== 'ca-pub-XXXXXXX' && (
           <Script
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
