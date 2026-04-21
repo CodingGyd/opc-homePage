@@ -61,6 +61,16 @@ export function Footer() {
                   {locale === 'en' ? 'Support Me' : '支持我'}
                 </Link>
               </li>
+              <li>
+                <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">
+                  {locale === 'en' ? 'Privacy Policy' : '隐私政策'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/terms`} className="hover:text-foreground transition-colors">
+                  {locale === 'en' ? 'Terms of Service' : '服务条款'}
+                </Link>
+              </li>
             </ul>
           </div>
 
