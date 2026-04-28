@@ -1,16 +1,16 @@
 {
-  "version": "1.1.8",
+  "version": "1.1.9",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.1.8\n\n新功能\n- 新增 RabbitMQ 数据源支持（3.8.x ~ 4.2.x）\n  - 队列列表浏览，展示消息数、消费者数、队列类型等信息\n  - 消息查看：从队列拉取消息，解析消息体、属性、路由键等完整信息\n  - 交换机列表浏览，展示交换机类型、持久化状态等信息\n  - 独立 RabbitMQ 工作台，双标签页布局（消息 + 交换机）\n  - 元数据同步自动发现队列并建立全文搜索索引\n  - 搜索结果跳转工作台，支持从全局搜索直达指定队列\n\n优化\n- 数据源测试连接优化：认证错误（用户名/密码错误）现在会精确提示，不再误报为网络连接问题",
-    "en-US": "DataWhere 1.1.8\n\nNew Features\n- RabbitMQ datasource support (3.8.x ~ 4.2.x)\n  - Queue list browsing with message count, consumer count, queue type info\n  - Message viewing: pull messages from queues, parse payload, properties, routing key\n  - Exchange list browsing with exchange type and durability info\n  - Dedicated RabbitMQ workspace with dual-tab layout (Messages + Exchanges)\n  - Metadata sync auto-discovers queues and builds full-text search index\n  - Search results link to workspace, navigate directly to a specific queue\n\nImprovements\n- Connection test optimization: authentication errors (wrong username/password) now show accurate messages instead of misleading network error"
+    "zh-CN": "DataWhere 1.1.9\n\n新功能\n- 新增 Oracle 数据源支持（11g、12c、19c、23ai）\n  - 数据库元数据同步：自动发现 Schema、表、视图\n  - 独立 Oracle 工作台，只读 SQL 查询\n  - 左侧目录树分类展示：表 / 视图\n  - DDL 查看、表结构详情、索引信息\n  - 搜索结果跳转工作台，支持从全局搜索直达指定表或视图",
+    "en-US": "DataWhere 1.1.9\n\nNew Features\n- Oracle datasource support (11g, 12c, 19c, 23ai)\n  - Database metadata sync: auto-discover schemas, tables, views\n  - Dedicated Oracle workspace with read-only SQL queries\n  - Left sidebar tree: tables / views\n  - DDL viewing, table structure details, index info\n  - Search results link to workspace, navigate directly to tables or views"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-04-19",
+  "releaseDate": "2026-04-28",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_amd64.deb"
   }
 }

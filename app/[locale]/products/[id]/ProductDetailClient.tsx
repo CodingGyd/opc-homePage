@@ -38,41 +38,41 @@ const productConfigs: Record<string, ProductConfig> = {
     video_url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/promo.mp4',
     demo_url: '',
     website_url: '',
-    latest_version: 'v1.1.8',
+    latest_version: 'v1.1.9',
     downloads: [
       {
         platform: 'Windows (exe)',
-        version: '1.1.8',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_x64-setup.exe',
-        size: '6.5 MB',
+        version: '1.1.9',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_x64-setup.exe',
+        size: '6.7 MB',
         icon: '🪟',
       },
       {
         platform: 'Windows (msi)',
-        version: '1.1.8',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_x64_zh-CN.msi',
-        size: '9.5 MB',
+        version: '1.1.9',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_x64_zh-CN.msi',
+        size: '4.8 MB',
         icon: '🪟',
       },
       {
         platform: 'macOS (dmg)',
-        version: '1.1.8',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_universal.dmg',
-        size: '20 MB',
+        version: '1.1.9',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_universal.dmg',
+        size: '12 MB',
         icon: '🍎',
       },
       {
         platform: 'Linux (deb)',
-        version: '1.1.8',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_amd64.deb',
+        version: '1.1.9',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_amd64.deb',
         size: '12 MB',
         icon: '🐧',
       },
       {
         platform: 'Linux (AppImage)',
-        version: '1.1.8',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.8/DataWhere_1.1.8_amd64.AppImage',
-        size: '86 MB',
+        version: '1.1.9',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_amd64.AppImage',
+        size: '12 MB',
         icon: '🐧',
       },
     ],
@@ -426,6 +426,10 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               、
               <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/50 border border-amber-300 dark:border-amber-700 text-amber-600 dark:text-amber-400 font-medium">
                 RabbitMQ
+              </span>
+              、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 text-red-700 dark:text-red-400 font-medium">
+                Oracle
               </span>
               {t('data.1.rich.search_more')}
             </p>
