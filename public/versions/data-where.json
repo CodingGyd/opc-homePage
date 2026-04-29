@@ -1,16 +1,16 @@
 {
-  "version": "1.1.9",
+  "version": "1.2.0",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.1.9\n\n新功能\n- 新增 Oracle 数据源支持（11g、12c、19c、23ai）\n  - 数据库元数据同步：自动发现 Schema、表、视图\n  - 独立 Oracle 工作台，只读 SQL 查询\n  - 左侧目录树分类展示：表 / 视图\n  - DDL 查看、表结构详情、索引信息\n  - 搜索结果跳转工作台，支持从全局搜索直达指定表或视图",
-    "en-US": "DataWhere 1.1.9\n\nNew Features\n- Oracle datasource support (11g, 12c, 19c, 23ai)\n  - Database metadata sync: auto-discover schemas, tables, views\n  - Dedicated Oracle workspace with read-only SQL queries\n  - Left sidebar tree: tables / views\n  - DDL viewing, table structure details, index info\n  - Search results link to workspace, navigate directly to tables or views"
+    "zh-CN": "DataWhere 1.2.0\n\n新功能\n- 新增 SQL Server 数据源支持（2012 ~ 2022）\n  - 数据库、架构、表/视图三级元数据同步\n  - 独立 SQL Server 工作台，只读 SQL 查询\n  - DDL 查看、表结构详情、索引信息\n  - 搜索结果跳转工作台，支持从全局搜索直达指定表或视图\n- 关于弹窗新增问题反馈入口\n\n优化\n- SQL Server 版本号展示优化：显示 SQL Server 2022 (16.0.xxxx) 格式\n- 关于弹窗支持版本列表增加内部版本号对照",
+    "en-US": "DataWhere 1.2.0\n\nNew Features\n- SQL Server datasource support (2012 - 2022)\n  - Database, schema, table/view metadata sync\n  - Dedicated SQL Server workspace with read-only SQL queries\n  - DDL viewing, table structure details, index info\n  - Search results link to workspace, navigate directly to tables or views\n- Feedback entry added to About dialog\n\nImprovements\n- SQL Server version display: shows SQL Server 2022 (16.0.xxxx) format\n- About dialog now includes internal version numbers alongside year names"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-04-28",
+  "releaseDate": "2026-04-29",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.1.9/DataWhere_1.1.9_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_amd64.deb"
   }
 }
