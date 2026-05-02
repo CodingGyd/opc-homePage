@@ -38,41 +38,41 @@ const productConfigs: Record<string, ProductConfig> = {
     video_url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/promo.mp4',
     demo_url: '',
     website_url: '',
-    latest_version: 'v1.2.0',
+    latest_version: 'v1.2.1',
     downloads: [
       {
         platform: 'Windows (exe)',
-        version: '1.2.0',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_x64-setup.exe',
-        size: '7.1 MB',
+        version: '1.2.1',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_x64-setup.exe',
+        size: '7.2 MB',
         icon: '🪟',
       },
       {
         platform: 'Windows (msi)',
-        version: '1.2.0',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_x64_zh-CN.msi',
+        version: '1.2.1',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_x64_zh-CN.msi',
         size: '10.4 MB',
         icon: '🪟',
       },
       {
         platform: 'macOS (dmg)',
-        version: '1.2.0',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_universal.dmg',
+        version: '1.2.1',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_universal.dmg',
         size: '21.6 MB',
         icon: '🍎',
       },
       {
         platform: 'Linux (deb)',
-        version: '1.2.0',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_amd64.deb',
+        version: '1.2.1',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_amd64.deb',
         size: '12.5 MB',
         icon: '🐧',
       },
       {
         platform: 'Linux (AppImage)',
-        version: '1.2.0',
-        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.0/DataWhere_1.2.0_amd64.AppImage',
-        size: '74.2 MB',
+        version: '1.2.1',
+        url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_amd64.AppImage',
+        size: '88 MB',
         icon: '🐧',
       },
     ],
@@ -430,6 +430,14 @@ export default function ProductDetailClient({ locale, id }: ProductDetailClientP
               、
               <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700 text-red-700 dark:text-red-400 font-medium">
                 Oracle
+              </span>
+              、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-teal-100 dark:bg-teal-900/50 border border-teal-300 dark:border-teal-700 text-teal-600 dark:text-teal-400 font-medium">
+                SQL Server
+              </span>
+              、
+              <span className="inline-flex items-center mx-1 px-2 py-0.5 rounded-md bg-yellow-100 dark:bg-yellow-900/50 border border-yellow-300 dark:border-yellow-700 text-yellow-600 dark:text-yellow-400 font-medium">
+                Elasticsearch
               </span>
               {t('data.1.rich.search_more')}
             </p>

@@ -95,7 +95,7 @@
       "1": {
         "name": "DataWhere",
         "short_description": "One search box, search through all your data",
-        "description": "DataWhere is a universal data source access platform, designed to be a unified data query entry. Through pluggable data source adapters, it supports connecting to various databases, caches, message queues, and more. Currently supports MySQL, PostgreSQL, Redis, Kafka, OceanBase, RocketMQ, RabbitMQ, Oracle, and SQL Server, with more data source types being added continuously. Core principles: Unified (one entry for any data source), Simple (as easy to use as a search engine), Secure (read-only mode, data stays local).",
+        "description": "DataWhere is a universal data source access platform, designed to be a unified data query entry. Through pluggable data source adapters, it supports connecting to various databases, caches, message queues, and more. Currently supports MySQL, PostgreSQL, Redis, Kafka, OceanBase, RocketMQ, RabbitMQ, Oracle, SQL Server, and Elasticsearch, with more data source types being added continuously. Core principles: Unified (one entry for any data source), Simple (as easy to use as a search engine), Secure (read-only mode, data stays local).",
         "features": [
           "Universal data source access: pluggable architecture, continuously expanding",
           "MySQL 5.6.x ~ 8.4.x: database browsing, read-only SQL queries",
@@ -113,7 +113,8 @@
           "Metadata sync: automatic sync of data source metadata to local index",
           "Cross-platform: Windows, macOS, Linux",
           "Config sharing: copy and share data source info for onboarding",
-          "Secure: Ed25519 digital signature verification, strict read-only mode"
+          "Secure: Ed25519 digital signature verification, strict read-only mode",
+          "Elasticsearch 6.x ~ 8.x support: index browsing, document search, mapping viewer"
         ],
         "screenshots": [
           { "title": "Home", "description": "Clean and intuitive home design" },

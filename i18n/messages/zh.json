@@ -91,7 +91,7 @@
       "1": {
         "name": "DataWhere",
         "short_description": "一个搜索框，搜遍你所有的数据",
-        "description": "DataWhere是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、PostgreSQL、Redis、Kafka、OceanBase、RocketMQ、RabbitMQ、Oracle、SQL Server 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。",
+        "description": "DataWhere是一款通用的数据源接入平台，致力于打造成统一的数据查询入口。通过插件化的数据源适配器，支持接入各类数据库、缓存、消息队列等数据源。目前已实现 MySQL、PostgreSQL、Redis、Kafka、OceanBase、RocketMQ、RabbitMQ、Oracle、SQL Server、Elasticsearch 的接入，后续将持续扩展更多数据源类型。核心理念：统一（一个入口，接入任意数据源）、简单（像搜索引擎一样易用）、安全（只读模式，数据不出本地）。",
         "features": [
           "通用数据源接入：插件化架构，持续扩展更多数据源类型",
           "已支持 MySQL 5.6.x ~ 8.4.x：数据库浏览、只读 SQL 查询",
@@ -109,7 +109,8 @@
           "元数据同步：自动同步数据源元数据到本地索引",
           "跨平台支持：Windows、macOS、Linux",
           "配置分享：支持复制分享数据源信息，新人入职即用",
-          "安全可靠：Ed25519 数字签名验证，严格只读模式"
+          "安全可靠：Ed25519 数字签名验证，严格只读模式",
+          "已支持 Elasticsearch 6.x ~ 8.x：索引浏览、文档搜索、Mapping 查看"
         ],
         "screenshots": [
           { "title": "首页", "description": "简洁直观的首页设计" },
