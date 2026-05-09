@@ -1,16 +1,16 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.2.1\n\n新功能\n- 新增 Elasticsearch 数据源支持（6.x、7.x、8.x）\n  - 索引列表浏览，展示名称、健康状态、文档数、大小等信息\n  - 文档搜索：支持 Query String 查询语法，按条件检索文档\n  - Mapping 查看：展开索引查看完整字段映射\n  - 独立 Elasticsearch 工作台\n  - 元数据同步自动发现索引并建立全文搜索索引\n  - 搜索结果跳转工作台，支持从全局搜索直达指定索引",
-    "en-US": "DataWhere 1.2.1\n\nNew Features\n- Elasticsearch datasource support (6.x, 7.x, 8.x)\n  - Index browsing with name, health status, document count, and size info\n  - Document search with Query String syntax\n  - Mapping viewer: expand any index to see full field mappings\n  - Dedicated Elasticsearch workspace\n  - Metadata sync auto-discovers indices and builds full-text search index\n  - Search results link to workspace, navigate directly to any index"
+    "zh-CN": "DataWhere 1.2.2\n\n新功能\n- 模版库系统：收藏所有数据源类型的常用对象，一键跳转恢复上下文\n- 模版导入/导出：批量分享配置，含关联数据源\n- 全局搜索对话框：快捷键呼出，随时搜索\n- 搜索历史记录与搜索建议\n- 数据源类型筛选，快速定位目标\n- Tab 标签页拖拽排序（带平滑动画）\n- Tab 标签页显示数据源连接状态\n- 最近工作台标签页管理\n- 工作台头部显示 host:port 连接信息\n- 数据源列表支持按环境筛选\n- 数据源健康检查\n\n修复\n- 模版跳转失效检测：目标对象已删除或重命名时弹出提示\n- SQL 工作台输入框右侧滚动条遮挡边框\n- 多项工作台稳定性修复",
+    "en-US": "DataWhere 1.2.2\n\nNew Features\n- Template Library: bookmark frequently used objects across all datasource types, one-click navigation to restore context\n- Template import/export: batch share configurations with linked datasources\n- Global search dialog: invoke with shortcut, search anytime\n- Search history and suggestions\n- Datasource type filter for quick targeting\n- Tab drag-and-drop reordering with smooth animation\n- Tab shows datasource connection status indicator\n- Recent workspace tab management\n- Workspace header displays host:port connection info\n- Datasource list filter by environment\n- Datasource health check\n\nFixes\n- Template navigation expiry detection: warns when target object has been deleted or renamed\n- SQL workspace textarea scrollbar obscuring right border\n- Multiple workspace stability fixes"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-05-02",
+  "releaseDate": "2026-05-09",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.1/DataWhere_1.2.1_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.2/DataWhere_1.2.2_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.2/DataWhere_1.2.2_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.2/DataWhere_1.2.2_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.2/DataWhere_1.2.2_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.2/DataWhere_1.2.2_amd64.deb"
   }
 }
