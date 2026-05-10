@@ -1,16 +1,16 @@
 {
-  "version": "1.2.3",
+  "version": "1.2.4",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.2.3\n\n修复\n- 暗黑模式下多处样式异常（更新说明、反馈区域等）\n- MySQL、OceanBase 模版库跳转工作台无法正确回显目标对象\n- 多工作台 Tab 重启后页面空白\n- 未激活用户数据源数量限制从 3 个调整为 1 个",
-    "en-US": "DataWhere 1.2.3\n\nFixes\n- Dark mode style issues across multiple areas (update notes, feedback section, etc.)\n- MySQL/OceanBase template navigation failing to restore target object\n- Workspace tabs showing blank after app restart\n- Unactivated user datasource limit changed from 3 to 1"
+    "zh-CN": "DataWhere 1.2.4\n\n修复\n- 应用内更新下载信任白名单新增 BOS 域名\n- MySQL/Oracle 模版库跳转工作台无法正确回显目标对象\n- 更新下载文件域名白名单扩展",
+    "en-US": "DataWhere 1.2.4\n\nFixes\n- Add BOS domain to in-app update download trusted whitelist\n- MySQL/Oracle template navigation failing to restore target object\n- Extended download file domain whitelist for updates"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
   "releaseDate": "2026-05-10",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.3/DataWhere_1.2.3_x64-setup.exe",
-    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.3/DataWhere_1.2.3_x86-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.3/DataWhere_1.2.3_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.3/DataWhere_1.2.3_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.3/DataWhere_1.2.3_amd64.deb"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.4/DataWhere_1.2.4_x64-setup.exe",
+    "windows-x86": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.4/DataWhere_1.2.4_x86-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.4/DataWhere_1.2.4_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.4/DataWhere_1.2.4_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.4/DataWhere_1.2.4_amd64.AppImage"
   }
 }
