@@ -397,7 +397,7 @@ const products: Record<string, Product> = {
 };
 
 // --- Sponsor Config ---
-import { sponsorInfo } from '@/lib/sponsor';
+
 
 // --- Component ---
 
@@ -795,8 +795,7 @@ export default function DownloadPageClient({
               <li>• {locale === 'en' ? 'Windows: MSI is suitable for enterprise deployment' : 'Windows：MSI 版本适合企业批量部署'}</li>
               <li>• {locale === 'en' ? 'macOS: Download DMG and drag to Applications' : 'macOS：下载 DMG 后拖入应用程序文件夹即可'}</li>
               <li>• {locale === 'en' ? 'Linux: deb/rpm for package managers, AppImage for portable use' : 'Linux：deb/rpm 适用于包管理器，AppImage 可直接运行'}</li>
-              <li>• {locale === 'en' ? 'Download failed? Contact QQ: 2307990428' : '下载失败请联系客服 QQ: 2307990428'}</li>
-              <li>• {locale === 'en' ? 'Supporters get free lifetime updates' : '成为支持者，享受后续免费更新'}</li>
+              <li>• {locale === 'en' ? 'Download failed? Contact QQ: 964781872' : '下载失败请联系客服 QQ: 964781872'}</li>
             </ul>
           </div>
 
@@ -855,74 +854,6 @@ export default function DownloadPageClient({
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Supporter */}
-          <div className="p-6 rounded-xl border bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">⭐</span>
-                <h2 className="text-lg font-bold">
-                  {locale === 'en' ? 'Become a Supporter' : '成为支持者'}
-                </h2>
-              </div>
-              <span className="text-2xl font-bold text-amber-600">¥29.9</span>
-            </div>
-
-            <p className="text-sm text-muted-foreground mb-4">
-              {locale === 'en'
-                ? 'Support our development to unlock more features and get priority updates. Your support keeps the project alive!'
-                : '支持开发者，解锁软件更多高级功能，享受后续持续更新。您的支持是我不断进步的动力！'}
-            </p>
-
-            {/* Payment QR Codes */}
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="text-center">
-                <div className="w-28 h-28 mx-auto mb-2 bg-white rounded-lg border flex items-center justify-center overflow-hidden">
-                  <img
-                    src={sponsorInfo.alipay.qrCode}
-                    alt="Alipay"
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                </div>
-                <span className="text-xs text-muted-foreground">{sponsorInfo.alipay.name}</span>
-              </div>
-              <div className="text-center">
-                <div className="w-28 h-28 mx-auto mb-2 bg-white rounded-lg border flex items-center justify-center overflow-hidden">
-                  <img
-                    src={sponsorInfo.wechat.qrCode}
-                    alt="WeChat Pay"
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                </div>
-                <span className="text-xs text-muted-foreground">{sponsorInfo.wechat.name}</span>
-              </div>
-            </div>
-
-            {/* Register Link */}
-            <a
-              href={sponsorInfo.registerFormUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <Button variant="outline" className="w-full gap-2 text-sm">
-                {locale === 'en' ? 'Register as Supporter' : '登记支持者信息'}
-                <ExternalLink className="w-3 h-3" />
-              </Button>
-            </a>
-
-            <p className="text-xs text-muted-foreground text-center mt-3">
-              {locale === 'en'
-                ? 'After payment, fill in the form and support will unlock features for you'
-                : '支付后请填写登记表，客服马上为您解锁高级功能'}
-            </p>
           </div>
         </div>
       </div>

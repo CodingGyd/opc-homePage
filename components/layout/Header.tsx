@@ -25,7 +25,6 @@ export function Header() {
     { href: `/${locale}`, label: t('home'), pattern: /^\/(en|zh)$/ },
     { href: `/${locale}/products`, label: t('products'), pattern: /^\/(en|zh)\/products/ },
     { href: `/${locale}/about`, label: t('about'), pattern: /^\/(en|zh)\/about/ },
-    { href: `/${locale}/support`, label: t('support'), pattern: /^\/(en|zh)\/support/ },
   ];
 
   const isActiveLink = (pattern: RegExp) => pattern.test(pathname);

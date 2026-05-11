@@ -57,11 +57,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/support`} className="hover:text-foreground transition-colors">
-                  {locale === 'en' ? 'Support Me' : '支持我'}
-                </Link>
-              </li>
-              <li>
                 <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">
                   {locale === 'en' ? 'Privacy Policy' : '隐私政策'}
                 </Link>
@@ -82,12 +77,12 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 {locale === 'en' ? 'Email: ' : '邮箱：'}
-                <a href="mailto:2307990428@qq.com" className="hover:text-foreground transition-colors">
-                  2307990428@qq.com
+                <a href="mailto:964781872@qq.com" className="hover:text-foreground transition-colors">
+                  964781872@qq.com
                 </a>
               </li>
               <li>
-                QQ: 2307990428
+                QQ: 964781872
               </li>
             </ul>
           </div>

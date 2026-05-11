@@ -71,11 +71,11 @@ function TermsContent() {
           <h2 className="text-xl font-semibold text-foreground mb-4">{t('contact_title')}</h2>
           <p className="mb-3">{t('contact_desc')}</p>
           <a
-            href="mailto:2307990428@qq.com"
+            href="mailto:964781872@qq.com"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-muted hover:bg-muted/80 transition-colors"
           >
             <Mail className="w-5 h-5" />
-            <span>2307990428@qq.com</span>
+            <span>964781872@qq.com</span>
           </a>
         </section>
       </div>

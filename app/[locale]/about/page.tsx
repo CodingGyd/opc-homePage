@@ -97,15 +97,15 @@ function AboutContent() {
         <h2 className="text-2xl font-bold text-center mb-8">{t('contact.title')}</h2>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="mailto:2307990428@qq.com"
+            href="mailto:964781872@qq.com"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-muted hover:bg-muted/80 transition-colors"
           >
             <Mail className="w-5 h-5" />
-            <span>2307990428@qq.com</span>
+            <span>964781872@qq.com</span>
           </a>
           <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
             <MessageCircle className="w-5 h-5" />
-            <span>{locale === 'en' ? 'QQ Support' : 'QQ客服'}: 2307990428</span>
+            <span>{locale === 'en' ? 'QQ Support' : 'QQ客服'}: 964781872</span>
           </div>
         </div>
       </section>

@@ -3,8 +3,7 @@
     "nav": {
       "home": "Home",
       "products": "Products",
-      "about": "About",
-      "support": "Support Me"
+      "about": "About"
     },
     "buttons": {
       "learn_more": "Learn More",
