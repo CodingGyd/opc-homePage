@@ -1,15 +1,15 @@
 {
-  "version": "1.2.5",
+  "version": "1.2.6",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.2.5\n\n新功能\n- 在线激活：支持产品内选套餐、扫码支付、自动激活，无需人工分发激活码\n- 激活等级徽章：右上角展示当前套餐等级，点击可升级\n- 升级套餐：已激活用户可直接选择更高级套餐\n- 过期提醒：非永久套餐到期前自动提醒续期\n\n优化\n- 激活流程术语统一\n- 离线激活增加官网客服咨询引导\n- 后端错误提示友好化",
-    "en-US": "DataWhere 1.2.5\n\nNew Features\n- Online activation: select plan, scan QR code to pay, auto-activate within the app\n- Tier badge: shows current plan tier in top-right corner, click to upgrade\n- Plan upgrade: activated users can directly choose higher-tier plans\n- Expiry reminder: automatic renewal reminders for non-permanent licenses\n\nImprovements\n- Unified activation terminology\n- Offline activation now guides users to contact support\n- Friendlier backend error messages"
+    "zh-CN": "DataWhere 1.2.6\n\n修复\n- 修复一些 bug、优化激活流程",
+    "en-US": "DataWhere 1.2.6\n\nFixes\n- Bug fixes and activation flow improvements"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
   "releaseDate": "2026-05-12",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.5/DataWhere_1.2.5_x64-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.5/DataWhere_1.2.5_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.5/DataWhere_1.2.5_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.5/DataWhere_1.2.5_amd64.AppImage"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_x64-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_amd64.AppImage"
   }
 }
