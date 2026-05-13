@@ -1,15 +1,15 @@
 {
-  "version": "1.2.6",
+  "version": "1.2.7",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.2.6\n\n修复\n- 修复一些 bug、优化激活流程",
-    "en-US": "DataWhere 1.2.6\n\nFixes\n- Bug fixes and activation flow improvements"
+    "zh-CN": "DataWhere 1.2.7\n\n新功能\n- 续期流程优化：续期时自动选中当前等级套餐，有效期从当前到期日延长\n- 许可证新增生效时间(validFrom)字段\n- 导入导出支持团队配置包（含环境、数据源模板）\n\n优化\n- 数据源创建不再阻塞，保存后立即显示，连接测试和同步在后台进行\n- 去掉按数据源类型的实例数限制，只保留总数限制\n- 修复表单提交后页面闪烁问题",
+    "en-US": "DataWhere 1.2.7\n\nNew Features\n- Optimized renewal flow: auto-select current tier plan, expiry extends from current end date\n- Added validFrom field for license effective start time\n- Import/export now supports team config bundles (environments + datasource templates)\n\nImprovements\n- Datasource creation no longer blocks: save first, connection test and sync run in background\n- Removed per-type instance limits, only total count limit remains\n- Fixed form submission page flash issue"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-05-12",
+  "releaseDate": "2026-05-13",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_x64-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.6/DataWhere_1.2.6_amd64.AppImage"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_x64-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_amd64.AppImage"
   }
 }
