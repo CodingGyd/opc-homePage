@@ -101,10 +101,10 @@ const products: Record<string, Product> = {
     id: '1',
     name: 'DataWhere',
     description: '一个搜索框，搜遍你所有的数据',
-    latest_version: 'v1.2.7',
+    latest_version: 'v1.2.8',
     versions: [
       {
-        version: '1.2.7',
+        version: '1.2.8',
         releaseDate: '2026-05-13',
         status: 'stable',
         isLatest: true,
@@ -112,7 +112,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'exe (64-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_x64-setup.exe',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_x64-setup.exe',
             size: '7.3 MB',
             requirements: 'Windows 10+ (64-bit)',
             status: 'stable',
@@ -122,7 +122,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Windows',
             arch: 'msi (64-bit)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_x64_zh-CN.msi',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_x64_zh-CN.msi',
             size: '0.4 MB',
             requirements: 'Windows 10+ (64-bit)',
             status: 'stable',
@@ -131,8 +131,8 @@ const products: Record<string, Product> = {
           {
             platform: 'macOS',
             arch: 'Universal',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_universal.dmg',
-            size: '7.8 MB',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_universal.dmg',
+            size: '13 MB',
             requirements: 'macOS 10.15+',
             status: 'stable',
             format: 'dmg',
@@ -141,7 +141,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'deb (amd64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_amd64.deb',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_amd64.deb',
             size: '7.7 MB',
             requirements: 'Debian/Ubuntu',
             status: 'stable',
@@ -151,7 +151,7 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'rpm (x86_64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere-1.2.7-1.x86_64.rpm',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere-1.2.8-1.x86_64.rpm',
             size: '7.8 MB',
             requirements: 'RHEL/CentOS/Fedora',
             status: 'stable',
@@ -160,22 +160,19 @@ const products: Record<string, Product> = {
           {
             platform: 'Linux',
             arch: 'AppImage (amd64)',
-            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.7/DataWhere_1.2.7_amd64.AppImage',
-            size: '7.9 MB',
+            url: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_amd64.AppImage',
+            size: '13 MB',
             requirements: '通用 Linux 发行版',
             status: 'stable',
             format: 'AppImage',
           },
         ],
         releaseNotes: [
-          '续期流程优化：续期时自动选中当前等级套餐，有效期从当前到期日延长',
-          '数据源创建不再阻塞，保存后立即显示',
-          '去掉按数据源类型的实例数限制，只保留总数限制',
-          '导入导出支持团队配置包（含环境、数据源模板）',
+          '修复同步元数据时数据库迁移顺序导致 use_proxy 列丢失的问题',
         ],
       },
       {
-        version: '1.2.6',
+        version: '1.2.7',
         releaseDate: '2026-05-12',
         status: 'stable',
         isLatest: false,
