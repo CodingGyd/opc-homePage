@@ -1,15 +1,15 @@
 {
-  "version": "1.2.8",
+  "version": "1.2.9",
   "releaseNotes": {
-    "zh-CN": "DataWhere 1.2.8\n\n修复\n- 修复同步元数据时数据库迁移顺序导致 use_proxy 列丢失的问题",
-    "en-US": "DataWhere 1.2.8\n\nFixes\n- Fixed use_proxy column migration order causing sync metadata failure"
+    "zh-CN": "DataWhere 1.2.9\n\n新功能\n- SQL 工作台新增「执行选中」按钮，支持选中部分 SQL 单独执行\n- Ctrl+Enter 快捷键自动适配\n- 执行选中和执行全部按钮状态独立\n- 去掉快捷键提示文字",
+    "en-US": "DataWhere 1.2.9\n\nNew Features\n- Added \"Execute Selection\" button to SQL workspace, supporting partial SQL execution\n- Ctrl+Enter shortcut auto-adapts to selection state\n- Execute Selection and Execute All button states are independent\n- Removed shortcut hint text"
   },
   "downloadPage": "https://www.opclite.com/zh/products/1/download/",
-  "releaseDate": "2026-05-13",
+  "releaseDate": "2026-05-14",
   "platforms": {
-    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_x64-setup.exe",
-    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_universal.dmg",
-    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_universal.dmg",
-    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.8/DataWhere_1.2.8_amd64.AppImage"
+    "windows-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.9/DataWhere_1.2.9_x64-setup.exe",
+    "darwin-aarch64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.9/DataWhere_1.2.9_universal.dmg",
+    "darwin-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.9/DataWhere_1.2.9_universal.dmg",
+    "linux-x86_64": "https://gydblog2.su.bcebos.com/files/datawhere/v1.2.9/DataWhere_1.2.9_amd64.AppImage"
   }
 }
