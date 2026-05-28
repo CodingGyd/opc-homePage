@@ -41,7 +41,7 @@ function AboutContent() {
         {locale === 'en' ? (
           <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
             <p>
-              OPC (One Person Company) represents a new paradigm in software development. As an independent developer,
+              OPC (One Person Studio) represents a new paradigm in software development. As an independent developer,
               I believe in creating products that are thoughtfully designed, well-crafted, and directly supported by
               the person who built them.
             </p>
@@ -57,7 +57,7 @@ function AboutContent() {
         ) : (
           <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
             <p className="first-letter:text-4xl first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-2">
-              OPC 是 One Person Company 的缩写，意为"一人公司"。作为独立开发者，我热衷于打造实用的软件产品。
+              OPC 是 One Person Studio 的缩写，意为"一人工作室"。作为独立开发者，我热衷于打造实用的软件产品。
             </p>
             <p>
               这里的每款产品都凝聚了大量心血——从构思、开发、测试到打磨，每一个环节我都亲力亲为。我为每一个功能感到自豪。

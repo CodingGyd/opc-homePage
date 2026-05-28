@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 // 网站元数据
 export const metadata = {
-  title: 'OPC - 一人公司',
+  title: 'OPC - 一人工作室',
   description: '用热情和专注打造优质软件产品',
   icons: {
     icon: assetPath('/icon.svg'),
