@@ -156,7 +156,9 @@ const productConfigs: Record<string, ProductConfig> = {
     website_url: 'https://www.gydblog.com/soundforge/',
     latest_version: '',
     downloads: [],
-    screenshots: [],
+    screenshots: [
+      { url: assetPath('/images/products/soundforge/home.webp') },
+    ],
   },
 };
 

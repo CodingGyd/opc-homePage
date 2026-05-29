@@ -15,6 +15,7 @@ const productConfigs = [
   {
     id: '6',
     category: 'saas',
+    image: assetPath('/images/products/soundforge/home.webp'),
     icon: '🎵',
   },
   {
