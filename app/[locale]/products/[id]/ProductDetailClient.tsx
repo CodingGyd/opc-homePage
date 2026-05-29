@@ -148,6 +148,16 @@ const productConfigs: Record<string, ProductConfig> = {
       { url: assetPath('/images/products/bdx/statistics.jpg') },
     ],
   },
+  '6': {
+    id: '6',
+    category: 'saas',
+    video_url: '',
+    demo_url: 'https://www.gydblog.com/soundforge/',
+    website_url: 'https://www.gydblog.com/soundforge/',
+    latest_version: '',
+    downloads: [],
+    screenshots: [],
+  },
 };
 
 interface ProductDetailClientProps {

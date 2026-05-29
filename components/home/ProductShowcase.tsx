@@ -19,6 +19,11 @@ const productConfigs = [
     video: 'https://gydblog2.su.bcebos.com/files/datawhere/v1.0.5/promo-muted.mp4',
   },
   {
+    id: '6',
+    category: 'saas',
+    icon: '🎵',
+  },
+  {
     id: '5',
     category: 'miniprogram',
     image: assetPath('/images/products/bdx/home.jpg'),

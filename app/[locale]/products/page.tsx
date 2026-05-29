@@ -13,6 +13,11 @@ const productConfigs = [
     image: assetPath('/images/products/dataquery/home.webp'),
   },
   {
+    id: '6',
+    category: 'saas',
+    icon: '🎵',
+  },
+  {
     id: '5',
     category: 'miniprogram',
     image: assetPath('/images/products/bdx/home.jpg'),

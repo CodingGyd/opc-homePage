@@ -230,6 +230,22 @@
           "core_3_title": "AI Insights",
           "core_3_desc": "Smart analysis, personalized health tips"
         }
+      },
+      "6": {
+        "name": "SoundForge",
+        "short_description": "AI-powered audio creation platform — text-to-speech & AI music generation",
+        "description": "SoundForge is an AI audio creation platform offering two core capabilities: text-to-speech (TTS) and AI music generation. Input text to generate natural, fluent speech with 10+ voice profiles and adjustable speed/volume. Describe a style to create original music with 10 genre presets and AI-assisted lyric writing. No professional skills required — everyone can be a sound creator.",
+        "features": [
+          "Text-to-Speech (TTS): generate natural speech from text with 10+ voice profiles",
+          "Adjustable speed & volume: 0.5x–2x speed, freely control volume",
+          "AI music generation: input lyrics or describe a style, AI creates original music",
+          "10 music genres: Pop, Electronic, Chinese Traditional, Rock, Light Music, R&B, Folk, Hip-Hop, Jazz, Classical",
+          "AI-assisted lyrics: enter a theme and AI generates lyrics automatically",
+          "Async processing: submit and listen instantly, download as MP3",
+          "Credits-based billing: pay per use, new users receive 500 free credits",
+          "Works management: manage all voice and music creations, with playback and download"
+        ],
+        "screenshots": []
       }
     },
     "detail": {
