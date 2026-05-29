@@ -17,6 +17,12 @@ const productConfigs = [
     category: 'miniprogram',
     image: assetPath('/images/products/bdx/home.jpg'),
   },
+  {
+    id: '4',
+    category: 'game',
+    video: 'https://gydblog2.su.bcebos.com/files/moyu-games/promo.mp4',
+    icon: '🐟',
+  },
 ];
 
 const comingSoonConfigs = [
