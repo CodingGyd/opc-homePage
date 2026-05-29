@@ -23,13 +23,6 @@ const productConfigs = [
     category: 'miniprogram',
     image: assetPath('/images/products/bdx/home.jpg'),
   },
-  {
-    id: '4',
-    category: 'game',
-    image: assetPath('/images/products/moyu-spreadsheet/home.webp'),
-    video: 'https://gydblog2.su.bcebos.com/files/moyu-games/promo.mp4',
-    icon: '🐟',
-  },
 ];
 
 function ProductVideo({ src, poster }: { src: string; poster?: string }) {

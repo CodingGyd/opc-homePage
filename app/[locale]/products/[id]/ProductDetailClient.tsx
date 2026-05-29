@@ -119,18 +119,6 @@ const productConfigs: Record<string, ProductConfig> = {
       { url: assetPath('/images/products/clouddev/ai.svg') },
     ],
   },
-  '4': {
-    id: '4',
-    category: 'game',
-    video_url: '',
-    demo_url: assetPath('/games/moyu-spreadsheet.html'),
-    website_url: '',
-    latest_version: 'v1.0.0',
-    downloads: [],
-    screenshots: [
-      { url: assetPath('/images/products/moyu-spreadsheet/home.webp') },
-    ],
-  },
   '5': {
     id: '5',
     category: 'miniprogram',
