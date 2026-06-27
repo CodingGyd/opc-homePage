@@ -13,7 +13,7 @@
   "home": {
     "hero": {
       "badge": "Independent Developer",
-      "title": "One Person Studio",
+      "title": "One Person Company",
       "subtitle": "Building quality software products with passion and precision. From concept to delivery, powered by one.",
       "cta": "Explore Products",
       "cta_secondary": "Learn More"
@@ -260,10 +260,10 @@
   },
   "about": {
     "title": "About OPC",
-    "subtitle": "The story behind One Person Studio",
+    "subtitle": "The story behind One Person Company",
     "story": {
       "title": "My Story",
-      "content": "OPC (One Person Studio) represents a new way of building software. As an independent developer, I believe in creating products that are thoughtfully designed, well-crafted, and directly supported by the person who built them."
+      "content": "OPC (One Person Company) represents a new way of building software. As an independent developer, I believe in creating products that are thoughtfully designed, well-crafted, and directly supported by the person who built them."
     },
     "values": {
       "title": "Core Values",
